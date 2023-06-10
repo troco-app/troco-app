@@ -6,18 +6,14 @@ module.exports = router;
 
 //View All Deals
 router.get('/deals', async (req, res) => {
-  res.status(200).json({
-    succes: true,
-    data: "Listado de los TROCO deals"
-  });
+  const result = await getAllDeals();
+  res.status(200).json(result);
 });
 
 //View Deal by ID
   router.get('/deals/:id', async (req, res) => {
-    res.status(200).json({
-      succes: true,
-      data: "Un TROCO Deal salvaje aparecio"
-    });
+    const result = await getDealsById(req.params.id);
+    res.status(200).json(result);
   });
 
 //Create a Deal
