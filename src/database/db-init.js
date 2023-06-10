@@ -32,6 +32,7 @@ await pool.query(`
         user_id CHAR(36) NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id),
         code CHAR(8) NOT NULL,
+        expiration_date TIMESTAMP NOT NULL,
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
@@ -120,12 +121,12 @@ await pool.query(`
     await pool.query(`
     INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, postal_code, profile_img, bio_summary, is_deleted) 
         VALUES 
-        ('d84f709f-4dd1-4785-8a1c-14f62735df0b', 'user1', 'user1@example.com', false, 'password123', 'User', 'One', '12345', '/img/user1.jpg', 'Hello, I am User One!', false),
-        ('f2e1afd4-c264-4126-80bf-f6731e826121', 'user2', 'user2@example.com', false, 'password123', 'User', 'Two', '23456', '/img/user2.jpg', 'Hello, I am User Two!', false),
-        ('3633a9e4-1e59-4af5-9cf7-9abfa03cea1b', 'user3', 'user3@example.com', false, 'password123', 'User', 'Three', '34567', '/img/user3.jpg', 'Hello, I am User Three!', false),
-        ('0e0d2925-e34f-491d-bced-2afbdc24fd53', 'user4', 'user4@example.com', false, 'password123', 'User', 'Four', '45678', '/img/user4.jpg', 'Hello, I am User Four!', false),
-        ('dcbc0d07-1889-46d5-a44f-89e6df34dc0b', 'user5', 'user5@example.com', false, 'password123', 'User', 'Five', '56789', '/img/user5.jpg', 'Hello, I am User Five!', false),
-        ('06d27949-94fe-4cc1-b7fe-764d68baa0b5', 'user6', 'user6@example.com', false, 'password123', 'User', 'six', '99999', '/img/user20.jpg', 'Hello, I am User six!', false);
+        ('d84f709f-4dd1-4785-8a1c-14f62735df0b', 'user1', 'user1@example.com', true, 'password123', 'User', 'One', '12345', '/img/user1.jpg', 'Hello, I am User One!', false),
+        ('f2e1afd4-c264-4126-80bf-f6731e826121', 'user2', 'user2@example.com', true, 'password123', 'User', 'Two', '23456', '/img/user2.jpg', 'Hello, I am User Two!', false),
+        ('3633a9e4-1e59-4af5-9cf7-9abfa03cea1b', 'user3', 'user3@example.com', true, 'password123', 'User', 'Three', '34567', '/img/user3.jpg', 'Hello, I am User Three!', false),
+        ('0e0d2925-e34f-491d-bced-2afbdc24fd53', 'user4', 'user4@example.com', true, 'password123', 'User', 'Four', '45678', '/img/user4.jpg', 'Hello, I am User Four!', false),
+        ('dcbc0d07-1889-46d5-a44f-89e6df34dc0b', 'user5', 'user5@example.com', true, 'password123', 'User', 'Five', '56789', '/img/user5.jpg', 'Hello, I am User Five!', false),
+        ('06d27949-94fe-4cc1-b7fe-764d68baa0b5', 'user6', 'user6@example.com', true, 'password123', 'User', 'six', '99999', '/img/user20.jpg', 'Hello, I am User six!', false);
 
     `);
 

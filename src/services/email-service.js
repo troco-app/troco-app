@@ -40,14 +40,16 @@ const mailjet = require("node-mailjet").apiConnect(
       );
     },
 
-    async sendRegistrationEmail(user) {
+    async sendRegistrationEmail(user,code) {
       await this.sendEmail(
         user.email,
         user.name,
         "Welcome to TROCO - random message",
         `<h1>Welcome to Troco</h1>
   Querido ${user.username}, ya eres un nuevo TROCOLO.
+  Por favor, para poder logearte tienes que introducir en siguiente código de Validación aquí: LINK
   </br>
+  <pre>${code}</pre>
   </br>
   Un saludo cordial, el equipo de TROCO.
   `

@@ -2,8 +2,9 @@ const express = require("express");
 const { Router, json } = require("express");
 const router = Router();
 const { getAllItems, saveItem } = require("../services/db-service");
-const { getItemsById } = require("../services/db-service");
+const { getItemById } = require("../services/db-service");
 const createItem = require("../use cases/create-item");
+const modifyItem = require("../use cases/modify-item")
 
 module.exports = router;
 
@@ -15,21 +16,22 @@ router.get('/items', async (req, res) => {
 
 //View Item by ID
 router.get('/items/:id', async (req, res) => {
-  const result = await getItemsById(req.params.id);
+  const result = await getItemById(req.params.id);
   res.status(200).json(result);
 });
 
 //Create an Item
 router.post('/items',express.json(), async (req, res) => {
-  const result = await createItem(req.currentUser.id, req.body);
+  await createItem(req.currentUser.id, req.body);
   res.status(200).json({
     succes: true,
     data: "se crea el TROCO item"
   });
   });
 
-  //Modify Item
-router.patch('/items/:id',express.json(), async (req, res) => {
+//Modify Item
+router.put('/items/:id',express.json(), async (req, res) => {
+  await modifyItem(req.params.id, req.currentUser.id, req.body)
   res.status(200).json({
     succes: true,
     data: "se modifica el TROCO item"

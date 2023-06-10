@@ -1,12 +1,12 @@
 const express = require("express");
 const { Router, json } = require("express");
 const router = Router();
-const sendrandomEmail = require("../use cases/send-random-email");
 const { getAllUsers } = require("../services/db-service");
 const { getUsersById } = require("../services/db-service");
 const registerUser = require("../use cases/register-user");
 const loginUser = require("../use cases/login-user");
 const { updateUsersById } = require("../services/db-service");
+const registrationCodeValidation = require("../use cases/registration-code-validation");
 
 module.exports = router;
 
@@ -19,20 +19,20 @@ res.status(200).json({
 });
 });
 
+//Validate Registration Code
+router.post('/users/validate-code',express.json(), async (req, res) => {
+  await registrationCodeValidation(req.body.email,req.body.code);
+res.status(200).json({
+  succes: true,
+  data: "se valido el email del TROCOLO"
+});
+});
+
 //User Login
 router.post('/users/login',express.json(), async (req, res) => {
   const token = await loginUser(req.body);
   res.status(200).json({token});
 });
-
-//Send random email
-router.post('/users/randomemail',express.json(), async (req, res) => {
-    await sendrandomEmail(req.body);
-  res.status(200).json({
-    succes: true,
-    data: "se crea el TROCOLO en base de datos y se envia un email"
-  });
-  });
 
 //View All Users
 router.get('/users', async (req, res) => {

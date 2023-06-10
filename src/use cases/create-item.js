@@ -7,8 +7,10 @@ module.exports = async (currentUserId, payload) => {
         id: generateUUID(),
         name: payload.name,
         description: payload.description,
+        estimated_price: payload.estimated_price,
+        item_condition: payload.item_condition,
+        status: payload.status,
         category_id: payload.category_id,
-        price: payload.price,
         userid: currentUserId,
       };
 
