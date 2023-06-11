@@ -149,7 +149,7 @@ module.exports = {
         WHERE i.id = ? 
      `;
       const [rows] = await db.execute(statement, [item_id]);
-      return rows;
+      return rows[0];
       }, 
 
       async modifyItem(item_id, modifiedItem) {
@@ -161,6 +161,18 @@ module.exports = {
         await db.execute(statement, [modifiedItem.name, modifiedItem.description, modifiedItem.estimated_price, modifiedItem.item_condition, modifiedItem.status, modifiedItem.category_id, item_id]);
       },
 
+
+      //Images
+
+      async getImageById(image_id) {
+        const statement = `
+        SELECT * FROM item_images
+        WHERE id = ?
+        `;
+        const [rows] = await db.execute(statement, [image_id]);
+        return rows[0];
+      },
+
       async saveImage(image) {
         const statement = `
         INSERT INTO item_images(id, item_id, imageURL)
@@ -168,6 +180,17 @@ module.exports = {
         `;
         await db.execute(statement, [image.id, image.item_id, image.imageURL]);
       },
+
+      async deleteImage(image_id) {
+        const statement = `
+        DELETE FROM item_images
+        WHERE id = ?
+        `;
+        await db.execute(statement, [image_id]);
+      },
+
+
+
 
       //Deals
 

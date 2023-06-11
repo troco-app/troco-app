@@ -5,8 +5,7 @@ const fileService = require("../services/file-service.js");
 
 module.exports = async (item_id, user_id, image) => {
     try {
-        const items = await dbService.getItemById(item_id);
-        const item = items[0];
+        const item = await dbService.getItemById(item_id);
         if (!item) {
           errorService.notFound();
         }

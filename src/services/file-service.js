@@ -22,4 +22,11 @@ module.exports = {
             // handle the error appropriately here, perhaps by rethrowing or passing to an error handler
         }
     },
+
+        async deleteImage(image) {
+            const directory = path.join(__dirname, "../../public");
+            const filePath = path.join(directory, image.imageURL);
+            await fs.unlink(filePath);
+        },
+
 };

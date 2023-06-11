@@ -5,8 +5,7 @@ module.exports = async (item_id, user_id, payload) => {
 
 //Get the item from the DDBB if exist
 
-  const items = await getItemById(item_id);
-  const item = items[0];
+  const item = await getItemById(item_id);
 
   if (!item) {
     errorService.notFound();
