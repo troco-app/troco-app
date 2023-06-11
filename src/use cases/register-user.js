@@ -13,14 +13,14 @@ module.exports = async (userData) => {
 
   const emailExist = await userDbService.getUserByEmail(userData.email);
   if (emailExist) {
-    errorService.usernamelAlreadyRegistered();
+    errorService.emailAlreadyRegistered();
   }
 
   const usernamelExist = await userDbService.getUserByUsername(userData.username);
   if (usernamelExist) {
-    errorService.emailAlreadyRegistered();
+    errorService.usernamelAlreadyRegistered();
   }
-
+  
     
 //hash the password    
   const hashedPassword = await cryptoService.hashPassword(userData.password);

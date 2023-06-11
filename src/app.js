@@ -12,6 +12,12 @@ app.listen(PORT, () => {
   console.log("Server iniciado en el puerto " + PORT);
 });
 
+app.use(
+  cors({
+    origin: ["https://troco.pro", "http://localhost:8080"],
+  })
+);
+
 app.use(validateToken);
 
 app.use(indexRouter);

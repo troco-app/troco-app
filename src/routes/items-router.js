@@ -12,6 +12,7 @@ const createItem = require("../use cases/create-item");
 const modifyItem = require("../use cases/modify-item");
 const addItemImage = require("../use cases/add-item-image");
 const removeItemImage = require("../use cases/remove-item-image")
+const searchItems = require("../use cases/search-items")
 
 //Middlewares
 const authGuard = require("../middlewares/auth");
@@ -26,6 +27,12 @@ const userRegisterSchema = require("../validators/user-register-schema");
 //ENDPOINTS
 module.exports = router;
 
+//Search Items
+router.get('/items/search', asyncErrors(async (req, res) => {
+  const result = await searchItems(req.query);
+  res.status(200).json(result);
+}));
+
 //View All Items
 router.get('/items', asyncErrors(async (req, res) => {
   const result = await getAllItems();
@@ -37,6 +44,7 @@ router.get('/items/:id', asyncErrors(async (req, res) => {
   const result = await getItemById(req.params.id);
   res.status(200).json(result);
 }));
+
 
 //Create an Item
 router.post('/items', authGuard, express.json(), asyncErrors(async (req, res) => {

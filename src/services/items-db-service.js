@@ -61,5 +61,45 @@ module.exports = {
         await db.execute(statement, [modifiedItem.name, modifiedItem.description, modifiedItem.estimated_price, modifiedItem.item_condition, modifiedItem.status, modifiedItem.category_id, item_id]);
       },
 
+      async searchByTerm(searchTerm, categoryName, condition, status, location) {
+        let sql = `
+          SELECT items.*, category.category_name, users.postal_code 
+          FROM items 
+          JOIN category ON items.category_id = category.id 
+          JOIN users ON items.user_id = users.id 
+          WHERE items.status = 'available' AND items.is_deleted = false
+        `;
+      
+        const params = [];
+      
+        if (searchTerm) {
+          const likeTerm = `%${searchTerm}%`;
+          sql += ' AND (items.name LIKE ? OR items.description LIKE ? OR category.category_name LIKE ?)';
+          params.push(likeTerm, likeTerm, likeTerm);
+        }
+      
+        if (categoryName) {
+          sql += ' AND category.category_name = ?';
+          params.push(categoryName);
+        }
+      
+        if (condition) {
+          sql += ' AND items.item_condition = ?';
+          params.push(condition);
+        }
+      
+        if (status) {
+          sql += ' AND items.status = ?';
+          params.push(status);
+        }
+      
+        if (location) {
+          sql += ' AND users.postal_code = ?';
+          params.push(location);
+        }
+      
+        const [rows] = await db.execute(sql, params);
+        return rows;
+      }
 
 };
