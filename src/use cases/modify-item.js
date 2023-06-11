@@ -1,8 +1,9 @@
-const { getItemById, modifyItem } = require("../services/db-service.js");
+
+//Services
+const { getItemById, modifyItem } = require("../services/items-db-service");
 
 module.exports = async (item_id, user_id, payload) => {
     
-
 //Get the item from the DDBB if exist
 
   const item = await getItemById(item_id);

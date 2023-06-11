@@ -49,6 +49,13 @@ module.exports = {
         message: "El email ya está registrado",
       };
     },
+    usernamelAlreadyRegistered() {
+      throw {
+        status: 400, //Bad Request
+        code: "USERNAME_ALREADY_REGISTERED",
+        message: "El username ya está registrado",
+      };
+    },
     invalidValidationCode() {
       throw {
         status: 400, //Bad Request

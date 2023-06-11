@@ -1,11 +1,13 @@
-const dbService = require("../services/db-service.js");
+//Services
+const userDbService = require("../services/users-db-service");
+const validationDbService = require("../services/validation-db-service");
 const errorService = require("../services/error-service.js");
 
 module.exports = async (userEmail, code) => {
 
 //User exist check
   
-  const user = await dbService.getUserByEmail(userEmail);
+  const user = await userDbService.getUserByEmail(userEmail);
 
   if (!user) {
     errorService.notFound();
@@ -13,7 +15,7 @@ module.exports = async (userEmail, code) => {
 
 //Get validation Code for this user
 
-  const dbCode = await dbService.getValidationCodeByUserId(user.id);
+  const dbCode = await validationDbService.getValidationCodeByUserId(user.id);
 
 
 //check user code and DDBB code are the same
@@ -32,8 +34,8 @@ if (dbCode.code != code) {
 
 //If code is the same delete it from the DDBB and check emailValidated field to true
 
-  await dbService.deleteValidationCode(dbCode.id);
+  await validationDbService.deleteValidationCode(dbCode.id);
 
-  await dbService.setEmailValidated(user.id);
+  await validationDbService.setEmailValidated(user.id);
 
 };

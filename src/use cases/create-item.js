@@ -1,11 +1,10 @@
+//Services
 const { generateUUID } = require("../services/crypto-services");
-const { saveItem } = require("../services/db-service.js");
-
-
-//Falta comprobar que el usuario es el correcto y que el item existe
+const { saveItem } = require("../services/items-db-service");
 
 module.exports = async (currentUserId, payload) => {
 
+//Create Object with body and headers info
     const newItem = {
         id: generateUUID(),
         name: payload.name,
@@ -17,5 +16,6 @@ module.exports = async (currentUserId, payload) => {
         user_id: currentUserId,
       };
 
+//Save Object in the DDBB
       await saveItem(newItem);
 };

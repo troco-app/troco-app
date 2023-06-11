@@ -1,19 +1,28 @@
+//Third Party Packages
 const express = require("express");
 const { Router, json } = require("express");
 const router = Router();
-const { getAllUsers } = require("../services/db-service");
-const { getUsersById } = require("../services/db-service");
+
+//DDBB services
+const { getAllUsers, getUsersById, updateUsersById } = require("../services/users-db-service");
+
+//Use Cases
 const registerUser = require("../use cases/register-user");
 const loginUser = require("../use cases/login-user");
-const { updateUsersById } = require("../services/db-service");
 const registrationCodeValidation = require("../use cases/registration-code-validation");
+
+//Middlewares
 const bodyValidation = require("../middlewares/body_validation");
+
+//Utils
 const asyncErrors = require("../utils/async-erros");
 
 //Validation Schemas
 const userRegisterSchema = require("../validators/user-register-schema");
 const userLoginSchema = require("../validators/user-login-schema");
 const validationCodeSchema = require("../validators/validation-code-schema");
+
+//ENDPOINTS
 
 module.exports = router;
 

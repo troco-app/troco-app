@@ -1,11 +1,12 @@
-const dbService = require("../services/db-service.js");
+const itemDbService = require("../services/items-db-service");
+const imageDbService = require("../services/images-db-service");
 const errorService = require("../services/error-service.js");
 const fileService = require("../services/file-service.js");
 
 module.exports = async (item_id, image_id, user_id) => {
   try {
-    const item = await dbService.getItemById(item_id);
-    const image = await dbService.getImageById(image_id);
+    const item = await itemDbService.getItemById(item_id);
+    const image = await imageDbService.getImageById(image_id);
 
     //checkear que ese post exista
     if (!item) {
@@ -30,7 +31,7 @@ module.exports = async (item_id, image_id, user_id) => {
 
 
     //Borrar la foto de la base de datos
-    await dbService.deleteImage(image_id);
+    await imageDbService.deleteImage(image_id);
 
 
     //Borrar la foto del sistema archivos

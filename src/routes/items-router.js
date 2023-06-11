@@ -1,24 +1,29 @@
+//Third Party Packages
 const express = require("express");
-const { Router, json } = require("express");
+const { Router} = require("express");
+const router = Router();
 const fileUpload = require("express-fileupload");
 
+//DDBB services
+const { getAllItems, getItemById } = require("../services/items-db-service");
 
-const { getAllItems } = require("../services/db-service");
-const { getItemById } = require("../services/db-service");
+//Use Cases
 const createItem = require("../use cases/create-item");
 const modifyItem = require("../use cases/modify-item");
-const authGuard = require("../middlewares/auth");
 const addItemImage = require("../use cases/add-item-image");
 const removeItemImage = require("../use cases/remove-item-image")
 
+//Middlewares
+const authGuard = require("../middlewares/auth");
 const bodyValidation = require("../middlewares/body_validation");
+
+//Utils
 const asyncErrors = require("../utils/async-erros");
 
 //Validation Schemas
 const userRegisterSchema = require("../validators/user-register-schema");
 
-const router = Router();
-
+//ENDPOINTS
 module.exports = router;
 
 //View All Items

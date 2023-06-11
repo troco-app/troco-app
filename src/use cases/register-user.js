@@ -1,11 +1,26 @@
-const dbService = require("../services/db-service.js");
+//Services
+
+const userDbService = require("../services/users-db-service");
+const validationDbService = require("../services/validation-db-service");
 const cryptoService = require("../services/crypto-services.js");
 const timeService = require("../services/time-services.js")
 const sendRegistrationEmail  = require("../use cases/send-registration-email.js");
-
-//Falta comprobar que el usuario y el email existen
+const errorService = require("../services/error-service")
 
 module.exports = async (userData) => {
+
+//Check email & username already exist in DDBB
+
+  const emailExist = await userDbService.getUserByEmail(userData.email);
+  if (emailExist) {
+    errorService.usernamelAlreadyRegistered();
+  }
+
+  const usernamelExist = await userDbService.getUserByUsername(userData.username);
+  if (usernamelExist) {
+    errorService.emailAlreadyRegistered();
+  }
+
     
 //hash the password    
   const hashedPassword = await cryptoService.hashPassword(userData.password);
@@ -22,7 +37,7 @@ module.exports = async (userData) => {
     is_deleted: false,
   };
 
-  await dbService.saveUser(user);
+  await userDbService.saveUser(user);
 
 //genarate a Validation Code 
 
@@ -41,7 +56,7 @@ module.exports = async (userData) => {
     expiration_date: expirationTimestamp,
   };
 
-    await dbService.saveValidationCode(validationCode);
+    await validationDbService.saveValidationCode(validationCode);
 
 //send a wellcome email and a validation code
 

@@ -1,11 +1,11 @@
 const cryptoService = require("../services/crypto-services");
-const dbService = require("../services/db-service.js");
+const ItemDbService = require("../services/items-db-service");
 const errorService = require("../services/error-service.js");
 const fileService = require("../services/file-service.js");
 
 module.exports = async (item_id, user_id, image) => {
     try {
-        const item = await dbService.getItemById(item_id);
+        const item = await ItemDbService.getItemById(item_id);
         if (!item) {
           errorService.notFound();
         }
@@ -18,7 +18,7 @@ module.exports = async (item_id, user_id, image) => {
       
         const url = await fileService.processUploadedItemImage(item_id, id, image);
       
-        await dbService.saveImage({
+        await ItemDbService.saveImage({
           id: id,
           imageURL: url,
           item_id: item_id,

@@ -1,4 +1,5 @@
-const dbService = require("../services/db-service.js");
+//Services
+const userDbService = require("../services/users-db-service");
 const cryptoService = require("../services/crypto-services.js");
 const errorService = require("../services/error-service.js");
 
@@ -6,7 +7,7 @@ module.exports = async ({email, password}) => {
 
 //Take the user info based on the email   
 
-    const user = await dbService.getUserByEmail(email);
+    const user = await userDbService.getUserByEmail(email);
 
 //Check User exist in the DDBB
 
