@@ -1,20 +1,34 @@
 const dbService = require("../services/db-service.js");
 const cryptoService = require("../services/crypto-services.js");
-const jwt = require("jsonwebtoken");
-const { use } = require("../routes/users-router.js");
+const errorService = require("../services/error-service.js");
 
 module.exports = async ({email, password}) => {
 
-//we thake the user info based on the email   
+//Take the user info based on the email   
 
     const user = await dbService.getUserByEmail(email);
+
+//Check User exist in the DDBB
+
+    if (!user) {
+        errorService.invalidCredentials();
+      }
+
+//Check email is Validated
+
+    if (!user.emailValidated) {
+        errorService.emailNotValidated();
+    }
 
 //Check the password is correct
 
     const okPassword = await cryptoService.validatePassword(password, user.password)
-    console.log(`Este es el ok password ${okPassword}`);
+  
+    if (!okPassword) {
+        errorService.invalidCredentials();
+      } 
 
-//generate token with user data
+//Generate token with user data
 
     const token = cryptoService.generateJWT({
         id: user.id,

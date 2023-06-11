@@ -56,8 +56,18 @@ await pool.query(`
         category_id INT NOT NULL,
         is_deleted BOOL DEFAULT false,
         FOREIGN KEY (category_id) REFERENCES category(id),
-        userid CHAR(36) NOT NULL,
-        FOREIGN KEY (userid) REFERENCES users(id),
+        user_id CHAR(36) NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )`);
+
+    await pool.query(`
+    CREATE TABLE item_images(
+        id CHAR(36) PRIMARY KEY,
+        imageURL VARCHAR(300) NOT NULL,
+        item_id CHAR(36) NOT NULL,
+        FOREIGN KEY (item_id) REFERENCES items(id),
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
@@ -152,7 +162,7 @@ await pool.query(`
 
 // Insert mock data into the items table
     await pool.query(`
-    INSERT INTO items(id, name, description, estimated_price, item_condition, status, category_id, userid) 
+    INSERT INTO items(id, name, description, estimated_price, item_condition, status, category_id, user_id) 
         VALUES 
         ('3659f8d9-9c4e-4c6d-9606-30824a2d3b2b', 'Commodore 64', 'A classic home computer from the 1980s.', 200.00, 'good', 'available', 1, 'd84f709f-4dd1-4785-8a1c-14f62735df0b'),
         ('93b79a87-767f-473d-bcfd-2ebf1dace69f', 'Atari 2600', 'One of the first video game consoles.', 150.00, 'good', 'available', 2, 'f2e1afd4-c264-4126-80bf-f6731e826121'),

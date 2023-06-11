@@ -108,7 +108,7 @@ module.exports = {
 
       async saveItem(item) {
         const statement = `
-        INSERT INTO items(id,name,description,estimated_price,item_condition,status,category_id,userid)
+        INSERT INTO items(id,name,description,estimated_price,item_condition,status,category_id,user_id)
         VALUES(?,?,?,?,?,?,?,?)
         `;
         await db.execute(statement, [
@@ -119,7 +119,7 @@ module.exports = {
           item.item_condition,
           item.status,
           item.category_id,
-          item.userid,
+          item.user_id,
         ]);
       },
 
@@ -161,7 +161,14 @@ module.exports = {
         await db.execute(statement, [modifiedItem.name, modifiedItem.description, modifiedItem.estimated_price, modifiedItem.item_condition, modifiedItem.status, modifiedItem.category_id, item_id]);
       },
 
-      
+      async saveImage(image) {
+        const statement = `
+        INSERT INTO item_images(id, item_id, imageURL)
+        VALUES(?,?,?)
+        `;
+        await db.execute(statement, [image.id, image.item_id, image.imageURL]);
+      },
+
       //Deals
 
       async getAllDeals() {

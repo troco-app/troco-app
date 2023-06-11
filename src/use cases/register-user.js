@@ -3,6 +3,8 @@ const cryptoService = require("../services/crypto-services.js");
 const timeService = require("../services/time-services.js")
 const sendRegistrationEmail  = require("../use cases/send-registration-email.js");
 
+//Falta comprobar que el usuario y el email existen
+
 module.exports = async (userData) => {
     
 //hash the password    

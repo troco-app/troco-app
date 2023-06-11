@@ -1,17 +1,22 @@
 const { getItemById, modifyItem } = require("../services/db-service.js");
 
-
-
 module.exports = async (item_id, user_id, payload) => {
     
- 
 
-  console.log(user_id);
+//Get the item from the DDBB if exist
+
   const items = await getItemById(item_id);
   const item = items[0];
-  console.log(item);
 
-//Falta comprobar que el usuario es el correcto y que el item existe
+  if (!item) {
+    errorService.notFound();
+  };
+ 
+//Check user is Item owner
+
+if (item.user_id != user_id) {
+  errorService.unauthorizedUser();
+};
 
     const modifiedItem = {
       name: payload.name,
@@ -22,4 +27,5 @@ module.exports = async (item_id, user_id, payload) => {
       category_id: payload.category_id,
     };
     await modifyItem(item.id, modifiedItem);
-  };
+
+};

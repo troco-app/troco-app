@@ -1,6 +1,9 @@
 const { generateUUID } = require("../services/crypto-services");
 const { saveItem } = require("../services/db-service.js");
 
+
+//Falta comprobar que el usuario es el correcto y que el item existe
+
 module.exports = async (currentUserId, payload) => {
 
     const newItem = {
@@ -11,10 +14,8 @@ module.exports = async (currentUserId, payload) => {
         item_condition: payload.item_condition,
         status: payload.status,
         category_id: payload.category_id,
-        userid: currentUserId,
+        user_id: currentUserId,
       };
-
-      console.log(newItem);
 
       await saveItem(newItem);
 };
