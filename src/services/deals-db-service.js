@@ -59,7 +59,15 @@ module.exports = {
           INSERT INTO rejection_reasons (id, deal_id, user_id, rejection_comment)
           VALUES (?, ?, ?, ?)
         `;
-        await db.execute(statement, [dealItem.id, dealItem.deal_id, dealItem.item_id, dealItem.owner_id, dealItem.type]);
+        await db.execute(statement, [dealItem.id, dealItem.deal_id, dealItem.user_id, dealItem.rejection_comment]);
+      },
+
+      async storeRating (rating) {
+        const statement = `
+          INSERT INTO deals_ratings (id, deal_id, user_id, rating, rating_comment)
+          VALUES (?, ?, ?, ?, ?)
+        `;
+        await db.execute(statement, [rating.id, rating.deal_id, rating.user_id, rating.rating, rating.rating_comment]);
       },
 
       async getDealItems(dealId) {
@@ -72,6 +80,28 @@ module.exports = {
         const [rows] = await db.execute(statement, [dealId]);
         return rows;
     },
+
+    async getDealRates(dealId, userId) {
+      const statement = `
+          SELECT * 
+          FROM deals_ratings 
+          WHERE deal_id = ? AND userid = ? ;
+      `;
+  
+      const [rows] = await db.execute(statement, [dealId, userId]);
+      return rows;
+  },
+
+    async getDealExchangeConditions(dealId) {
+      const statement = `
+          SELECT * 
+          FROM deals_exchange_conditions 
+          WHERE deal_id = ?;
+      `;
+  
+      const [rows] = await db.execute(statement, [dealId]);
+      return rows[0];
+  },
 
     async createDealExchangeCondition(exchangeCondition) {
       const { id, deal_id, street, city, state, country, postal_code, exchange_date_time } = exchangeCondition;
