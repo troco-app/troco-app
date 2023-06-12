@@ -20,10 +20,9 @@ module.exports = async (currentUserId, dealId, payload) => {
     // Get items involved in the deal
     const dealItems = await dealDbService.getDealItems(dealId);
     
-    console.log(dealItems);
+    
     // Change the item status to 'sold'
     const itemIds = dealItems.map(item => item.item_id);
-    console.log(itemIds);
     await itemDbService.markItemsSold(itemIds); 
 
     for (const id of itemIds) {

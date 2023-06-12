@@ -10,6 +10,8 @@ const { getAllUsers, getUsersById, updateUsersById } = require("../services/user
 const registerUser = require("../use cases/register-user");
 const loginUser = require("../use cases/login-user");
 const registrationCodeValidation = require("../use cases/registration-code-validation");
+const addToWishList = require("../use cases/add-to-wishlist")
+const removeWishList = require("../use cases/remove-from-wishlist")
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
@@ -79,4 +81,20 @@ router.patch('/users',express.json(), asyncErrors(async (req, res) => {
   });
   }));
 
+//Add to Wishlist
+router.post('/users/wishlist/:itemId',express.json(), asyncErrors(async (req, res) => {
+   await addToWishList(req.currentUser.id, req.params.itemId);
+  res.status(200).json({
+    succes: true,
+    data: "Item added to your TROCOLIST"
+  });
+}));
 
+//Remove from Wishlist
+router.delete('/users/wishlist/:itemId',express.json(), asyncErrors(async (req, res) => {
+  await removeWishList(req.currentUser.id, req.params.itemId);
+ res.status(200).json({
+   succes: true,
+   data: "Item removed from your TROCOLIST"
+ });
+}));

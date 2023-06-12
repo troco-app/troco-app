@@ -42,7 +42,7 @@ module.exports = {
         WHERE u.id = ? 
      `;
       const [rows] = await db.execute(statement, [userId]);
-      return rows;
+      return rows[0];
       },  
       
       async getUserByEmail(email) {
@@ -74,7 +74,38 @@ module.exports = {
         WHERE id = ?
      `;
       const [rows] = await db.execute(statement, [payload.first_name, payload. last_name, payload.bio_summary, payload.profile_img, userId]);
-      return rows;
-      },  
+      return rows[0];
+      },
+      
+      async storeItemWhised(newItemWhised) {
+        const statement = `
+        INSERT INTO wishlist(id, userid, item_id)
+        VALUES(?,?,?)
+        `;
+        await db.execute(statement, [
+          newItemWhised.id,
+          newItemWhised.userid,
+          newItemWhised.item_id,
+        ]);
+      },
+
+      async getWishList(currentUserId) {
+        const statement = `
+          SELECT *
+          FROM wishlist
+          WHERE userid = ?
+        `;
+        const [rows] = await db.execute(statement, [currentUserId]);
+    
+        return rows;
+      },
+
+      async removeItemWhised(itemId) {
+        const statement = `
+          DELETE FROM wishlist
+          WHERE item_id = ?
+        `;
+        await db.execute(statement, [itemId]);
+      }
 
 };

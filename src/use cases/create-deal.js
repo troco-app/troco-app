@@ -79,6 +79,9 @@ if (requestedItemsDetails.some(item => item.user_id !== seller_id)) {
   const sellerUser = await getUsersById(seller_id);
   const buyerUser = await getUsersById(buyer_id);
 
+  console.log(sellerUser);
+  console.log(buyerUser);
+
   await sendOfferEmail(sellerUser, buyerUser, requestedItemsDetails, offeredItemsDetails);
 
   return { success: true, deal_id };
