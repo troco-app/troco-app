@@ -38,13 +38,17 @@ module.exports = async (currentUserId, dealId, payload) => {
         state: payload.state,
         country: payload.country,
         postal_code: payload.postal_code,
-        exchange_date_time: payload.exchange_date_time
+        exchange_date_time: payload.exchange_date_time,
+        exchange_comment: payload.exchange_comment
     };
     await dealDbService.createDealExchangeCondition(exchangeCondition);
 
     const buyerUser = await getUsersById(deal.buyer_id)
     const sellerUser = await getUsersById(deal.seller_id)
-    const exchangeConditions = payload;
+    const exchangeConditions = '';
+    for (const [key, value] of Object.entries(payload)) {
+        output += `${key}: ${value}\n`;
+      }
 
     await sendacceptanceEmail(buyerUser, sellerUser, exchangeConditions);
 

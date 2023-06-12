@@ -104,14 +104,14 @@ module.exports = {
   },
 
     async createDealExchangeCondition(exchangeCondition) {
-      const { id, deal_id, street, city, state, country, postal_code, exchange_date_time } = exchangeCondition;
+      const { id, deal_id, street, city, state, country, postal_code, exchange_date_time, exchange_comment } = exchangeCondition;
       
       const statement = `
-          INSERT INTO deals_exchange_conditions(id, deal_id, street, city, state, country, postal_code, exchange_date_time)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+          INSERT INTO deals_exchange_conditions(id, deal_id, street, city, state, country, postal_code, exchange_date_time, exchange_comment)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
       `;
       
-      const [result] = await db.execute(statement, [id, deal_id, street, city, state, country, postal_code, exchange_date_time]);
+      const [result] = await db.execute(statement, [id, deal_id, street, city, state, country, postal_code, exchange_date_time, exchange_comment]);
       
       return result;
   },

@@ -21,13 +21,13 @@ module.exports = async (currentUserId, payload) => {
   // Check if items are available and belong to the correct user
   const allItems = offered_items.concat(requested_items);
   const itemDetails = await Promise.all(allItems.map(item_id => itemDbService.getItemById(item_id)));
-  if (itemDetails.some(item => item.status !== 'available' || item.is_deleted)) {
+  if (itemDetails.some(item => item.status !== 'available' || item.is_deleted )) {
     throw new Error('Some items are not available');
   }
 
 // Check that offered items belong to buyer
 const offeredItemsDetails = itemDetails.filter(item => offered_items.includes(item.id));
-if (offeredItemsDetails.some(item => item.user_id !== buyer_id)) {
+if (offeredItemsDetails.some(item => item.user_id !== buyer_id || item.status !== 'available')) {
   throw new Error('Some offered items do not belong to the buyer');
 }
 
@@ -79,10 +79,17 @@ if (requestedItemsDetails.some(item => item.user_id !== seller_id)) {
   const sellerUser = await getUsersById(seller_id);
   const buyerUser = await getUsersById(buyer_id);
 
-  console.log(sellerUser);
-  console.log(buyerUser);
 
-  await sendOfferEmail(sellerUser, buyerUser, requestedItemsDetails, offeredItemsDetails);
+  const offeredString = offeredItemsDetails.map((item, index) => 
+  `${index + 1}. Name: ${item.name}\nDescription: ${item.description}\nEstimated Price: €${item.estimated_price}\nItem Condition: ${item.item_condition}`
+).join('\n\n');
+
+const requestedString = requestedItemsDetails.map((item, index) => 
+`${index + 1}. Name: ${item.name}\nDescription: ${item.description}\nEstimated Price: €${item.estimated_price}\nItem Condition: ${item.item_condition}`
+).join('\n\n');
+
+
+  await sendOfferEmail(sellerUser, buyerUser, requestedString, offeredString);
 
   return { success: true, deal_id };
 };

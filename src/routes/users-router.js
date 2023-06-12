@@ -24,25 +24,29 @@ const userRegisterSchema = require("../validators/user-register-schema");
 const userLoginSchema = require("../validators/user-login-schema");
 const validationCodeSchema = require("../validators/validation-code-schema");
 
-//ENDPOINTS
+
 
 module.exports = router;
+
+//ENDPOINTS FOR VISITORS
 
 //Create a User
 router.post('/users/register',express.json(), bodyValidation(userRegisterSchema), asyncErrors(async (req, res) => {
   await registerUser(req.body);
 res.status(200).json({
   succes: true,
-  data: "se crea el TROCOLO en base de datos y se envia un email"
+  data: "New TROCOLO created"
 });
 }));
+
+//ENDPOINTS FOR USERS
 
 //Validate Email Code
 router.post('/users/validate-code',express.json(), bodyValidation(validationCodeSchema), asyncErrors(async (req, res) => {
   await registrationCodeValidation(req.body.email,req.body.code);
 res.status(200).json({
   succes: true,
-  data: "se valido el email del TROCOLO"
+  data: "TROCO email validated"
 });
 }));
 
@@ -52,32 +56,12 @@ router.post('/users/login',express.json(), bodyValidation(userLoginSchema), asyn
   res.status(200).json({token});
 }));
 
-//View All Users
-router.get('/users', asyncErrors(async (req, res) => {
-  const result = await getAllUsers();
-  res.status(200).json({result});
-}));
-
-//View User by ID
-router.get('/users/:id', asyncErrors(async (req, res) => {
-  const result = await getUsersById(req.params.id);
-  res.status(200).json(result);
-}) );
-
 //Modify User data
 router.patch('/users/:id',express.json(), asyncErrors(async (req, res) => {
   const result = await updateUsersById(req.params.id, req.body);
   res.status(200).json({
     succes: true,
-    data: "se modifica la info del TROCOLO"
-  });
-  }));
-
-//Delete Deal ---> This is not gonna be use, only for testing
-router.patch('/users',express.json(), asyncErrors(async (req, res) => {
-  res.status(200).json({
-    succes: true,
-    data: "Mandar a pastar al TROCOLO"
+    data: "TROCOLO data modified"
   });
   }));
 
@@ -98,3 +82,20 @@ router.delete('/users/wishlist/:itemId',express.json(), asyncErrors(async (req, 
    data: "Item removed from your TROCOLIST"
  });
 }));
+
+//Remove User (logic erase)
+
+
+ //ENDPOINTS FOR ADMINS IN THE FUTURE
+
+ //View All Users
+router.get('/users', asyncErrors(async (req, res) => {
+  const result = await getAllUsers();
+  res.status(200).json({result});
+}));
+
+//View User by ID
+router.get('/users/:id', asyncErrors(async (req, res) => {
+  const result = await getUsersById(req.params.id);
+  res.status(200).json(result);
+}) );

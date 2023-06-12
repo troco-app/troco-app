@@ -109,6 +109,7 @@ await pool.query(`
         country VARCHAR(100) NOT NULL,
         postal_code VARCHAR(20) NOT NULL,
         exchange_date_time TIMESTAMP NOT NULL,
+        exchange_comment VARCHAR(255),
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);

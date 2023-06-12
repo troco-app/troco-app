@@ -35,8 +35,8 @@ module.exports = {
       async getItemsByUserId(user_id) {
         const statement = `
         SELECT *
-        FROM items as u
-        WHERE u.id = ? 
+        FROM items
+        WHERE user_id = ? 
      `;
       const [rows] = await db.execute(statement, [user_id]);
       return rows;
@@ -70,6 +70,16 @@ module.exports = {
         const [result] = await db.execute(statement, [status, itemId]);
         return result;
     },
+
+    async ItemIsDeleted(itemId, status) {
+      const statement = `
+          UPDATE items 
+          SET is_deleted = ?
+          WHERE id = ?;
+      `;
+      const [result] = await db.execute(statement, [status, itemId]);
+      return result;
+  },
 
     async  markItemsSold(itemIds) {
       const statement = `

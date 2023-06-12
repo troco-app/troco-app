@@ -13,6 +13,7 @@ const modifyItem = require("../use cases/modify-item");
 const addItemImage = require("../use cases/add-item-image");
 const removeItemImage = require("../use cases/remove-item-image")
 const searchItems = require("../use cases/search-items")
+const removeItem = require("../use cases/remove-item");
 
 //Middlewares
 const authGuard = require("../middlewares/auth");
@@ -24,8 +25,10 @@ const asyncErrors = require("../utils/async-erros");
 //Validation Schemas
 const userRegisterSchema = require("../validators/user-register-schema");
 
-//ENDPOINTS
+
 module.exports = router;
+
+//ENDPOINTS FOR USERS AND VISITORS
 
 //Search Items
 router.get('/items/search', asyncErrors(async (req, res) => {
@@ -45,13 +48,14 @@ router.get('/items/:id', asyncErrors(async (req, res) => {
   res.status(200).json(result);
 }));
 
+//ENDPOINTS FOR USERS
 
 //Create an Item
 router.post('/items', authGuard, express.json(), asyncErrors(async (req, res) => {
   await createItem(req.currentUser.id, req.body);
   res.status(200).json({
     succes: true,
-    data: "se crea el TROCO item"
+    data: "TROCO item created"
   });
   }));
 
@@ -60,15 +64,16 @@ router.put('/items/:id', authGuard, express.json(), asyncErrors(async (req, res)
   await modifyItem(req.params.id, req.currentUser.id, req.body)
   res.status(200).json({
     succes: true,
-    data: "se modifica el TROCO item"
+    data: "TROCO item modified"
   });
 }));
 
-//Delete Item
-router.delete('/items', authGuard,express.json(), asyncErrors(async (req, res) => {
+//Delete Item (logic erase)
+router.delete('/items/:id', authGuard,express.json(), asyncErrors(async (req, res) => {
+  await removeItem(req.currentUser.id, req.params.id)
   res.status(200).json({
     succes: true,
-    data: "se elimina el TROCO item"
+    data: "TROCO item deleted"
   });
 }));
 
@@ -77,7 +82,7 @@ router.post('/items/:id/images', fileUpload(), express.json(), asyncErrors(async
   await addItemImage(req.params.id, req.currentUser.id, req.files.image);
   res.status(200).json({
     succes: true,
-    data: "se crea el TROCO item"
+    data: "Added an image for your TROCO item"
   });
   }));
 
@@ -86,7 +91,9 @@ router.delete('/items/:id/images/:imageId', fileUpload(), express.json(), asyncE
   await removeItemImage(req.params.id, req.params.imageId, req.currentUser.id);
   res.status(200).json({
     succes: true,
-    data: "se crea el TROCO item"
+    data: "TROCO item image deleted"
   });
   }));
+
+  //ENDPOINTS FOR ADMINS IN THE FUTURE
 
