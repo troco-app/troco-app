@@ -2,6 +2,8 @@
 const { generateUUID } = require("../services/crypto-services");
 const itemDbService = require("../services/items-db-service")
 const dealDbService = require("../services/deals-db-service")  
+const sendacceptanceEmail = require("../use cases/send-acceptance-email");
+const { getUsersById } = require("../services/users-db-service") 
 
 module.exports = async (currentUserId, dealId, payload) => {
     // Check if the current user is the seller of the deal
@@ -40,6 +42,12 @@ module.exports = async (currentUserId, dealId, payload) => {
         exchange_date_time: payload.exchange_date_time
     };
     await dealDbService.createDealExchangeCondition(exchangeCondition);
+
+    const buyerUser = await getUsersById(deal.buyer_id)
+    const sellerUser = await getUsersById(deal.seller_id)
+    const exchangeConditions = payload;
+
+    await sendacceptanceEmail(buyerUser, sellerUser, exchangeConditions);
 
     return { success: true, dealId };
 };

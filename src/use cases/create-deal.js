@@ -1,7 +1,10 @@
 //Services
 const { generateUUID } = require("../services/crypto-services");
 const itemDbService = require("../services/items-db-service")
-const dealDbService = require("../services/deals-db-service")  
+const dealDbService = require("../services/deals-db-service") 
+const sendOfferEmail = require("../use cases/send-Offer-email"); 
+const { getUsersById } = require("../services/users-db-service") 
+
 
 module.exports = async (currentUserId, payload) => {
   // Validate data
@@ -24,13 +27,11 @@ module.exports = async (currentUserId, payload) => {
 
 // Check that offered items belong to buyer
 const offeredItemsDetails = itemDetails.filter(item => offered_items.includes(item.id));
-console.log('Offered items details:', offeredItemsDetails);
 if (offeredItemsDetails.some(item => item.user_id !== buyer_id)) {
   throw new Error('Some offered items do not belong to the buyer');
 }
 
 const requestedItemsDetails = itemDetails.filter(item => requested_items.includes(item.id));
-console.log('Requested items details:', requestedItemsDetails);
 if (requestedItemsDetails.some(item => item.user_id !== seller_id)) {
   throw new Error('Some requested items do not belong to the seller');
 }
@@ -73,6 +74,12 @@ if (requestedItemsDetails.some(item => item.user_id !== seller_id)) {
       await dealDbService.createDealItem(dealItem);
       // we don't change the satus of the seller itmes so they recieve multiple offers and chose what she prefers.
   }
+
+  // Send email to the seller quit the exchnage offer
+  const sellerUser = await getUsersById(seller_id);
+  const buyerUser = await getUsersById(buyer_id);
+
+  await sendOfferEmail(sellerUser, buyerUser, requestedItemsDetails, offeredItemsDetails);
 
   return { success: true, deal_id };
 };

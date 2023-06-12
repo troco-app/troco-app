@@ -113,6 +113,18 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
+        await pool.query(`
+    CREATE TABLE rejection_reasons(
+        id CHAR(36) PRIMARY KEY,
+        deal_id CHAR(36) NOT NULL,
+        FOREIGN KEY (deal_id) REFERENCES deals(id),
+        user_id CHAR(36) NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        rejection_comment VARCHAR(255) NOT NULL,
+        createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        )`);
+
     await pool.query(`
     CREATE TABLE deals_ratings(
         id CHAR(36) PRIMARY KEY,
@@ -121,10 +133,21 @@ await pool.query(`
         userid CHAR(36) NOT NULL,
         FOREIGN KEY (userid) REFERENCES users(id),
         rating DECIMAL CHECK (rating >= 1 AND rating <= 5) NOT NULL, 
-        comment VARCHAR(255),
+        rating_comment VARCHAR(255),
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
+
+        await pool.query(`
+        CREATE TABLE wishlist(
+            id CHAR(36) PRIMARY KEY,
+            userid CHAR(36) NOT NULL,
+            FOREIGN KEY (userid) REFERENCES users(id),
+            item_id CHAR(36) NOT NULL,
+            FOREIGN KEY (item_id) REFERENCES items(id),
+            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            )`);
 
 
 // Insert mock data into the users table
@@ -221,7 +244,6 @@ await pool.query(`
         ('62b22346-4b07-425d-b612-866de42d063a', 'dfefd715-ceba-4250-8eb3-10cf7d36eb44', '123 Main St', 'Anytown', 'Anystate', 'USA', '12345', '2023-06-25 12:00:00');
     `);
    
-
 
     await pool.end();
 };

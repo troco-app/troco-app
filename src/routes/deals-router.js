@@ -8,6 +8,7 @@ const router = Router();
 //Use Cases
 const createDeal = require("../use cases/create-deal")
 const acceptDeal = require("../use cases/accept-deal")
+const rejectDeal = require("../use cases/reject-deal")
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
@@ -49,6 +50,15 @@ router.post('/deals/:id/accept', express.json(), asyncErrors(async (req, res) =>
   res.status(200).json({
     success: true,
     data: "se acepto TROCO Deal"
+  });
+}));
+
+//Reject a Deal
+router.post('/deals/:id/reject', express.json(), asyncErrors(async (req, res) => {
+  await rejectDeal(req.currentUser.id, req.params.id, req.body)
+  res.status(200).json({
+    success: true,
+    data: "se rejecto el TROCO Deal"
   });
 }));
 
