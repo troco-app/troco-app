@@ -7,16 +7,21 @@ const sendRejectionEmail = require("../use cases/send-rejection-email");
 
 
 module.exports = async (currentUserId, dealId, payload) => {
-   
+
+
     // Check if the current user is the seller of the deal
     const deal = await dealDbService.getDealById(dealId);
     if (deal.seller_id !== currentUserId) {
-        throw new Error("You are not authorized to accept this deal");
+        throw new Error("You are not authorized to reject this deal");
     }
 
     // Check the deal status is pending
 
-    // Change the deal status to 'accepted'
+    if (deal.status !== 'pending') {
+        throw new Error("Deals need to be pending to be rejected");
+    }
+
+    // Change the deal status to 'rejected'
     await dealDbService.updateDealStatus(dealId, 'rejected');
 
     // Get items involved in the deal
@@ -31,7 +36,7 @@ module.exports = async (currentUserId, dealId, payload) => {
     // store the rejection 
 
   const rejection = {
-    id: generateUUID,
+    id: generateUUID(),
     deal_id: dealId,
     user_id: currentUserId,
     rejection_comment: payload.rejection_comment,
@@ -58,7 +63,9 @@ module.exports = async (currentUserId, dealId, payload) => {
     const rejectordUser = await getUsersById(rejectordUserId)
     const comment = payload.rejection_comment
 
-    await sendRejectionEmail(rejectedUser, rejectordUser, comment);
+    console.log(rejectordUser);
+
+    await sendRejectionEmail(rejectedUser, rejectordUser, dealId, comment);
 
     return { success: true, dealId };
 };

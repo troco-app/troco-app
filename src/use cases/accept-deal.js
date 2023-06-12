@@ -10,8 +10,18 @@ module.exports = async (currentUserId, dealId, payload) => {
     
     const deal = await dealDbService.getDealById(dealId);
 
+    if (deal == undefined) {
+        throw new Error("This is not a valid Deal");
+    }
+
     if (deal.seller_id !== currentUserId) {
         throw new Error("You are not authorized to accept this deal");
+    }
+
+    // Check the deal status is pending
+
+    if (deal.status !== 'pending') {
+        throw new Error("Deals need to be pending to be accepted");
     }
 
     // Change the deal status to 'accepted'

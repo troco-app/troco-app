@@ -1,6 +1,7 @@
 const { generateUUID } = require("../services/crypto-services");
 const dealDbService = require("../services/deals-db-service");
 const { getUsersById } = require("../services/users-db-service")
+const sendDealRating = require("../use cases/send-rating-email");
 
 
 module.exports = async (currentUserId, dealId, payload) => {
@@ -24,7 +25,7 @@ console.log(dealRates);
 
 //check the deal has been accepted and the exchange date has passed
 
-if (deal.status == 'accepted') {
+if (deal.status !== 'accepted') {
     throw new Error("You can only rate a deal that is accepted");
     }
 
@@ -66,7 +67,7 @@ if (deal.status == 'accepted') {
     const ratorUser = await getUsersById(ratorUserId)
     const ratedUser = await getUsersById(ratedUserId)
     const rate = payload.rating; 
-    const comment = payload.rejection_comment
+    const comment = payload.rating_comment
 
     await sendDealRating(ratedUser, dealId, ratorUser, rate, comment);
 

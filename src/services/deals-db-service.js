@@ -62,12 +62,12 @@ module.exports = {
         await db.execute(statement, [rating.id, rating.deal_id, rating.userid, rating.rating, rating.rating_comment]);
       },
 
-      async storeDealRejection (dealItem) {
+      async storeDealRejection (rejection) {
         const statement = `
           INSERT INTO rejection_reasons (id, deal_id, user_id, rejection_comment)
           VALUES (?, ?, ?, ?)
         `;
-        await db.execute(statement, [dealItem.id, dealItem.deal_id, dealItem.user_id, dealItem.rejection_comment]);
+        await db.execute(statement, [rejection.id, rejection.deal_id, rejection.user_id, rejection.rejection_comment]);
       },
 
       async getDealItems(dealId) {
