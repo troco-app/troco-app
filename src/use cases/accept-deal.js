@@ -45,12 +45,12 @@ module.exports = async (currentUserId, dealId, payload) => {
 
     const buyerUser = await getUsersById(deal.buyer_id)
     const sellerUser = await getUsersById(deal.seller_id)
-    const exchangeConditions = '';
+    let exchangeConditions = '';
     for (const [key, value] of Object.entries(payload)) {
-        output += `${key}: ${value}\n`;
+        exchangeConditions += `${key}: ${value}\n`;
       }
 
-    await sendacceptanceEmail(buyerUser, sellerUser, exchangeConditions);
+    await sendacceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions);
 
     return { success: true, dealId };
 };

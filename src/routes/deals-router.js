@@ -6,9 +6,10 @@ const router = Router();
 //DDBB services
 
 //Use Cases
-const createDeal = require("../use cases/create-deal")
-const acceptDeal = require("../use cases/accept-deal")
-const rejectDeal = require("../use cases/reject-deal")
+const createDeal = require("../use cases/create-deal");
+const acceptDeal = require("../use cases/accept-deal");
+const rejectDeal = require("../use cases/reject-deal");
+const rateDeal = require("../use cases/rate-deal");
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
@@ -48,6 +49,15 @@ router.post('/deals/:id/reject', express.json(), asyncErrors(async (req, res) =>
   res.status(200).json({
     success: true,
     data: "TROCODEAL rejected"
+  });
+}));
+
+//Rate a Deal
+router.post('/deals/:id/rate', express.json(), asyncErrors(async (req, res) => {
+  await rateDeal(req.currentUser.id, req.params.id, req.body)
+  res.status(200).json({
+    success: true,
+    data: "TROCODEAL rated"
   });
 }));
 

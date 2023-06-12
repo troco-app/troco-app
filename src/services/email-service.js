@@ -31,13 +31,17 @@ const mailjet = require("node-mailjet").apiConnect(
         user.email,
         user.name,
         "Welcome to TROCO",
-        `<h1>Welcome to Troco</h1>
-  Querido ${user.username}, ya eres un nuevo TROCOLO.
-  Por favor, para poder logearte tienes que introducir en siguiente código de Validación aquí: LINK
+        `<h1>Happy To See You Here</h1>
+  Dear ${user.username}, 
   </br>
+  you have became a TROCOLO !!
+  </br>
+  The last step to in your road to start TROCKING we need you to validate your email.
+  </br>
+  Please take this TROCO code and validate it in our TROCO web.
   <pre>${code}</pre>
   </br>
-  Un saludo cordial, el equipo de TROCO.
+  Have a nice day, TROCO team.
   `
       );
     },
@@ -50,11 +54,11 @@ const mailjet = require("node-mailjet").apiConnect(
         `<h1>This is is your new TROCO Offer</h1>
   The User  ${buyerUser.username} is making you this offer:
   </br>
-  Requested Items
+  Requested Items:
   </br>
   ${requestedItemsDetails}
   </br>
-  Offered Items
+  Offered Items:
   </br>
   ${offeredItemsDetails}    
   </br>
@@ -66,11 +70,13 @@ const mailjet = require("node-mailjet").apiConnect(
 
     async sendRejectionEmail(rejectedUser, rejectordUser, comment) {
       await this.sendEmail(
-        rejectedUserr.email,
+        rejectedUser.email,
         rejectedUser.name,
-        `The Troco Offer ${rejection.deal_id} has been rejected`,
-        `<h1>Troco Offer Rejection </h1>
-  Dear ${rejectedUser.name}, the deal ${rejection.deal_id} has been rejected by ${rejectordUser}. This is the rejeaction reason:
+        "TROCOFFER Rejected :(",
+        `<h1>We are sorry</h1>
+  Dear ${rejectedUser.name},
+  </br> 
+  The deal ${rejection.deal_id} has been rejected by ${rejectordUser}. This is the rejeaction reason:
   </br>
   <pre>${comment}</pre>
   </br>
@@ -79,18 +85,39 @@ const mailjet = require("node-mailjet").apiConnect(
       );
     },
 
-    async sendAcceptanceEmail(user,code) {
+    async sendAcceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions) {
       await this.sendEmail(
-        user.email,
-        user.name,
-        "Welcome to TROCO - random message",
-        `<h1>Welcome to Troco</h1>
-  Querido ${user.username}, ya eres un nuevo TROCOLO.
-  Por favor, para poder logearte tienes que introducir en siguiente código de Validación aquí: LINK
+        buyerUser.email,
+        sellerUser.name,
+        "TROCOFFER Accepted!!",
+        `<h1> Contratulations !!</h1>
+  Dear ${buyerUser.username}, 
   </br>
-  <pre>${code}</pre>
+  The user ${sellerUser.username} has accepted the deal ${dealId}
   </br>
-  Un saludo cordial, el equipo de TROCO.
+  These are the exchange conditions:
+  </br>
+  ${exchangeConditions}
+  </br>
+  Have a nice day, TROCO team.
+  `
+      );
+    },
+
+    async sendDealRating(ratedUser, dealId, ratorUser, rate, comment) {
+      await this.sendEmail(
+        ratedUser.email,
+        ratedUser.name,
+        "A TROCOLO has Rated One of Your Exchanges",
+        `<h1>TROCO RATE</h1>
+  Dear ${ratedUser.username},     
+  The user  ${ratorUser.username}, has rated the TROCODEAL ${dealId}.
+  </br>
+  Exchange Rate: ${ratorUser.username}/5
+  </br>
+  And added this comment for you: ${comment}
+  </br>
+  Have a nice day, TROCO team.
   `
       );
     },

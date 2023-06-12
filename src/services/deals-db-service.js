@@ -54,20 +54,20 @@ module.exports = {
         await db.execute(statement, [dealItem.id, dealItem.deal_id, dealItem.item_id, dealItem.owner_id, dealItem.type]);
       },
 
+      async storeRating (rating) {
+        const statement = `
+          INSERT INTO deals_ratings (id, deal_id, userid, rating, rating_comment)
+          VALUES (?, ?, ?, ?, ?)
+        `;
+        await db.execute(statement, [rating.id, rating.deal_id, rating.userid, rating.rating, rating.rating_comment]);
+      },
+
       async storeDealRejection (dealItem) {
         const statement = `
           INSERT INTO rejection_reasons (id, deal_id, user_id, rejection_comment)
           VALUES (?, ?, ?, ?)
         `;
         await db.execute(statement, [dealItem.id, dealItem.deal_id, dealItem.user_id, dealItem.rejection_comment]);
-      },
-
-      async storeRating (rating) {
-        const statement = `
-          INSERT INTO deals_ratings (id, deal_id, user_id, rating, rating_comment)
-          VALUES (?, ?, ?, ?, ?)
-        `;
-        await db.execute(statement, [rating.id, rating.deal_id, rating.user_id, rating.rating, rating.rating_comment]);
       },
 
       async getDealItems(dealId) {

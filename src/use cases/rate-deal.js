@@ -11,19 +11,20 @@ module.exports = async (currentUserId, dealId, payload) => {
 
 //check current user can rate the deal(is in the deal and not reated yet)
 
-    if (deal.seller_id !== currentUserId || deal.owner_id !== currentUserId) {
+    if (deal.seller_id !== currentUserId && deal.buyer_id !== currentUserId) {
         throw new Error("You are not authorized to rate this deal");
     };
 
     const dealRates = await dealDbService.getDealRates(dealId, currentUserId);
+console.log(dealRates);
 
-    if (dealRates.length === 0) {
+    if (dealRates.length !== 0) {
     throw new Error("You haven't rated this deal yet");
     };
 
 //check the deal has been accepted and the exchange date has passed
 
-if (deal.status !== 'accepted') {
+if (deal.status == 'accepted') {
     throw new Error("You can only rate a deal that is accepted");
     }
 
@@ -41,8 +42,9 @@ if (deal.status !== 'accepted') {
     deal_id: dealId,
     userid: currentUserId,
     rating: payload.rating,
-    rating_comment: rating_comment,
+    rating_comment: payload.rating_comment,
     };
+
 
     await dealDbService.storeRating(newRating);
 
@@ -66,7 +68,6 @@ if (deal.status !== 'accepted') {
     const rate = payload.rating; 
     const comment = payload.rejection_comment
 
-    await sendRejectionEmail(ratedUser, ratorUser, rate, comment);
-
+    await sendDealRating(ratedUser, dealId, ratorUser, rate, comment);
 
 };

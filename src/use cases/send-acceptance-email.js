@@ -1,7 +1,7 @@
 const emailService = require("../services/email-service.js");
 
-module.exports = async (buyerUser, sellerUser, exchangeConditions) => {
+module.exports = async (buyerUser, sellerUser, dealId, exchangeConditions) => {
 
-  await emailService.sendRegistrationEmail(buyerUser, sellerUser, exchangeConditions);
+  await emailService.sendAcceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions);
 
 };
