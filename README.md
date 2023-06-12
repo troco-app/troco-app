@@ -7,3 +7,4 @@ mysql2
 joi
 cors
 dotenv
+node-mailjet
