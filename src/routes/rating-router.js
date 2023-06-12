@@ -43,3 +43,4 @@ router.patch('/ratings',express.json(), async (req, res) => {
     data: "se elimina el TROCO rating"
   });
 });
+
