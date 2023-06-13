@@ -23,23 +23,19 @@ module.exports = async (item_id, image_id, user_id) => {
       errorService.notFound();
     }
 
-
     //check if photo belong to item
     if (image.item_id != item_id) {
       errorService.unauthorizedUser();
-    };
+    }
 
     console.log(image_id);
 
     //Delete image from database
     await imageDbService.deleteImage(image_id);
 
-
     //Delete image from file system
     await fileService.deleteImage(image);
-
   } catch (error) {
-
     // handle the error here or rethrow it
   }
 };

@@ -1,54 +1,46 @@
 //Services
 const { generateUUID } = require("../services/crypto-services");
 const userDbService = require("../services/users-db-service");
-const itemDbService  = require("../services/items-db-service");
-
+const itemDbService = require("../services/items-db-service");
 
 module.exports = async (currentUserId, itemId) => {
+  //check item is in DDBB and is available
 
+  const items = await itemDbService.getAllItems();
 
-    //check item is in DDBB and is available
+  let itemInDDBB = items.some((item) => item.item_id === itemId);
 
-    const items = await itemDbService.getAllItems();
+  if (!itemInDDBB) {
+    throw new Error("Item not available to be wishlisted");
+  }
 
-    let itemInDDBB = items.some(item => item.item_id === itemId);
+  //check item is in not from the user
 
-    if (!itemInDDBB) {
-      throw new Error('Item not available to be wishlisted');
-    }
+  const userItems = await itemDbService.getItemsByUserId(currentUserId);
 
-    //check item is in not from the user
+  let itemBelongUser = userItems.some((item) => item.item_id === itemId);
 
-    const userItems = await itemDbService.getItemsByUserId(currentUserId);
+  if (itemBelongUser) {
+    throw new Error("Can't whislist your own item");
+  }
 
-    let itemBelongUser = userItems.some(item => item.item_id === itemId);
+  //check item not in whislist
 
-    if (itemBelongUser) {
-      throw new Error("Can't whislist your own item");
-    }
-    
+  const wishList = await userDbService.getWishList(currentUserId);
 
+  let isItemInWishlist = wishList.some((item) => item.item_id === itemId);
 
-    //check item not in whislist
+  if (isItemInWishlist) {
+    throw new Error("Item already in wishlist");
+  }
 
-    const wishList = await userDbService.getWishList(currentUserId); 
-
-    let isItemInWishlist = wishList.some(item => item.item_id === itemId);
-
-if (isItemInWishlist) {
-  throw new Error('Item already in wishlist');
-}
-
-
-    // add item to whislist
+  // add item to whislist
 
   const newItemWhised = {
     id: generateUUID(),
     userid: currentUserId,
     item_id: itemId,
-    };
+  };
 
-
-    await userDbService.storeItemWhised(newItemWhised);
-
+  await userDbService.storeItemWhised(newItemWhised);
 };

@@ -3,40 +3,41 @@ const userDbService = require("../services/users-db-service");
 const cryptoService = require("../services/crypto-services.js");
 const errorService = require("../services/error-service.js");
 
-module.exports = async ({email, password}) => {
+module.exports = async ({ email, password }) => {
+  //Take the user info based on the email
 
-//Take the user info based on the email   
+  const user = await userDbService.getUserByEmail(email);
 
-    const user = await userDbService.getUserByEmail(email);
+  //Check User exist in the DDBB
 
-//Check User exist in the DDBB
+  if (!user) {
+    errorService.invalidCredentials();
+  }
 
-    if (!user) {
-        errorService.invalidCredentials();
-      }
+  //Check email is Validated
 
-//Check email is Validated
+  if (!user.emailValidated) {
+    errorService.emailNotValidated();
+  }
 
-    if (!user.emailValidated) {
-        errorService.emailNotValidated();
-    }
+  //Check the password is correct
 
-//Check the password is correct
+  const okPassword = await cryptoService.validatePassword(
+    password,
+    user.password
+  );
 
-    const okPassword = await cryptoService.validatePassword(password, user.password)
-  
-    if (!okPassword) {
-        errorService.invalidCredentials();
-      } 
+  if (!okPassword) {
+    errorService.invalidCredentials();
+  }
 
-//Generate token with user data
+  //Generate token with user data
 
-    const token = cryptoService.generateJWT({
-        id: user.id,
-        email: user.email,
-        username: user.username,
-    });
+  const token = cryptoService.generateJWT({
+    id: user.id,
+    email: user.email,
+    username: user.username,
+  });
 
-    return token;
-    
+  return token;
 };
