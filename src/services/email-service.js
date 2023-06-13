@@ -1,37 +1,37 @@
 require("dotenv").config();
 const mailjet = require("node-mailjet").apiConnect(
-    process.env.MJ_APIKEY_PUBLIC,
-    process.env.MJ_APIKEY_PRIVATE
-  );
-  
-  module.exports = {
-    async sendEmail(to, toName, subject, message) {
-      await mailjet.post("send", { version: "v3.1" }).request({
-        Messages: [
-          {
-            From: {
-              Email: process.env.MAIL_SENDER_FROM,
-              Name: process.env.MAIL_SENDER_NAME,
-            },
-            To: [
-              {
-                Email: to,
-                Name: toName,
-              },
-            ],
-            Subject: subject,
-            HTMLPart: message,
+  process.env.MJ_APIKEY_PUBLIC,
+  process.env.MJ_APIKEY_PRIVATE
+);
+
+module.exports = {
+  async sendEmail(to, toName, subject, message) {
+    await mailjet.post("send", { version: "v3.1" }).request({
+      Messages: [
+        {
+          From: {
+            Email: process.env.MAIL_SENDER_FROM,
+            Name: process.env.MAIL_SENDER_NAME,
           },
-        ],
-      });
-    },
-  
-    async sendRegistrationEmail(user, code) {
-      await this.sendEmail(
-        user.email,
-        user.name,
-        "Welcome to TROCO",
-        `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+          To: [
+            {
+              Email: to,
+              Name: toName,
+            },
+          ],
+          Subject: subject,
+          HTMLPart: message,
+        },
+      ],
+    });
+  },
+
+  async sendRegistrationEmail(user, code) {
+    await this.sendEmail(
+      user.email,
+      user.name,
+      "Welcome to TROCO",
+      `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
           <h1 style="background-color: #f2f2f2; padding: 20px; color: #444; text-align: center;">Happy To See You Here</h1>
           <div style="padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
             <p>Dear <strong>${user.username}</strong>,</p>
@@ -45,15 +45,20 @@ const mailjet = require("node-mailjet").apiConnect(
             <p style="font-size: 0.8em;">This is an automated email, please do not reply directly to this message.</p>
           </div>
         </div>`
-      );
-    },
+    );
+  },
 
-    async sendOfferEmail(sellerUser, buyerUser, requestedItemsDetails, offeredItemsDetails) {
-      await this.sendEmail(
-        sellerUser.email,
-        sellerUser.name,
-        "You have a new TROCO offer waiting for You",
-        `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+  async sendOfferEmail(
+    sellerUser,
+    buyerUser,
+    requestedItemsDetails,
+    offeredItemsDetails
+  ) {
+    await this.sendEmail(
+      sellerUser.email,
+      sellerUser.name,
+      "You have a new TROCO offer waiting for You",
+      `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
           <h1 style="background-color: #f2f2f2; padding: 20px; color: #444; text-align: center;">This is Your New TROCO Offer</h1>
           <div style="padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
             <p>The user <strong>${buyerUser.username}</strong> has made the following offer:</p>
@@ -69,15 +74,15 @@ const mailjet = require("node-mailjet").apiConnect(
             <p style="font-size: 0.8em;">This is an automated email, please do not reply directly to this message.</p>
           </div>
         </div>`
-      );
-    },
+    );
+  },
 
-    async sendRejectionEmail(rejectedUser, rejectordUser, dealId, comment) {
-  await this.sendEmail(
-    rejectedUser.email,
-    rejectedUser.name,
-    "TROCOFFER Rejected :(",
-    `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+  async sendRejectionEmail(rejectedUser, rejectordUser, dealId, comment) {
+    await this.sendEmail(
+      rejectedUser.email,
+      rejectedUser.name,
+      "TROCOFFER Rejected :(",
+      `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
       <h1 style="background-color: #f2f2f2; padding: 20px; color: #444; text-align: center;">We are sorry</h1>
       <div style="padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
         <p>Dear <strong>${rejectedUser.username}</strong>,</p>
@@ -91,15 +96,15 @@ const mailjet = require("node-mailjet").apiConnect(
         <p style="font-size: 0.8em;">This is an automated email, please do not reply directly to this message.</p>
       </div>
     </div>`
-  );
-},
+    );
+  },
 
-async sendAcceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions) {
-  await this.sendEmail(
-    buyerUser.email,
-    sellerUser.name,
-    "TROCOFFER Accepted!!",
-    `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+  async sendAcceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions) {
+    await this.sendEmail(
+      buyerUser.email,
+      sellerUser.name,
+      "TROCOFFER Accepted!!",
+      `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
       <h1 style="background-color: #f2f2f2; padding: 20px; color: #444; text-align: center;">Congratulations!</h1>
       <div style="padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
         <p>Dear <strong>${buyerUser.username}</strong>,</p>
@@ -113,15 +118,15 @@ async sendAcceptanceEmail(buyerUser, sellerUser, dealId, exchangeConditions) {
         <p style="font-size: 0.8em;">This is an automated email, please do not reply directly to this message.</p>
       </div>
     </div>`
-  );
-},
+    );
+  },
 
-async sendDealRating(ratedUser, dealId, ratorUser, rate, comment) {
-  await this.sendEmail(
-    ratedUser.email,
-    ratedUser.name,
-    "A TROCOLO Has Rated One of Your Exchanges",
-    `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
+  async sendDealRating(ratedUser, dealId, ratorUser, rate, comment) {
+    await this.sendEmail(
+      ratedUser.email,
+      ratedUser.name,
+      "A TROCOLO Has Rated One of Your Exchanges",
+      `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto;">
       <h1 style="background-color: #f2f2f2; padding: 20px; color: #444; text-align: center;">TROCO Rate</h1>
       <div style="padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
         <p>Dear <strong>${ratedUser.username}</strong>,</p>
@@ -136,7 +141,6 @@ async sendDealRating(ratedUser, dealId, ratorUser, rate, comment) {
         <p style="font-size: 0.8em;">This is an automated email, please do not reply directly to this message.</p>
       </div>
     </div>`
-  );
-},
-
-  };
+    );
+  },
+};

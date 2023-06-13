@@ -4,12 +4,12 @@ const { createPool } = require("./mysql-connection.js");
 const DATABASE_NAME = process.env.MYSQL_DATABASE;
 
 const initDB = async () => {
-    const pool = createPool();
-    await pool.query(`DROP DATABASE IF EXISTS  ${DATABASE_NAME}`);
-    await pool.query(`CREATE DATABASE ${DATABASE_NAME} ` );
-    await pool.query(`USE ${DATABASE_NAME} `);
+  const pool = createPool();
+  await pool.query(`DROP DATABASE IF EXISTS  ${DATABASE_NAME}`);
+  await pool.query(`CREATE DATABASE ${DATABASE_NAME} `);
+  await pool.query(`USE ${DATABASE_NAME} `);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE users(
         id CHAR(36) PRIMARY KEY,
         username VARCHAR(20) NOT NULL UNIQUE,
@@ -26,7 +26,7 @@ const initDB = async () => {
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
 
-await pool.query(`
+  await pool.query(`
     CREATE TABLE validation_codes(
         id CHAR(36) PRIMARY KEY,
         user_id CHAR(36) NOT NULL,
@@ -37,7 +37,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
 
-await pool.query(`
+  await pool.query(`
     CREATE TABLE category(
         id INT AUTO_INCREMENT PRIMARY KEY,
         category_name VARCHAR(150) NOT NULL,
@@ -45,7 +45,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
 
-await pool.query(`
+  await pool.query(`
     CREATE TABLE items(
         id CHAR(36) PRIMARY KEY,
         name VARCHAR(150) NOT NULL,
@@ -62,7 +62,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE item_images(
         id CHAR(36) PRIMARY KEY,
         imageURL VARCHAR(300) NOT NULL,
@@ -72,7 +72,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )`);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE deals(
         id CHAR(36) PRIMARY KEY,
         buyer_id CHAR(36) NOT NULL,
@@ -84,7 +84,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE deal_items(
         id CHAR(36) PRIMARY KEY,
         deal_id CHAR(36) NOT NULL,
@@ -98,7 +98,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE deals_exchange_conditions(
         id CHAR(36) PRIMARY KEY,
         deal_id CHAR(36) NOT NULL,
@@ -114,7 +114,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
-        await pool.query(`
+  await pool.query(`
     CREATE TABLE rejection_reasons(
         id CHAR(36) PRIMARY KEY,
         deal_id CHAR(36) NOT NULL,
@@ -126,7 +126,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
-    await pool.query(`
+  await pool.query(`
     CREATE TABLE deals_ratings(
         id CHAR(36) PRIMARY KEY,
         deal_id CHAR(36) NOT NULL,
@@ -139,7 +139,7 @@ await pool.query(`
         modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )`);
 
-        await pool.query(`
+  await pool.query(`
         CREATE TABLE wishlist(
             id CHAR(36) PRIMARY KEY,
             userid CHAR(36) NOT NULL,
@@ -150,9 +150,8 @@ await pool.query(`
             modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )`);
 
-
-// Insert mock data into the users table
-    await pool.query(`
+  // Insert mock data into the users table
+  await pool.query(`
     INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, city, profile_img, bio_summary, is_deleted) 
         VALUES 
         ('d84f709f-4dd1-4785-8a1c-14f62735df0b', 'plato', 'plato@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Plato', 'Aristocles', 'Albacete', '/img/user1.jpg', 'Hello, I am Plato!', false),
@@ -170,9 +169,8 @@ await pool.query(`
         ('c1834d47-ae85-477a-8ebf-8d8a2d8c61cc', 'spinoza', 'spinoza@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Baruch', 'Spinoza', 'Cantabria', '/img/user12.jpg', 'Hello, I am Spinoza!', false);
     `);
 
-
-// Insert mock data into the category table
-    await pool.query(`
+  // Insert mock data into the category table
+  await pool.query(`
     INSERT INTO category(id, category_name) 
         VALUES 
         (1, 'Retro Computers'),
@@ -188,8 +186,8 @@ await pool.query(`
         (11, 'Retro Office Equipment')
         `);
 
-// Insert mock data into the items table
-    await pool.query(`
+  // Insert mock data into the items table
+  await pool.query(`
     INSERT INTO items(id, name, description, estimated_price, item_condition, status, category_id, user_id) 
         VALUES 
         ('3659f8d9-9c4e-4c6d-9606-30824a2d3b2b', 'Commodore 64', 'A classic home computer from the 1980s.', 200.00, 'good', 'available', 1, '06d27949-94fe-4cc1-b7fe-764d68baa0b5'),
@@ -222,32 +220,30 @@ await pool.query(`
         ('781a1553-9ff3-42e4-9186-51cc1e9a773b', 'Vintage Game Boy', 'Handheld gaming console that started the portable gaming trend.', 70.00, 'not_used', 'available', 2, 'f2e1afd4-c264-4126-80bf-f6731e826121');
     `);
 
-// Insert mock data into the deal table
-    await pool.query(`
+  // Insert mock data into the deal table
+  await pool.query(`
     INSERT INTO deals(id, buyer_id, seller_id, status) 
         VALUES 
         ('dfefd715-ceba-4250-8eb3-10cf7d36eb44', 'f2e1afd4-c264-4126-80bf-f6731e826121', 'd84f709f-4dd1-4785-8a1c-14f62735df0b', 'pending');
 
     `);
 
-// Insert mock data into the deal_items table
-    await pool.query(`
+  // Insert mock data into the deal_items table
+  await pool.query(`
     INSERT INTO deal_items(id, deal_id, item_id, owner_id, type) 
         VALUES 
         ('81d42dea-e793-4d14-82ee-42f0e394492d', 'dfefd715-ceba-4250-8eb3-10cf7d36eb44', '93b79a87-767f-473d-bcfd-2ebf1dace69f', 'f2e1afd4-c264-4126-80bf-f6731e826121', 'offered'),
         ('506e1fe7-de08-4445-b5e7-0ec1c78351f6', 'dfefd715-ceba-4250-8eb3-10cf7d36eb44', 'fc8c0baa-4914-4663-821f-ae0fdd8e1504', 'd84f709f-4dd1-4785-8a1c-14f62735df0b', 'requested')
     `);
 
-// Insert mock data into the exchange_conditions table
-    await pool.query(`
+  // Insert mock data into the exchange_conditions table
+  await pool.query(`
     INSERT INTO deals_exchange_conditions(id, deal_id, street, city, state, country, postal_code, exchange_date_time) 
         VALUES 
         ('62b22346-4b07-425d-b612-866de42d063a', 'dfefd715-ceba-4250-8eb3-10cf7d36eb44', '123 Main St', 'Anytown', 'Anystate', 'USA', '12345', '2023-06-25 12:00:00');
     `);
-   
 
-    await pool.end();
+  await pool.end();
 };
 
 initDB();
-
