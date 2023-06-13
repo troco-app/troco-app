@@ -8,8 +8,10 @@ module.exports = async (currentUserId, itemId) => {
 
     const wishList = await userDbService.getWishList(currentUserId); 
 
+
     // whislist is an array , i need to loop to check of itemid.
 
+console.log(wishList);
 
     // remove item to whislist
 

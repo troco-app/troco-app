@@ -39,6 +39,7 @@ module.exports = {
         const statement = `
         SELECT *
         FROM items
+        WHERE items.status = 'available' AND items.is_deleted = false
      `;
       const [rows] = await db.execute(statement);
       return rows;
