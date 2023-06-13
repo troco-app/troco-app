@@ -58,7 +58,7 @@ router.post('/users/login',express.json(), bodyValidation(userLoginSchema), asyn
 
 //Modify User data
 router.patch('/users/:id',express.json(), asyncErrors(async (req, res) => {
-  const result = await updateUsersById(req.params.id, req.body);
+  const result = await updateUsersById(req.currentUser.id, req.params.id, req.body);
   res.status(200).json({
     succes: true,
     data: "TROCOLO data modified"
@@ -83,18 +83,18 @@ router.delete('/users/wishlist/:itemId',express.json(), asyncErrors(async (req, 
  });
 }));
 
-//Remove User (logic erase)
+//Remove User (logic erase) for next version
 
 
  //ENDPOINTS FOR ADMINS IN THE FUTURE
 
- //View All Users
+ //View All Users (need to add admin access)
 router.get('/users', asyncErrors(async (req, res) => {
   const result = await getAllUsers();
   res.status(200).json({result});
 }));
 
-//View User by ID
+//View User by ID (need to add admin access)
 router.get('/users/:id', asyncErrors(async (req, res) => {
   const result = await getUsersById(req.params.id);
   res.status(200).json(result);

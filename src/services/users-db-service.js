@@ -8,7 +8,7 @@ module.exports = {
 
     async saveUser(user) {
         const statement = `
-        INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, postal_code, profile_img, bio_summary, is_deleted)
+        INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, city, profile_img, bio_summary, is_deleted)
         VALUES(?,?,?,?,?,?,?,?,?,?,?)
         `;
         await db.execute(statement, [
@@ -19,7 +19,7 @@ module.exports = {
           user.password,
           user.first_name,
           user.last_name,
-          user.postal_code,
+          user.city,
           user.profile_img,
           user.bio_summary,
           user.is_deleted,

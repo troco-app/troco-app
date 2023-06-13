@@ -18,7 +18,7 @@ const initDB = async () => {
         password VARCHAR(128) NOT NULL,
         first_name VARCHAR(50),
         last_name VARCHAR(50),
-        postal_code VARCHAR(20),
+        city VARCHAR(200),
         profile_img VARCHAR(255),
         bio_summary VARCHAR(255),
         is_deleted BOOL DEFAULT false,
@@ -153,21 +153,21 @@ await pool.query(`
 
 // Insert mock data into the users table
     await pool.query(`
-    INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, postal_code, profile_img, bio_summary, is_deleted) 
+    INSERT INTO users(id, username, email, emailValidated, password, first_name, last_name, city, profile_img, bio_summary, is_deleted) 
         VALUES 
-        ('d84f709f-4dd1-4785-8a1c-14f62735df0b', 'plato', 'plato@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Plato', 'Aristocles', '12345', '/img/user1.jpg', 'Hello, I am Plato!', false),
-        ('f2e1afd4-c264-4126-80bf-f6731e826121', 'socrates', 'socrates@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Socrates', 'Descartes', '23456', '/img/user2.jpg', 'Hello, I am Socrates!', false),
-        ('3633a9e4-1e59-4af5-9cf7-9abfa03cea1b', 'kant', 'kant@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Immanuel', 'Kant', '34567', '/img/user3.jpg', 'Hello, I am Immanuel!', false),
-        ('0e0d2925-e34f-491d-bced-2afbdc24fd53', 'nietzsche', 'nietzsche@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Friedrich', 'Nietzsche', '45678', '/img/user4.jpg', 'Hello, I am Friedrich!', false),
-        ('dcbc0d07-1889-46d5-a44f-89e6df34dc0b', 'locke', 'locke@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'John', 'Locke', '56789', '/img/user5.jpg', 'Hello, I am John!', false),
-        ('06d27949-94fe-4cc1-b7fe-764d68baa0b5', 'descartes', 'descartes@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Rene', 'Descartes', '99999', '/img/user20.jpg', 'Hello, I am Rene!', false),
-        ('fc7c8f59-22e7-4a18-9c96-aa1668d4d3b1', 'aristotle', 'aristotle@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Aristotle', 'Stagiritis', '67890', '/img/user6.jpg', 'Hello, I am Aristotle!', false),
-        ('77f678a2-4985-42e0-9d34-9c05b0512f87', 'kierkegaard', 'kierkegaard@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Søren', 'Kierkegaard', '78901', '/img/user7.jpg', 'Hello, I am Kierkegaard!', false),
-        ('af9d24e4-7edf-4db2-9e74-4e6ef48e9c62', 'plutarch', 'plutarch@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Plutarch', 'Epictetus', '89012', '/img/user8.jpg', 'Hello, I am Plutarch!', false),
-        ('b22f20ef-128f-4a07-8329-f5c7fba4b9b1', 'thomas', 'thomas@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Thomas', 'Aquinas', '90123', '/img/user9.jpg', 'Hello, I am Thomas!', false),
-        ('43f2ff55-f4de-4f47-bc87-49c8691e5770', 'hume', 'hume@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'David', 'Hume', '01234', '/img/user10.jpg', 'Hello, I am Hume!', false),
-        ('ea59600b-23c9-41fc-9ab2-d886e348f5f1', 'rousseau', 'rousseau@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Jean-Jacques', 'Rousseau', '12345', '/img/user11.jpg', 'Hello, I am Rousseau!', false),
-        ('c1834d47-ae85-477a-8ebf-8d8a2d8c61cc', 'spinoza', 'spinoza@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Baruch', 'Spinoza', '23456', '/img/user12.jpg', 'Hello, I am Spinoza!', false);
+        ('d84f709f-4dd1-4785-8a1c-14f62735df0b', 'plato', 'plato@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Plato', 'Aristocles', 'Albacete', '/img/user1.jpg', 'Hello, I am Plato!', false),
+        ('f2e1afd4-c264-4126-80bf-f6731e826121', 'socrates', 'socrates@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Socrates', 'Descartes', 'Cantabria', '/img/user2.jpg', 'Hello, I am Socrates!', false),
+        ('3633a9e4-1e59-4af5-9cf7-9abfa03cea1b', 'kant', 'kant@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Immanuel', 'Kant', 'Teruel', '/img/user3.jpg', 'Hello, I am Immanuel!', false),
+        ('0e0d2925-e34f-491d-bced-2afbdc24fd53', 'nietzsche', 'nietzsche@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Friedrich', 'Nietzsche', 'Teruel', '/img/user4.jpg', 'Hello, I am Friedrich!', false),
+        ('dcbc0d07-1889-46d5-a44f-89e6df34dc0b', 'locke', 'locke@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'John', 'Locke', 'Soria', '/img/user5.jpg', 'Hello, I am John!', false),
+        ('06d27949-94fe-4cc1-b7fe-764d68baa0b5', 'descartes', 'descartes@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Rene', 'Descartes', 'Soria', '/img/user20.jpg', 'Hello, I am Rene!', false),
+        ('fc7c8f59-22e7-4a18-9c96-aa1668d4d3b1', 'aristotle', 'aristotle@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Aristotle', 'Stagiritis', 'Jaén', '/img/user6.jpg', 'Hello, I am Aristotle!', false),
+        ('77f678a2-4985-42e0-9d34-9c05b0512f87', 'kierkegaard', 'kierkegaard@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Søren', 'Kierkegaard', 'Jaén', '/img/user7.jpg', 'Hello, I am Kierkegaard!', false),
+        ('af9d24e4-7edf-4db2-9e74-4e6ef48e9c62', 'plutarch', 'plutarch@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Plutarch', 'Epictetus', 'Granada', '/img/user8.jpg', 'Hello, I am Plutarch!', false),
+        ('b22f20ef-128f-4a07-8329-f5c7fba4b9b1', 'thomas', 'thomas@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Thomas', 'Aquinas', 'Granada', '/img/user9.jpg', 'Hello, I am Thomas!', false),
+        ('43f2ff55-f4de-4f47-bc87-49c8691e5770', 'hume', 'hume@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'David', 'Hume', 'Pontevedra', '/img/user10.jpg', 'Hello, I am Hume!', false),
+        ('ea59600b-23c9-41fc-9ab2-d886e348f5f1', 'rousseau', 'rousseau@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Jean-Jacques', 'Rousseau', 'Albacete', '/img/user11.jpg', 'Hello, I am Rousseau!', false),
+        ('c1834d47-ae85-477a-8ebf-8d8a2d8c61cc', 'spinoza', 'spinoza@example.com', true, '$2y$12$etXEQTvRSgKrHu7qUNAlHuF6bRLl5g9sTPXO03Ul16dAm.bZWZoXC', 'Baruch', 'Spinoza', 'Cantabria', '/img/user12.jpg', 'Hello, I am Spinoza!', false);
     `);
 
 

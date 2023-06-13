@@ -8,3 +8,5 @@ joi
 cors
 dotenv
 node-mailjet
+sharp
+test

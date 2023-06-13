@@ -18,11 +18,15 @@ module.exports = async (item_id, user_id, image) => {
       
         const url = await fileService.processUploadedItemImage(item_id, id, image);
       
-        await ItemDbService.saveImage({
+        const newImage = {
           id: id,
           imageURL: url,
           item_id: item_id,
-        });
+        };
+console.log(newImage);
+        await ItemDbService.saveImage(newImage)
+
+
         
     } catch (err) {
         console.error(err);
