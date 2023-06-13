@@ -5,7 +5,7 @@ const router = Router();
 const fileUpload = require("express-fileupload");
 
 //DDBB services
-const { getAllItems, getItemById } = require("../services/items-db-service");
+const { getAllItems, getItemById, getItemsByUserId } = require("../services/items-db-service");
 
 //Use Cases
 const createItem = require("../use cases/create-item");
@@ -45,6 +45,12 @@ router.get('/items', asyncErrors(async (req, res) => {
 //View Item by ID
 router.get('/items/:id', asyncErrors(async (req, res) => {
   const result = await getItemById(req.params.id);
+  res.status(200).json(result);
+}));
+
+//View Items by User ID
+router.get('/items/user/:id', asyncErrors(async (req, res) => {
+  const result = await getItemsByUserId(req.params.id);
   res.status(200).json(result);
 }));
 

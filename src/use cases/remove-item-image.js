@@ -8,33 +8,34 @@ module.exports = async (item_id, image_id, user_id) => {
     const item = await itemDbService.getItemById(item_id);
     const image = await imageDbService.getImageById(image_id);
 
-    //checkear que ese post exista
+    //check if post exist
     if (!item) {
       errorService.notFound();
     }
 
-    //checkear si este usuario puede cargarle fotos a ese post.
+    //check if user is owner
     if (item.user_id != user_id) {
       errorService.unauthorizedUser();
     }
 
-    //checkear si existe la foto
+    //check if photo exist
     if (!image) {
       errorService.notFound();
     }
 
 
-    //Si la foto no es una foto de ese post
+    //check if photo belong to item
     if (image.item_id != item_id) {
       errorService.unauthorizedUser();
     };
 
+    console.log(image_id);
 
-    //Borrar la foto de la base de datos
+    //Delete image from database
     await imageDbService.deleteImage(image_id);
 
 
-    //Borrar la foto del sistema archivos
+    //Delete image from file system
     await fileService.deleteImage(image);
 
   } catch (error) {

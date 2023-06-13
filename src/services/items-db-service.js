@@ -23,6 +23,18 @@ module.exports = {
         ]);
       },
 
+      async saveImage(image) {
+        const statement = `
+        INSERT INTO item_images(id, imageURL, item_id)
+        VALUES(?,?,?)
+        `;
+        await db.execute(statement, [
+          image.id,
+          image.imageURL,
+          image.item_id,
+        ]);
+      },
+
       async getAllItems() {
         const statement = `
         SELECT *
@@ -95,7 +107,7 @@ module.exports = {
     
   async searchByTerm(searchTerm, categoryName, condition, status, location, minPrice, maxPrice) {
     let sql = `
-      SELECT items.*, category.category_name, users.postal_code 
+      SELECT items.*, category.category_name, users.city 
       FROM items 
       JOIN category ON items.category_id = category.id 
       JOIN users ON items.user_id = users.id 
@@ -126,7 +138,7 @@ module.exports = {
     }
 
     if (location) {
-      sql += ' AND users.postal_code = ?';
+      sql += ' AND users.city = ?';
       params.push(location);
     }
 
