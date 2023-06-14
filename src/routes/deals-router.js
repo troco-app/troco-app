@@ -13,12 +13,16 @@ const rateDeal = require("../use cases/rate-deal");
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
+const auth = require("../middlewares/auth");
 
 //Utils
 const asyncErrors = require("../utils/async-erros");
 
 //Validation Schemas
-const userRegisterSchema = require("../validators/user-register-schema");
+const createDealSchema = require("../validators/create-deal-schema");
+const acceptDealSchema = require("../validators/accept-deal-schema");
+const rejectDealSchema = require("../validators/reject-deal-schema");
+const rateDealSchema = require("../validators/rate-deal-schema");
 
 module.exports = router;
 
@@ -27,7 +31,9 @@ module.exports = router;
 //Create a Deal
 router.post(
   "/deals",
+  auth,
   express.json(),
+  bodyValidation(createDealSchema),
   asyncErrors(async (req, res) => {
     await createDeal(req.currentUser.id, req.body);
     res.status(200).json({
@@ -40,7 +46,9 @@ router.post(
 //Accepct a Deal
 router.post(
   "/deals/:id/accept",
+  auth,
   express.json(),
+  bodyValidation(acceptDealSchema),
   asyncErrors(async (req, res) => {
     await acceptDeal(req.currentUser.id, req.params.id, req.body);
     res.status(200).json({
@@ -53,7 +61,9 @@ router.post(
 //Reject a Deal
 router.post(
   "/deals/:id/reject",
+  auth,
   express.json(),
+  bodyValidation(rejectDealSchema),
   asyncErrors(async (req, res) => {
     await rejectDeal(req.currentUser.id, req.params.id, req.body);
     res.status(200).json({
@@ -66,7 +76,9 @@ router.post(
 //Rate a Deal
 router.post(
   "/deals/:id/rate",
+  auth,
   express.json(),
+  bodyValidation(rateDealSchema),
   asyncErrors(async (req, res) => {
     await rateDeal(req.currentUser.id, req.params.id, req.body);
     res.status(200).json({
@@ -76,7 +88,7 @@ router.post(
   })
 );
 
-//ENDPOINTS FOR ADMINS IN THE FUTURE
+//ENDPOINTS FOR ADMINS IN THE FUTURE WE NEED TO ADD ADMIN AUTHOTRITATIONS FOR PROJECT 3
 
 //View All Deals
 router.get(
@@ -103,7 +115,7 @@ router.patch(
   asyncErrors(async (req, res) => {
     res.status(200).json({
       success: true,
-      data: "se modifica el status del TROCO Deal",
+      data: "TROCO deal modified",
     });
   })
 );
@@ -115,7 +127,7 @@ router.patch(
   asyncErrors(async (req, res) => {
     res.status(200).json({
       success: true,
-      data: "se elimina el TROCO Deal",
+      data: "TROCO Deal removed",
     });
   })
 );

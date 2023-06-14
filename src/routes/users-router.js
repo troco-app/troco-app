@@ -19,6 +19,7 @@ const removeWishList = require("../use cases/remove-from-wishlist");
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
+const auth = require("../middlewares/auth");
 
 //Utils
 const asyncErrors = require("../utils/async-erros");
@@ -27,6 +28,7 @@ const asyncErrors = require("../utils/async-erros");
 const userRegisterSchema = require("../validators/user-register-schema");
 const userLoginSchema = require("../validators/user-login-schema");
 const validationCodeSchema = require("../validators/validation-code-schema");
+const modifyUserSchema = require("../validators/modify-user-schema");
 
 module.exports = router;
 
@@ -76,7 +78,9 @@ router.post(
 //Modify User data
 router.patch(
   "/users/:id",
+  auth,
   express.json(),
+  bodyValidation(modifyUserSchema),
   asyncErrors(async (req, res) => {
     const result = await updateUsersById(
       req.currentUser.id,
@@ -93,6 +97,7 @@ router.patch(
 //Add to Wishlist
 router.post(
   "/users/wishlist/:itemId",
+  auth,
   express.json(),
   asyncErrors(async (req, res) => {
     await addToWishList(req.currentUser.id, req.params.itemId);
@@ -106,6 +111,7 @@ router.post(
 //Remove from Wishlist
 router.delete(
   "/users/wishlist/:itemId",
+  auth,
   express.json(),
   asyncErrors(async (req, res) => {
     await removeWishList(req.currentUser.id, req.params.itemId);
