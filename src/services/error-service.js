@@ -3,64 +3,57 @@ module.exports = {
     throw {
       status: 400, //Bad Request
       code: "INVALID_CREDENTIALS",
-      message: "Credenciales inválidas",
+      message: "Invalid Credentials",
     };
   },
   emailNotValidated() {
     throw {
       status: 400, //Bad Request
       code: "EMAIL_NOT_VALIDATED",
-      message: "El email de este usuario aún no ha sido validado",
+      message: "Email not validated",
     };
   },
   notAuthenticated() {
     throw {
       status: 401, //401 Unauthorized
       code: "NOT_AUTHENTICATED",
-      message: "Debe enviar un token en el header 'Authorization'",
+      message: "An 'Authorization' token is needed",
     };
   },
   unauthorizedUser() {
     throw {
       status: 403, //403 Forbidden
       code: "UNAUTHORIZED",
-      message: "El usuario no está autorizado para hacer esta operación",
+      message: "User nunauthorized to do this action",
     };
   },
-  didNotAcceptTOS() {
-    throw {
-      status: 400, //Bad Request
-      code: "DID_NOT_ACCEPT_TOS",
-      message:
-        "El usuario debe aceptar los términos y condiciones para registrarse",
-    };
-  },
+
   notFound() {
     throw {
       status: 404, //NOT FOUND
       code: "RESOURCE_NOT_FOUND",
-      message: "El recurso requerido no existe",
+      message: "this element is not found",
     };
   },
   emailAlreadyRegistered() {
     throw {
       status: 400, //Bad Request
       code: "EMAIL_ALREADY_REGISTERED",
-      message: "El email ya está registrado",
+      message: "this email already belong to TROCO",
     };
   },
   usernamelAlreadyRegistered() {
     throw {
       status: 400, //Bad Request
       code: "USERNAME_ALREADY_REGISTERED",
-      message: "El username ya está registrado",
+      message: "The username is already registeres, pplease chose another one",
     };
   },
   invalidValidationCode() {
     throw {
       status: 400, //Bad Request
       code: "INVALID_VALIDATION_CODE",
-      message: "El código de validación es inválido",
+      message: "Invalid code",
     };
   },
   expiredValidationCode() {

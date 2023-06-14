@@ -5,13 +5,10 @@ const itemDbService = require("../services/items-db-service");
 
 module.exports = async (currentUserId, itemId) => {
   //check item is in DDBB and is available
-  console.log(itemId);
+
   const items = await itemDbService.getAllItems();
-  console.log(items);
 
   let itemInDDBB = items.some((item) => item.id === itemId);
-
-  console.log(itemInDDBB);
 
   if (!itemInDDBB) {
     throw new Error("Item not available to be wishlisted");
@@ -44,6 +41,8 @@ module.exports = async (currentUserId, itemId) => {
     userid: currentUserId,
     item_id: itemId,
   };
+
+  console.log(newItemWhised);
 
   await userDbService.storeItemWhised(newItemWhised);
 };

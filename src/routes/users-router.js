@@ -19,6 +19,7 @@ const removeWishList = require("../use cases/remove-from-wishlist");
 const viewItemsWishlist = require("../use cases/view-user-items-wishlist");
 const viewUserItems = require("../use cases/view-user-items");
 const viewUserDeals = require("../use cases/view-user-deals");
+const modifyUserInfo = require("../use cases/modify-user-info");
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
@@ -80,16 +81,12 @@ router.post(
 
 //Modify User data
 router.patch(
-  "/users/:id",
+  "/users/",
   auth,
   express.json(),
   bodyValidation(modifyUserSchema),
   asyncErrors(async (req, res) => {
-    const result = await updateUsersById(
-      req.currentUser.id,
-      req.params.id,
-      req.body
-    );
+    await modifyUserInfo(req.currentUser.id, req.body);
     res.status(200).json({
       succes: true,
       data: "TROCOLO data modified",

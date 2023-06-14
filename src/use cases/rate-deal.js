@@ -18,7 +18,7 @@ module.exports = async (currentUserId, dealId, payload) => {
   console.log(dealRates);
 
   if (dealRates.length !== 0) {
-    throw new Error("You haven't rated this deal yet");
+    throw new Error("You already haven rated this deal");
   }
 
   //check the deal has been accepted and the exchange date has passed

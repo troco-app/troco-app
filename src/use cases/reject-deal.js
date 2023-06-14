@@ -8,7 +8,7 @@ const sendRejectionEmail = require("../use cases/send-rejection-email");
 module.exports = async (currentUserId, dealId, payload) => {
   // Check if the current user is the seller of the deal
   const deal = await dealDbService.getDealById(dealId);
-  if (deal.seller_id !== currentUserId) {
+  if (deal.seller_id !== currentUserId && deal.buyer_id !== currentUserId) {
     throw new Error("You are not authorized to reject this deal");
   }
 
