@@ -16,6 +16,9 @@ const loginUser = require("../use cases/login-user");
 const registrationCodeValidation = require("../use cases/registration-code-validation");
 const addToWishList = require("../use cases/add-to-wishlist");
 const removeWishList = require("../use cases/remove-from-wishlist");
+const viewItemsWishlist = require("../use cases/view-user-items-wishlist");
+const viewUserItems = require("../use cases/view-user-items");
+const viewUserDeals = require("../use cases/view-user-deals");
 
 //Middlewares
 const bodyValidation = require("../middlewares/body_validation");
@@ -91,6 +94,36 @@ router.patch(
       succes: true,
       data: "TROCOLO data modified",
     });
+  })
+);
+
+//View Wishlist
+router.get(
+  "/users/wishlist",
+  auth,
+  asyncErrors(async (req, res) => {
+    const result = await viewItemsWishlist(req.currentUser.id);
+    res.status(200).json(result);
+  })
+);
+
+//View Items
+router.get(
+  "/users/items",
+  auth,
+  asyncErrors(async (req, res) => {
+    const result = await viewUserItems(req.currentUser.id);
+    res.status(200).json(result);
+  })
+);
+
+//View deals
+router.get(
+  "/users/deals",
+  auth,
+  asyncErrors(async (req, res) => {
+    const result = await viewUserDeals(req.currentUser.id);
+    res.status(200).json(result);
   })
 );
 
