@@ -91,7 +91,7 @@ TROCO es un proyecto de desarrollo de un portal especializado en el intercambio 
 | REGISTRO: Como damos la bienvendia a los nuevos Trolocolos y le enviamos el código de confirmación. | ![Registro](https://i.postimg.cc/YS2gGR16/registro.png)        |
 | OFERTA: Una Troco oferta salvaje ha aparecido en tu bandeja de entrada.                             | ![Oferta](https://i.postimg.cc/NFxBH68X/oferta.png)            |
 | OFERTA ACEPTADA: Otro usuario ha aceptado tu Troco oferta ¡Es el momento del trueque!               | ![aceptada](https://i.postimg.cc/RFMP0w0y/oferta-aceptada.png) |
-| VALORACIÓN:(https://code.visualstudio.com/) Otro Troco trueque satisfactorio gracias a TROCO.       | ![Valoración](https://i.postimg.cc/mDvyHMZT/rating.png)        |
+| VALORACIÓN:Otro Troco trueque satisfactorio gracias a TROCO.                                        | ![Valoración](https://i.postimg.cc/mDvyHMZT/rating.png)        |
 
 #
 
