@@ -50,6 +50,27 @@ module.exports = {
     return rows;
   },
 
+  async viewUserItems(user_id) {
+    const statement = `
+        SELECT *
+        FROM items
+        WHERE user_id = ? 
+     `;
+    const [rows] = await db.execute(statement, [user_id]);
+    return rows;
+  },
+
+  async itemsInWishList(user_id) {
+    const statement = `
+        SELECT wishlist.*, items.name, items.description, items.estimated_price, items.item_condition, items.status, items.category_id
+        FROM wishlist
+        INNER JOIN items ON wishlist.item_id = items.id
+        WHERE wishlist.userid = ? 
+     `;
+    const [rows] = await db.execute(statement, [user_id]);
+    return rows;
+  },
+
   async getItemById(item_id) {
     const statement = `
         SELECT *
