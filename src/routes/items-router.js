@@ -20,14 +20,15 @@ const searchItems = require("../use cases/search-items");
 const removeItem = require("../use cases/remove-item");
 
 //Middlewares
-const authGuard = require("../middlewares/auth");
+const auth = require("../middlewares/auth");
 const bodyValidation = require("../middlewares/body_validation");
 
 //Utils
 const asyncErrors = require("../utils/async-erros");
 
 //Validation Schemas
-const userRegisterSchema = require("../validators/user-register-schema");
+const createItemSchema = require("../validators/create-item-schema");
+const modifyItemSchema = require("../validators/modify-item-schema");
 
 module.exports = router;
 
@@ -74,8 +75,9 @@ router.get(
 //Create an Item
 router.post(
   "/items",
-  authGuard,
+  auth,
   express.json(),
+  bodyValidation(createItemSchema),
   asyncErrors(async (req, res) => {
     await createItem(req.currentUser.id, req.body);
     res.status(200).json({
@@ -88,8 +90,9 @@ router.post(
 //Modify Item
 router.put(
   "/items/:id",
-  authGuard,
+  auth,
   express.json(),
+  bodyValidation(modifyItemSchema),
   asyncErrors(async (req, res) => {
     await modifyItem(req.params.id, req.currentUser.id, req.body);
     res.status(200).json({
@@ -102,7 +105,7 @@ router.put(
 //Delete Item (logic erase)
 router.delete(
   "/items/:id",
-  authGuard,
+  auth,
   express.json(),
   asyncErrors(async (req, res) => {
     await removeItem(req.currentUser.id, req.params.id);
