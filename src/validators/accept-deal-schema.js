@@ -6,6 +6,6 @@ module.exports = Joi.object({
   state: Joi.string().max(100).required(),
   country: Joi.string().max(100).required(),
   postal_code: Joi.string().max(20).required(),
-  exchange_date_time: Joi.date().timestamp().required(),
+  exchange_date_time: Joi.date().iso().required(),
   exchange_comment: Joi.string().max(255).allow(null, ""),
 });

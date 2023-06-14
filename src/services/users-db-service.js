@@ -66,17 +66,19 @@ module.exports = {
     return rows[0];
   },
 
-  async updateUsersById(userId, payload) {
+  async updateUsersById(userId, user) {
     const statement = `
         UPDATE users
-        SET first_name = ?, last_name = ?, bio_summary = ?, profile_img = ?
+        SET first_name = ?, last_name = ?, bio_summary = ?, profile_img = ?, password = ?, city = ?
         WHERE id = ?
      `;
     const [rows] = await db.execute(statement, [
-      payload.first_name,
-      payload.last_name,
-      payload.bio_summary,
-      payload.profile_img,
+      user.first_name,
+      user.last_name,
+      user.bio_summary,
+      user.profile_img,
+      user.password,
+      user.city,
       userId,
     ]);
     return rows[0];

@@ -109,25 +109,5 @@ router.get(
 );
 
 //Modify Deal Status
-router.patch(
-  "/deals/:id",
-  express.json(),
-  asyncErrors(async (req, res) => {
-    res.status(200).json({
-      success: true,
-      data: "TROCO deal modified",
-    });
-  })
-);
 
 //Delete Deal ---> This is not gonna be used, only for testing
-router.patch(
-  "/deals",
-  express.json(),
-  asyncErrors(async (req, res) => {
-    res.status(200).json({
-      success: true,
-      data: "TROCO Deal removed",
-    });
-  })
-);

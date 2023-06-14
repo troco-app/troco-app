@@ -88,7 +88,7 @@ router.post(
 );
 
 //Modify Item
-router.put(
+router.patch(
   "/items/:id",
   auth,
   express.json(),
