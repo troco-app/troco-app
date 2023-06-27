@@ -42,7 +42,5 @@ module.exports = async (currentUserId, itemId) => {
     item_id: itemId,
   };
 
-  console.log(newItemWhised);
-
   await userDbService.storeItemWhised(newItemWhised);
 };
