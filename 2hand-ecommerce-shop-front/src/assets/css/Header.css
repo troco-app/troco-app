@@ -1,0 +1,70 @@
+.navPrincipal {
+    height: 100%;
+    width: 100%;
+    padding: 1.0rem;
+    display: grid;
+    grid-template-areas:
+      "logo popupHome"
+      "navbar navbar";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap:0.5rem;
+    
+}
+.logo {
+    grid-area: logo;
+    background-image: url(${logo});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 6rem;
+    height: 2.0rem;   
+}
+
+/*Pop-up button*/
+
+.material-symbols-rounded {
+    color: rgb(210, 210, 210);
+}
+
+.popupHome {
+    grid-area: popupHome;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 4rem;
+    height: 2rem;
+    padding: 4px;
+    border: rgb(210, 210, 210);
+    background-color: transparent;
+    color: grey;
+    border-style: solid;
+    border-width:thin;
+    border-radius: 20px;
+    cursor: pointer;
+        
+}
+
+.popupHome .userhome {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.navbar {
+    grid-area: navbar;
+    width: 100%;
+}
+
+  @media screen and (min-width: 768px) {
+    .navPrincipal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        width: 12rem;
+        
+    }
+  }
+    
