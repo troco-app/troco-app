@@ -61,18 +61,10 @@
     margin-top: 16px;
 }
 
-.popup button:hover {
-    background-color: #0056b3;
-}
-
 .popup button[type="submit"] {
     background-color: black;
     justify-content: center;
     align-items: center;
-}
-
-.popup button[type="submit"]:hover {
-    background-color: #1e7e34;
 }
 
 .full-width {
