@@ -14,7 +14,11 @@ app.listen(PORT, () => {
 
 app.use(
   cors({
-    origin: ["https://troco.pro", "http://localhost:8080"],
+    origin: [
+      "https://troco.pro",
+      "http://localhost:8080",
+      "http://localhost:5173",
+    ],
   })
 );
 

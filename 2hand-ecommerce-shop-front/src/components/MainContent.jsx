@@ -8,6 +8,7 @@ import { AddProduct } from "../pages/AddProduct.jsx";
 import { StoreDetail } from "../pages/StoreDetail.jsx";
 import { UserDeals } from "../pages/UserDeals.jsx";
 import { WishList } from "../pages/WishList.jsx";
+import { TestContext } from "../pages/TestContext.jsx";
 
 export function MainContent() {
   return (
@@ -22,6 +23,7 @@ export function MainContent() {
         <Route path="/StoreDetail" element={<StoreDetail />} />
         <Route path="/UserDeals" element={<UserDeals />} />
         <Route path="/WishList" element={<WishList />} />
+        <Route path="/TestContext" element={<TestContext />} />
       </Routes>
     </main>
   );
