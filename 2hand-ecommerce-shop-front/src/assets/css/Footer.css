@@ -50,13 +50,14 @@
 }
 
 .logoFooter {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    height: 4.0rem;
+    margin-bottom: 0.5rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;   
 }
 
 .copyrightFooter {

@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-
 import { Categories } from "../components/Categories";
 import { useState } from "react";
 import { Footer } from "../components/Footer";
+import { Box } from "../components/Box";
 //import { CookieConsent } from "../components/CookieConsent";
 import "../assets/css/Home.css";
 import atari from "../assets/img/Atari-2600.jpg";
 import nintendo from "../assets/img/nintendo.jpg";
 import psp from "../assets/img/psp.jpg";
+import { ItemsPocket } from "../components/ItemsPocket";
 
 export function Home() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -35,6 +36,8 @@ export function Home() {
         </div>
         <img src={images[currentImage]} alt="Imagen" className="sectionImage" />
       </section>
+      <ItemsPocket/>
+      <Box/>
       <Footer />
     </>
   );

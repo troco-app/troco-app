@@ -32,15 +32,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 4rem;
+    width: 4.5rem;
     height: 2rem;
-    padding: 4px;
+    padding: 6px;
     border: rgb(210, 210, 210);
     background-color: transparent;
     color: grey;
     border-style: solid;
     border-width:thin;
-    border-radius: 20px;
+    border-radius: 2rem;
     cursor: pointer;
         
 }
