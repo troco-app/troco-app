@@ -1,6 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useContext, useEffect, useState } from "react";
-import "../assets/css/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { sendLogin } from "../api/send-login";
 import { AuthContext, LoginContext } from "../contexts/auth-context.jsx";
@@ -34,7 +32,7 @@ export function Login() {
     if (currentUser) {
       navigate("/");
     }
-  });
+  }, [currentUser, navigate]);
 
   return (
     <>
@@ -76,7 +74,7 @@ export function Login() {
         </div>
         <button>Login</button>
         <p>
-          Don't have an account? <Link to="/Register">Register</Link>
+          Dont have an account? <Link to="/Register">Register</Link>
         </p>
       </form>
     </>
