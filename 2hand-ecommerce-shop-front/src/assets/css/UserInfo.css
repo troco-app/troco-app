@@ -1,0 +1,46 @@
+.profile-box {
+  color: white;
+  background-color: black;
+  font-family: Arial, sans-serif;
+}
+
+.profile-section {
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.rating {
+  font-size: 2rem;
+}
+
+.actions-section {
+  text-align: center;
+}
+
+.upload-button,
+.wishlist-button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  color: white;
+  background-color: grey;
+}
+
+.info-section {
+  padding: 20px;
+}
+
+.history-section {
+  padding: 20px;
+}
+
+.deal {
+  border: 1px solid white;
+  margin: 10px;
+  padding: 10px;
+}

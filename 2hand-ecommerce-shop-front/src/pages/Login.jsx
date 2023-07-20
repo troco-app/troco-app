@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { sendLogin } from "../api/send-login";
 import { AuthContext, LoginContext } from "../contexts/auth-context.jsx";
+import "../assets/css/Login.css";
 
 //State to set the payload fo the form
 export function Login() {
@@ -35,8 +36,8 @@ export function Login() {
   }, [currentUser, navigate]);
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
+    <div className="login-page">
+      <form onSubmit={onSubmit} className="login-form">
         <h1>Troco</h1>
         <h2>Log into your account</h2>
         <div>
@@ -74,9 +75,9 @@ export function Login() {
         </div>
         <button>Login</button>
         <p>
-          Dont have an account? <Link to="/Register">Register</Link>
+          Don&apos;t have an account? <Link to="/Register">Register</Link>
         </p>
       </form>
-    </>
+    </div>
   );
 }
