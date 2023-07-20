@@ -8,6 +8,7 @@ import nintendo from "../assets/img/nintendo.jpg";
 import psp from "../assets/img/psp.jpg";
 import { ItemsPocket } from "../components/ItemsPocket";
 import "../assets/css/Home.css";
+import { ItemProduct } from "../components/ItemProduct";
 
 export function Home() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -36,6 +37,7 @@ export function Home() {
         <img src={images[currentImage]} alt="Imagen" className="sectionImage" />
       </section>
       <ItemsPocket />
+      {/* <ItemProduct/> */}
       <Box />
       <Footer />
     </>
