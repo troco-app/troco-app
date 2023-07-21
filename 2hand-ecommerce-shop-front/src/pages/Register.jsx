@@ -1,7 +1,7 @@
 import "../assets/css/pagescss/Register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext, LoginContext } from "../contexts/auth-context.jsx";
+import { useState } from "react";
+import { sendRegister } from "../api/send-register";
 
 export function Register() {
   const [payload, setPayload] = useState({
@@ -15,11 +15,22 @@ export function Register() {
     bio_summary: "",
   });
 
-  console.log(payload);
+  const navigate = useNavigate();
+
+  async function onSubmit(evt) {
+    evt.preventDefault();
+    try {
+      await sendRegister(payload);
+      console.log(payload);
+      navigate("/ValidationCode");
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <>
-      <form action="" className="form">
+      <form onSubmit={onSubmit} className="form">
         <h2>Create Your Account</h2>
         <div className="input-field">
           <label htmlFor="username"></label>
@@ -83,6 +94,19 @@ export function Register() {
             className="input"
             onChange={(evt) =>
               setPayload({ ...payload, last_name: evt.target.value })
+            }
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="city"></label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="city"
+            className="input"
+            onChange={(evt) =>
+              setPayload({ ...payload, city: evt.target.value })
             }
           />
         </div>

@@ -9,6 +9,7 @@ import { UserDeals } from "../pages/UserDeals.jsx";
 import { WishList } from "../pages/WishList.jsx";
 import { TestContext } from "../pages/TestContext.jsx";
 import { Login } from "../pages/Login.jsx";
+import { ValidationCode } from "../pages/ValidationCode.jsx";
 
 export function MainContent() {
   return (
@@ -24,6 +25,7 @@ export function MainContent() {
         <Route path="/UserDeals" element={<UserDeals />} />
         <Route path="/WishList" element={<WishList />} />
         <Route path="/TestContext" element={<TestContext />} />
+        <Route path="/ValidationCode" element={<ValidationCode />} />
       </Routes>
     </main>
   );
