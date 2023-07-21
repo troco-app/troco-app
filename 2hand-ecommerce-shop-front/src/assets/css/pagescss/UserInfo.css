@@ -134,7 +134,6 @@
   margin-bottom: 5px;
 }
 
-
 @keyframes blink-animation {
   0% { opacity: 0; }
   50% { opacity: 1; }

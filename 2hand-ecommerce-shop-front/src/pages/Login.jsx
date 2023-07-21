@@ -38,9 +38,9 @@ export function Login() {
   return (
     <div className="login-page">
       <form onSubmit={onSubmit} className="login-form">
-        <h1>Troco</h1>
+        <h1>TROCO</h1>
         <h2>Log into your account</h2>
-        <div>
+        <div className="inputLogin">
           <label htmlFor="username"></label>
           <input
             type="text"
@@ -52,7 +52,7 @@ export function Login() {
             }
           />
         </div>
-        <div>
+        <div className="inputLogin">
           <label htmlFor="email"></label>
           <input
             type="email"
@@ -63,8 +63,8 @@ export function Login() {
               setPayload({ ...payload, email: evt.target.value })
             }
           />
-        </div>
-        <div>
+        </div >
+        <div className="inputLogin">
           <label htmlFor="password"></label>
           <input
             type="password"
@@ -76,9 +76,9 @@ export function Login() {
             }
           />
         </div>
-        <button>Login</button>
-        <p>
-          Don&apos;t have an account? <Link to="/Register">Register</Link>
+        <button className="buttonLogin">Login</button>
+        <p className="pRegister">
+          Don&apos;t have an account? <Link to="/Register"  className="register-link">Register</Link>
         </p>
       </form>
     </div>

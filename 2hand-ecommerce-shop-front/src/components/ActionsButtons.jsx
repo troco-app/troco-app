@@ -4,10 +4,10 @@ const ActionsButtons = () => {
   return (
     <div className="actions-buttons">
       <button className="upload-button">
-        <FaUpload /> Upload Something
+        <FaUpload className="faUpload"/> Upload Something
       </button>
       <button className="wishlist-button">
-        <FaHeart /> Wishlist
+        <FaHeart className="faHeart"/> Wishlist
       </button>
     </div>
   );
