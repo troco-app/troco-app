@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-field label {
+  display: none; /* Labels are empty so we hide them */
+}
+
+.input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.input:focus {
+  border-color: #000;
+}
+
+.input::placeholder {
+  color: #aaa;
+}
