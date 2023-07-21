@@ -54,7 +54,7 @@
 .pageSectionNav .sectionImage {
     width: 20rem;
     height: 15rem;
-    padding: 2rem;
+    padding: 1.0rem;
     object-fit: contain;
 }
 
