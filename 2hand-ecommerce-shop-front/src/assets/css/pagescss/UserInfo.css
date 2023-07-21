@@ -1,0 +1,196 @@
+.profile-box {
+  background-color: white; 
+}
+
+.profile-name {
+  color:black;
+  padding:1rem;
+}
+
+.profile-section {
+  text-align: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.rating {
+  font-size: 3rem;
+}
+
+.actions-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions-section .headline{
+  background-color: #e28210;
+  color:white;
+  font-size: small;
+  padding:0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.actions-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  margin-left: 0.5rem;
+}
+
+.edit-profile-button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.upload-button,
+.wishlist-button {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+.info-title{
+  background-color: #e28210;
+  color:white;
+  font-size: medium;
+  padding:0.5rem;
+  margin-top: 1rem;
+}
+
+.info-ul {
+  list-style: none;
+}
+
+.info-ul li {
+  font-size: small;
+  margin: 1rem;
+}
+
+
+/*Deals Hystory*/
+
+.history-title {
+  border-radius: 1rem;
+  background-color: #e28210;
+  color:white;
+  font-size: medium;
+  padding:0.5rem;
+}
+
+.history-section {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.history-content {
+  margin-top: 20px;
+}
+
+.deal {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.deal-date {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.deal-status {
+  color:green;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.deal-item {
+  margin-top: 10px;
+}
+
+.item-owner {
+  font-weight: bold;
+  color:#e28210;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.item-name {
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+
+@keyframes blink-animation {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink-animation 1s infinite;
+}
+
+@media (min-width: 768px){
+  .profile-box{
+    margin:3rem;
+    border-radius: 1rem;
+  }
+  .history-section {
+    border-bottom-right-radius:  1rem;
+    border-bottom-left-radius:  1rem;
+  }
+  .edit-profile-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .edit-profile-button {
+    background-color: black;
+    color: white;
+    width: 10rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .actions-buttons {
+    display: flex;
+    margin-left: 3rem;
+  }
+  
+  .info-ul li {
+    margin-left:3rem;
+    padding: 0.5rem;
+  }
+  
+  .deal-date {
+    margin-left:3rem;
+  }
+  
+  .deal-status {
+    margin-left:3rem;
+  }
+  
+  .deal-item {
+    margin-left:3rem;
+  }
+  
+}

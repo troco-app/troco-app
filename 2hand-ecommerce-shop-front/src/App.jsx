@@ -5,6 +5,7 @@ import { Header } from "../src/components/Header";
 import { AuthProvider } from "./contexts/auth-context";
 import { useLocation } from "react-router-dom";
 
+
 function App() {
   const location = useLocation();
   const shouldShowHeader =
