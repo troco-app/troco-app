@@ -1,157 +1,124 @@
-/* .productContent {
-    margin: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 600px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .productContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem; 
-  }
-  
-  .product {
-    background-color: #222;
-    padding: 2rem;
-    display: grid; 
-    grid-template-areas: 
-      "image"
-      "text"
-      "userButton";
-    grid-gap: 1rem; 
-    border-radius: 1rem;
-  }
-  
-  .imageProduct {
-    background-size: cover;
-    background-position: center;
-    width: 100%; 
-    height: 200px;
-    border-radius: 1rem;
-    grid-area: image; 
-  }
-  
-  .textProduct {
-    color: white;
-    grid-area: text; 
-    text-align: left; 
-  }
-  
-  .categoriesProduct {
-    font-size: 1.0rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .nameProduct {
-    font-size: 2rem;
-  }
-  
-  .userButtonWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-area: userButton; 
-  }
-  
-  .userName {
-    font-size: 1rem;
-  }
-  
-  button {
-    background-color: green;
-    color: white;
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-  }
-   */
-
-   /* @media (max-width: 768px) {
-    .itemsContainer {
-        display: flex;
-        flex-direction: column;
-        margin-left: 1rem;
-        
-    }
-    .itemsContainer .item {
-        margin:1rem;
-    }
-}
-
-.productContent {
-    margin: 1rem;
-    margin-bottom: 2rem;
-}
 
 .productContainer {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:1rem;
 }
 
 .product {
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    gap: 1rem;
-    padding:0.5rem;
-    border-radius: 1rem;
-    background-color: #222; */
-    /* border-style:dashed;
-    border-color: #e28210; */
-
-
-/* .productH1 {
-    color: white;
-    font-size: medium;
-    margin:1rem;
+  width: calc(100% - 1rem); 
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #222;
 }
 
-.categoriesProduct {
-    margin-bottom: 0.5rem;
+/* Estilos para los títulos y nombres */
+.productH1 {
+  color: white;
+  font-size: medium;
+  margin: 1rem;
+}
+
+.userName {
+  font-size: small;
+  color:whitesmoke;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.categoriesProduct{
+  margin-left: 1rem;
+  font-size:small;
+  color:grey;
+}
+
+.nameProduct {
+  font-size:medium;
+  margin:1rem;
+}
+
+.userButtonWrapper .userName { 
+  margin-left: 1rem;
 }
 
 .textProduct .paragraphProduct {
-    margin-bottom: 1rem;
-    color: grey;
-    font-style: italic;
+  margin-left:1rem;
 }
 
-.categoriesProduct,
-.nameProduct
-.userName {
-    font-size: small;
+/* Estilos para el texto del producto */
+.textProduct .paragraphProduct {
+  margin-bottom: 1rem;
+  color: grey;
+  font-style: italic;
 }
 
+/* Estilos para el contenedor del texto del producto */
 .product .textProduct {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    font-size: small;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  margin-top: 0.5rem;
 }
 
+/* Estilos para la imagen del producto */
 .imageProduct {
-    width: 250px;
-    height: 100px;
-    background-size: cover;
-    
+  width: 100%;
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+
+.footerProduct {
+  display: flex;
+  justify-content: space-between;
+  
+}
+ .valorationUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
+/* Estilos para el botón */
+button {
+  background-color: green;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 2rem;
+  padding: 0.5rem 1.2rem ;
+  margin:1rem
+}
 
-.userButtonWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-area: userButton; 
+/* Estilos para pantallas mayores a 768px */
+@media (min-width: 768px) {
+  .productContainer {
+    justify-content: center; 
   }
-  button {
-    background-color: green;
-    color: white;
-    border: 1px solid grey;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-  } */
+  
+  .product {
+    width: calc(33.33% - 1rem);
+    background-color: white;
+    
+  }
+
+  .product:not(:nth-child(3n)) {
+    margin-right: 1rem;
+  }
+
+  .nameProduct {
+    font-size:medium;
+    color:black;
+  }
+
+  .userName {
+    color:black;
+  }
+  
+}
