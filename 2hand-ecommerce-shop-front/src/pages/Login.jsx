@@ -46,7 +46,7 @@ export function Login() {
             type="text"
             id="username"
             name="username"
-            placeholder="Name"
+            placeholder="User Name"
             onChange={(evt) =>
               setPayload({ ...payload, username: evt.target.value })
             }
