@@ -1,4 +1,4 @@
-import "../assets/css/UserInfo.css";
+import "../assets/css/pagescss/UserInfo.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { getUserInfo } from "../api/get-user-info";
@@ -37,13 +37,13 @@ export function UserInfo() {
   return (
     <div className="profile-box">
       <section className="profile-section">
-        <h1 className="profile-name">{userInfo.firstname}</h1>
+        <h1 className="profile-name">{userInfo.first_name}</h1>
         <img className="profile-image" src={userInfo.profile_img} alt="" />
         <StarRating className="rating" rating={4} />
       </section>
       <section className="actions-section">
-        <div>
-          <h1 className="headline">Headline</h1>
+        <div className="headline">
+          <h1 className="headlineH1">Headline</h1>
         </div>
         <div className="actions-buttons">
           <button className="upload-button">Upload Something</button>
@@ -55,8 +55,8 @@ export function UserInfo() {
           <h1 className="info-title">Profile Info</h1>
         </div>
         <div className="info-content">
-          <ul>
-            <li>{userInfo.firstname}</li>
+          <ul className="info-ul">
+            <li>{userInfo.first_name}</li>
             <li>{userInfo.last_name}</li>
             <li>{userInfo.city}</li>
             <li>{userInfo.email}</li>
@@ -74,7 +74,7 @@ export function UserInfo() {
                   Deal created at:{" "}
                   {new Date(deal[0].createdAt).toLocaleString()}
                 </h2>
-                <h3 className="deal-status">Status: {deal[0].status}</h3>
+                <h3 className="deal-status blink">Status: {deal[0].status}</h3>
                 {deal.map((item, i) => (
                   <div className="deal-item" key={i}>
                     <p className="item-owner">Owner: {item.owner_username}</p>
@@ -84,6 +84,9 @@ export function UserInfo() {
               </div>
             ))}
           </div>
+          <div className="edit-profile-wrapper">
+      <button className="edit-profile-button">Edit Profile</button>
+    </div>
         </section>
       </section>
     </div>

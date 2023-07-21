@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { sendLogin } from "../api/send-login";
 import { AuthContext, LoginContext } from "../contexts/auth-context.jsx";
-import "../assets/css/Login.css";
+import "../assets/css/pagescss/Login.css";
 
 //State to set the payload fo the form
 export function Login() {
@@ -41,33 +41,36 @@ export function Login() {
         <h1>Troco</h1>
         <h2>Log into your account</h2>
         <div>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"></label>
           <input
             type="text"
             id="username"
             name="username"
+            placeholder="Name"
             onChange={(evt) =>
               setPayload({ ...payload, username: evt.target.value })
             }
           />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"></label>
           <input
             type="email"
             id="email"
             name="email"
+            placeholder="Email Address"
             onChange={(evt) =>
               setPayload({ ...payload, email: evt.target.value })
             }
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
             name="password"
+            placeholder="Password"
             onChange={(evt) =>
               setPayload({ ...payload, password: evt.target.value })
             }
