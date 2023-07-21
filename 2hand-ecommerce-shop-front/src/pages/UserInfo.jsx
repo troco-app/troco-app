@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { getUserInfo } from "../api/get-user-info";
 import { getUserDeals } from "../api/get-user-deals";
+import { FaUpload, FaHeart } from "react-icons/fa";
 import StarRating from "../components/StarRating";
 
 export function UserInfo() {
@@ -46,8 +47,12 @@ export function UserInfo() {
           <h1 className="headlineH1">Headline</h1>
         </div>
         <div className="actions-buttons">
-          <button className="upload-button">Upload Something</button>
-          <button className="wishlist-button">Whislist</button>
+          <button className="upload-button">
+            <FaUpload /> Upload Something
+          </button>
+          <button className="wishlist-button">
+            <FaHeart /> Wishlist
+          </button>
         </div>
       </section>
       <section className="info-section">
@@ -85,8 +90,8 @@ export function UserInfo() {
             ))}
           </div>
           <div className="edit-profile-wrapper">
-      <button className="edit-profile-button">Edit Profile</button>
-    </div>
+            <button className="edit-profile-button">Edit Profile</button>
+          </div>
         </section>
       </section>
     </div>
