@@ -1,4 +1,4 @@
-.login-page {
+.loginPage {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -12,32 +12,31 @@
   transition: background-position 0.5s ease-in-out;
 }
 
-.login-page:hover {
+.loginPage:hover {
   background-position: 0 100%;
 }
 
-.login-form {
+.loginForm {
   background-color: white;
   max-width: 500px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-  
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem; 
 }
 
-.login-form h1 {
+.loginForm h1 {
   font-size: 2rem;
   padding-bottom: 0.5rem;
 }
 
-.login-form h2 {
+.loginForm h2 {
   margin-top: 16px;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.inputLogin input {
+.inputLogin .inputLogin2 {
   border: none;
   border-bottom: 1px solid #ccc;
   margin-bottom: 1rem;
@@ -45,12 +44,12 @@
   padding: 10px;
 }
 
-.login-form label {
+.loginForm label {
   display: block;
   margin-bottom: 5px;
 }
 
-.login-form .buttonLogin {
+.loginPage > .loginForm > .loginButton {
   width: 100%;
   padding: 10px;
   background-color: #e28210;
@@ -62,24 +61,24 @@
   margin-bottom: 1rem;
 }
 
-.login-form .buttonLogin:hover {
+.loginPage .loginForm .loginButton:hover {
   background-color: grey;
 }
 
-.login-form p {
+.loginForm p {
   text-align: center;
 }
 
-.login-form a {
+.loginForm a {
   color: black;
 }
 
-.pRegister {
+.pLogin {
   color: grey;
   font-size: small;
 }
 
-.pRegister .register-link {
+.pLogin .registerLogin {
   font-weight: bold;
   text-decoration: none;
 }

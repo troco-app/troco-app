@@ -1,37 +1,81 @@
-.form {
+.formRegister {
+  position: fixed;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 30px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8), black);
+  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8));
+  background-position: 0 0;
+  background-size: 100% 200%;
+  transition: background-position 0.5s ease-in-out;
 }
 
-.input-field {
+.formRegister:hover {
+  background-position: 0 100%;
+}
+
+.formRegister .form {
+  background-color: white;
+  max-width: 500px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem 1.5rem 2.5rem;  
+  margin: 2rem;
+}
+
+
+.form h1 {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.form h2 {
+  margin-top: 16px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputRegister .inputRegister2 {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
   width: 100%;
-  margin-bottom: 15px;
+  padding: 10px;
 }
 
-.input-field label {
-  display: none; /* Labels are empty so we hide them */
-}
-
-.input {
+.formRegister > .form > .registerButton {
   width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  color: #333;
-  outline: none;
-  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  background-color: #e28210;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+
+}
+.formRegister .form .registerButton:hover {
+  background-color: grey;
 }
 
-.input:focus {
-  border-color: #000;
+.form p {
+  text-align: center;
 }
 
-.input::placeholder {
-  color: #aaa;
+.form a {
+  color: black;
+}
+
+.pRegister {
+  color: grey;
+  font-size: small;
+}
+
+.pRegister .registerLink {
+  font-weight: bold;
+  text-decoration: none;
 }

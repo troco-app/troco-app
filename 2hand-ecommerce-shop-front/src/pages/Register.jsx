@@ -30,117 +30,123 @@ export function Register() {
 
   return (
     <>
+    <div className="formRegister">
       <form onSubmit={onSubmit} className="form">
-        <h2>Create Your Account</h2>
-        <div className="input-field">
+        <h1>TROCO</h1>
+        <h2>Create your account</h2>
+        <div className="inputRegister">
           <label htmlFor="username"></label>
           <input
+            className="inputRegister2"
             type="text"
             id="username"
             name="username"
             placeholder="User Name"
-            className="input"
+            required
             onChange={(evt) =>
               setPayload({ ...payload, username: evt.target.value })
             }
           />
         </div>
-        <div className="input-field">
-          <label htmlFor="email"></label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email Address"
-            className="input"
-            onChange={(evt) =>
-              setPayload({ ...payload, email: evt.target.value })
-            }
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="password"></label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            className="input"
-            onChange={(evt) =>
-              setPayload({ ...payload, password: evt.target.value })
-            }
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="first_name"></label>
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            placeholder="Name"
-            className="input"
-            onChange={(evt) =>
-              setPayload({ ...payload, first_name: evt.target.value })
-            }
-          />
-        </div>
-        <div className="input-field">
+        <div className="inputRegister">
           <label htmlFor="last_name"></label>
           <input
+            className="inputRegister2"
             type="text"
             id="last_name"
             name="last_name"
             placeholder="Last Name"
-            className="input"
             onChange={(evt) =>
               setPayload({ ...payload, last_name: evt.target.value })
             }
           />
         </div>
-        <div className="input-field">
+        <div className="inputRegister">
+          <label htmlFor="email"></label>
+          <input
+            className="inputRegister2"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            onChange={(evt) =>
+              setPayload({ ...payload, email: evt.target.value })
+            }
+          />
+        </div>
+        <div className="inputRegister">
+          <label htmlFor="password"></label>
+          <input
+            className="inputRegister2"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+            onChange={(evt) =>
+              setPayload({ ...payload, password: evt.target.value })
+            }
+          />
+        </div>
+        <div className="inputRegister">
+          <label htmlFor="first_name"></label>
+          <input
+            className="inputRegister2"
+            type="text"
+            id="first_name"
+            name="first_name"
+            placeholder="Name"
+            onChange={(evt) =>
+              setPayload({ ...payload, first_name: evt.target.value })
+            }
+          />
+        </div>
+        <div className="inputRegister">
           <label htmlFor="city"></label>
           <input
+            className="inputRegister2"
             type="text"
             id="city"
             name="city"
-            placeholder="city"
-            className="input"
+            placeholder="City"
             onChange={(evt) =>
               setPayload({ ...payload, city: evt.target.value })
             }
           />
         </div>
-        <div className="input-field">
+        <div className="inputRegister">
           <label htmlFor="profile_img"></label>
           <input
+            className="inputRegister2"
             type="url"
             id="profile_img"
             name="profile_img"
             placeholder="Enter an url of your image"
-            className="input"
             onChange={(evt) =>
               setPayload({ ...payload, profile_img: evt.target.value })
             }
           />
         </div>
-        <div className="input-field">
+        <div className="inputRegister">
           <label htmlFor="bio_summary"></label>
           <input
+            className="inputRegister2"
             type="text"
             id="bio_summary"
             name="bio_summary"
             placeholder="Tell us briefly why you here"
-            className="input"
             onChange={(evt) =>
               setPayload({ ...payload, bio_summary: evt.target.value })
             }
           />
         </div>
-        <button>Register</button>
-        <p>
-          Already Registered? <Link to="/Login">Login</Link>
+        <button className="registerButton">Register</button>
+        <p className="pRegister">
+          Already Registered? <Link to="/Login" className="registerLink">Login</Link>
         </p>
       </form>
+    </div>
     </>
   );
 }
