@@ -36,10 +36,12 @@ module.exports = {
 
   async getUsersById(userId) {
     const statement = `
-        SELECT *
-        FROM users as u
-        WHERE u.id = ? 
-     `;
+      SELECT u.*, AVG(dr.rating) AS average_rating
+      FROM users AS u
+      LEFT JOIN deals_ratings AS dr ON u.id = dr.userid
+      WHERE u.id = ?
+      GROUP BY u.id
+    `;
     const [rows] = await db.execute(statement, [userId]);
     return rows[0];
   },
