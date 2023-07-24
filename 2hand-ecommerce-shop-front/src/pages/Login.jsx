@@ -36,17 +36,19 @@ export function Login() {
   }, [currentUser, navigate]);
 
   return (
-    <div className="login-page">
-      <form onSubmit={onSubmit} className="login-form">
+    <div className="loginPage">
+      <form onSubmit={onSubmit} className="loginForm">
         <h1>TROCO</h1>
         <h2>Log into your account</h2>
         <div className="inputLogin">
           <label htmlFor="username"></label>
           <input
+            className="inputLogin2"
             type="text"
             id="username"
             name="username"
             placeholder="User Name"
+            required
             onChange={(evt) =>
               setPayload({ ...payload, username: evt.target.value })
             }
@@ -55,10 +57,12 @@ export function Login() {
         <div className="inputLogin">
           <label htmlFor="email"></label>
           <input
+          className="inputLogin2"
             type="email"
             id="email"
             name="email"
             placeholder="Email Address"
+            required
             onChange={(evt) =>
               setPayload({ ...payload, email: evt.target.value })
             }
@@ -67,18 +71,20 @@ export function Login() {
         <div className="inputLogin">
           <label htmlFor="password"></label>
           <input
+          className="inputLogin2"
             type="password"
             id="password"
             name="password"
             placeholder="Password"
+            required
             onChange={(evt) =>
               setPayload({ ...payload, password: evt.target.value })
             }
           />
         </div>
-        <button className="buttonLogin">Login</button>
-        <p className="pRegister">
-          Don&apos;t have an account? <Link to="/Register"  className="register-link">Register</Link>
+        <button className="loginButton">Login</button>
+        <p className="pLogin">
+          Don&apos;t have an account? <Link to="/Register"  className="registerLogin">Register</Link>
         </p>
       </form>
     </div>

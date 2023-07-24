@@ -30,8 +30,8 @@ export function ItemProduct() {
                                 <p className="userName">Richard Fortus</p>
                                 <StarRating />
                             </div>
-                            <div className="userButtonWrapper">
-                                <button onClick="#">EXCHANGE</button>
+                            <div className="contenedorUserButtonWrapper">
+                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
                             </div>
                         </div>
                     </div>
@@ -56,8 +56,8 @@ export function ItemProduct() {
                                 <p className="userName">Duff McKagan</p>
                                 <StarRating />
                             </div>
-                            <div className="userButtonWrapper">
-                                <button onClick="#">EXCHANGE</button>
+                            <div className="contenedorUserButtonWrapper">
+                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
                             </div>
                         </div>
                     </div>
@@ -82,8 +82,8 @@ export function ItemProduct() {
                                 <p className="userName">Slash</p>
                                 <StarRating />
                             </div>
-                            <div className="userButtonWrapper">
-                                <button onClick="#">EXCHANGE</button>
+                            <div className="contenedorUserButtonWrapper">
+                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
                             </div>
                         </div>
                     </div>
