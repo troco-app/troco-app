@@ -1,33 +1,35 @@
 import "../assets/css/pagescss/ValidationCode.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { sendValidation } from "../api/send-validation-code";
 
 export function ValidationCode() {
+  let location = useLocation();
+  let email = location.state.email;
   const [payload, setPayload] = useState({
-    email: "",
+    email: email,
     code: "",
   });
+
+  const navigate = useNavigate();
+
+  async function onSubmit(evt) {
+    evt.preventDefault();
+    try {
+      console.log("1");
+      await sendValidation(payload);
+      navigate("/Login");
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <>
       <h1 className="title">
-        We have sent you an email with the code, enter here the code puto
+        We have sent you an email with the code to {payload.email}
       </h1>
-      <form action="" className="form">
-        <div className="input-field">
-          <label htmlFor="email"></label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email Address"
-            className="input"
-            onChange={(evt) =>
-              setPayload({ ...payload, email: evt.target.value })
-            }
-          />
-        </div>
+      <form onSubmit={onSubmit} className="form">
         <div className="input-field">
           <label htmlFor="code"></label>
           <input
@@ -41,8 +43,10 @@ export function ValidationCode() {
             }
           />
         </div>
+        <button type="submit" className="btn">
+          Send Validation Code
+        </button>
       </form>
-      <button className="btn">Send Validation Code</button>
     </>
   );
 }

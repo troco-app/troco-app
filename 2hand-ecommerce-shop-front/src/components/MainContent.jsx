@@ -7,9 +7,10 @@ import { AddProduct } from "../pages/AddProduct.jsx";
 import { StoreDetail } from "../pages/StoreDetail.jsx";
 import { UserDeals } from "../pages/UserDeals.jsx";
 import { WishList } from "../pages/WishList.jsx";
-import { TestContext } from "../pages/TestContext.jsx";
 import { Login } from "../pages/Login.jsx";
 import { ValidationCode } from "../pages/ValidationCode.jsx";
+import { ItemPage } from "../pages/ItemPage.jsx";
+import { SellerPage } from "../pages/SellerPage.jsx";
 
 export function MainContent() {
   return (
@@ -24,8 +25,9 @@ export function MainContent() {
         <Route path="/StoreDetail" element={<StoreDetail />} />
         <Route path="/UserDeals" element={<UserDeals />} />
         <Route path="/WishList" element={<WishList />} />
-        <Route path="/TestContext" element={<TestContext />} />
         <Route path="/ValidationCode" element={<ValidationCode />} />
+        <Route path="/ItemPage/:itemId" element={<ItemPage />} />
+        <Route path="/SellerPage/:sellerId" element={<SellerPage />} />
       </Routes>
     </main>
   );

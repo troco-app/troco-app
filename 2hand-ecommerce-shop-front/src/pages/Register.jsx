@@ -22,7 +22,7 @@ export function Register() {
     try {
       await sendRegister(payload);
       console.log(payload);
-      navigate("/ValidationCode");
+      navigate("/ValidationCode", { state: { email: payload.email } });
     } catch (error) {
       console.error(error);
     }

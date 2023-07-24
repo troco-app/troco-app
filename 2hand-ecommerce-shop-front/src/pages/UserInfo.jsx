@@ -11,27 +11,27 @@ export function UserInfo() {
   const id = currentUser?.id;
   const [userInfo, setUserInfo] = useState(null);
   const [userDeals, setUserDeals] = useState(null);
+  const [averageRating, setAverageRating] = useState(null);
 
   useEffect(() => {
     // Check if id is not null before making the API call
     if (id) {
       getUserInfo(id)
-        .then((data) => setUserInfo(data))
+        .then((data) => {
+          const averageRating = parseFloat(data.average_rating);
+          setAverageRating(averageRating); // Set average rating in state
+          setUserInfo(data);
+        })
         .catch((error) => console.error(error));
     }
-
     // Fetch user deals
     getUserDeals(token)
       .then((data) => setUserDeals(data))
       .catch((error) => console.error(error));
   }, [id, token]);
 
-  console.log(userInfo?.email);
-  console.log(token);
-  console.log(userDeals);
-
   // handle the loading state
-  if (!userInfo || !userDeals) {
+  if (!userInfo || !userDeals || averageRating === null) {
     return <div>Loading...</div>;
   }
 
@@ -40,7 +40,7 @@ export function UserInfo() {
       <section className="profile-section">
         <h1 className="profile-name">{userInfo.first_name}</h1>
         <img className="profile-image" src={userInfo.profile_img} alt="" />
-        <StarRating className="rating" rating={4} />
+        <StarRating className="rating" rating={averageRating} />
       </section>
       <section className="actions-section">
         <div className="headline">
