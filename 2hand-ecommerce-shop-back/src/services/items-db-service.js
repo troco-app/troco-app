@@ -42,10 +42,13 @@ module.exports = {
 
   async getItemsByUserId(user_id) {
     const statement = `
-        SELECT *
-        FROM items
-        WHERE user_id = ? 
-     `;
+      SELECT i.*, c.category_name, ii.imageURL, u.username
+      FROM items as i
+      LEFT JOIN category as c ON i.category_id = c.id
+      LEFT JOIN item_images as ii ON i.id = ii.item_id
+      LEFT JOIN users as u ON i.user_id = u.id
+      WHERE i.user_id = ? 
+    `;
     const [rows] = await db.execute(statement, [user_id]);
     return rows;
   },
@@ -73,10 +76,13 @@ module.exports = {
 
   async getItemById(item_id) {
     const statement = `
-        SELECT *
-        FROM items as i
-        WHERE i.id = ? 
-     `;
+      SELECT i.*, c.category_name, ii.imageURL, u.username
+      FROM items as i
+      LEFT JOIN category as c ON i.category_id = c.id
+      LEFT JOIN item_images as ii ON i.id = ii.item_id
+      LEFT JOIN users as u ON i.user_id = u.id
+      WHERE i.id = ? 
+    `;
     const [rows] = await db.execute(statement, [item_id]);
     return rows[0];
   },
