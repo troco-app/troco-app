@@ -16,9 +16,11 @@ export function ItemProduct() {
                             className="imageProduct"
                             style={{ backgroundImage: `url(${chinon})` }}
                         ></div>
-                        <button className="wishlist-button-product">
-                            <FaHeart className="faHeart" /> Wishlist
-                        </button>
+                        <a className="buttonWishList" href="/wishlist">
+                            <button className="wishListButtonProduct">
+                                <FaHeart className="faHeart" /> Wishlist
+                            </button>
+                        </a>
                         <h2 className="categoriesProduct">Retro Cameras</h2>
                         <h3 className="nameProduct">Chinon Super 8</h3>
                         <p className="paragraphProduct">
@@ -31,7 +33,17 @@ export function ItemProduct() {
                                 <StarRating />
                             </div>
                             <div className="contenedorUserButtonWrapper">
-                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
+                                <a
+                                    className="buttonExchangeProduct"
+                                    href="/ExchangeProduct"
+                                >
+                                    <button
+                                        className="userButtonWrapper"
+                                        onClick=""
+                                    >
+                                        EXCHANGE
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -42,9 +54,13 @@ export function ItemProduct() {
                             className="imageProduct"
                             style={{ backgroundImage: `url(${masterSystem})` }}
                         ></div>
-                        <button className="wishlist-button-product">
-                            <FaHeart className="faHeart" /> Wishlist
-                        </button>
+
+                        <a className="buttonWishList" href="/wishlist">
+                            <button className="wishListButtonProduct">
+                                <FaHeart className="faHeart" /> Wishlist
+                            </button>
+                        </a>
+
                         <h2 className="categoriesProduct">Retro Consoles</h2>
                         <h3 className="nameProduct">Sega Master System</h3>
                         <p className="paragraphProduct">
@@ -57,7 +73,17 @@ export function ItemProduct() {
                                 <StarRating />
                             </div>
                             <div className="contenedorUserButtonWrapper">
-                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
+                                <a
+                                    className="buttonExchangeProduct"
+                                    href="/ExchangeProduct"
+                                >
+                                    <button
+                                        className="userButtonWrapper"
+                                        onClick=""
+                                    >
+                                        EXCHANGE
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -68,9 +94,11 @@ export function ItemProduct() {
                             className="imageProduct"
                             style={{ backgroundImage: `url(${turbosquid})` }}
                         ></div>
-                        <button className="wishlist-button-product">
-                            <FaHeart className="faHeart" /> Wishlist
-                        </button>
+                        <a className="buttonWishList" href="/wishlist">
+                            <button className="wishListButtonProduct">
+                                <FaHeart className="faHeart" /> Wishlist
+                            </button>
+                        </a>
                         <h2 className="categoriesProduct">Retro Consoles</h2>
                         <h3 className="nameProduct">Sega Master System</h3>
                         <p className="paragraphProduct">
@@ -83,7 +111,17 @@ export function ItemProduct() {
                                 <StarRating />
                             </div>
                             <div className="contenedorUserButtonWrapper">
-                                <button className="userButtonWrapper" onClick="#">EXCHANGE</button>
+                                <a
+                                    className="buttonExchangeProduct"
+                                    href="/ExchangeProduct"
+                                >
+                                    <button
+                                        className="userButtonWrapper"
+                                        onClick=""
+                                    >
+                                        EXCHANGE
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>

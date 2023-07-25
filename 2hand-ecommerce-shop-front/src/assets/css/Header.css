@@ -21,10 +21,14 @@
     height: 2.0rem;   
 }
 
-/*Pop-up button*/
+/* button login*/
 
 .material-symbols-rounded {
     color: rgb(210, 210, 210);
+}
+
+.aButtonLogin {
+    text-decoration: none;
 }
 
 .popupHome {
@@ -42,7 +46,7 @@
     border-width:thin;
     border-radius: 2rem;
     cursor: pointer;
-        
+     
 }
 
 .popupHome .userhome {
@@ -54,6 +58,7 @@
     grid-area: navbar;
     width: 100%;
 }
+
 
   @media screen and (min-width: 768px) {
     .navPrincipal {

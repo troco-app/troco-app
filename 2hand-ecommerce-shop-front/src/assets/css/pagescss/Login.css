@@ -25,9 +25,12 @@
   padding: 1.5rem 2.5rem 1.5rem 2.5rem; 
 }
 
-.loginForm h1 {
-  font-size: 2rem;
-  padding-bottom: 0.5rem;
+.aLogin {
+  text-decoration: none;
+}
+.aLogin .material-symbols-rounded{
+  text-decoration: none;
+  color:black;
 }
 
 .loginForm h2 {
