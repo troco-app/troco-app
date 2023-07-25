@@ -5,7 +5,9 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="section1">
-        <h3>T</h3>
+        <a className="aFooter1" href="/">
+          <h2 className="footerH2">T</h2>
+        </a>
       </div>
       <div className="section2">
         <ul className="ulFooter">
@@ -34,10 +36,12 @@ export function Footer() {
         </ul>
       </div>
       <div className="section4">
+        <a href="/">
         <div
           className="logoFooter"
           style={{ backgroundImage: `url(${imagen})` }}
         ></div>
+        </a>
         <div className="copyrightFooter">
           <p>Troco Copyright © 2023</p>
         </div>

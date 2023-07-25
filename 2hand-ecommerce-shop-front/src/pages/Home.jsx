@@ -10,6 +10,7 @@ import { ItemsPocket } from "../components/ItemsPocket";
 import "../assets/css/Home.css";
 import { ItemProduct } from "../components/ItemProduct";
 
+
 export function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [atari, nintendo, psp];
@@ -30,14 +31,14 @@ export function Home() {
           <h2>Game on!</h2>
           <nav className="sectionLinks">
             <button className="buttonPageSection">
-              <a href="#">EXPLORE ALL PRODUCTS</a>
+              <a href="/AllProductsPage">EXPLORE ALL PRODUCTS</a>
             </button>
           </nav>
         </div>
         <img src={images[currentImage]} alt="Imagen" className="sectionImage" />
       </section>
       <ItemsPocket />
-       <ItemProduct/> 
+      <ItemProduct/> 
       <Box />
       <Footer />
     </>

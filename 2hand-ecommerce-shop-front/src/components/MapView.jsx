@@ -36,7 +36,8 @@ function MapView({ city }) {
     <MapContainer
       center={position}
       zoom={13}
-      style={{ height: "50vh", width: "100%" }}
+      style={{ height: "25vh", width: "100%", borderRadius:"0.5rem"}}
+      
     >
       <ChangeView center={position} zoom={13} />
       <TileLayer

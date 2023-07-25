@@ -42,7 +42,11 @@
     margin-right: 50px;
 }
 
-.footer h3 {
+.section1 .aFooter1{
+    text-decoration: none;
+}
+
+.footer .footerH2 {
     font-size: 2rem;
     color: white;
     text-align: left;

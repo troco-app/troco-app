@@ -62,7 +62,7 @@ export function Box() {
     const { name, quote, image, stars } = testimonials[currentTestimonial];
   
     return (
-      <section className="box-content">
+      <section className="boxContent">
         <h1 className="boxH1">What they think about us:</h1>
         <div className="testimonials">
           <h2 className="boxH2">{name} says:</h2>
@@ -72,7 +72,7 @@ export function Box() {
               className="imageUser"
               style={{ backgroundImage: `url(${image})` }}
             ></div>
-            <div className="text-wrapper">{name}</div>
+            <div className="textWrapper">{name}</div>
             <div
               className="stars"
               style={{ backgroundImage: `url(${stars})` }}

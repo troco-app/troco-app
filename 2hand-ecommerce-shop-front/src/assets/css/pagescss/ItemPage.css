@@ -1,71 +1,81 @@
-.main-container {
-  background-color: #fff;
-  color: #000;
-  font-family: Arial, sans-serif;
+.mainContainer {
+  
+  
 }
 
-.product-section {
+.productSection {
   display: flex;
-  justify-content: space-around;
-  margin: 2em 0;
+  margin:1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.10);
 }
 
-.product-image img {
-  max-width: 300px;
-  border: 2px solid #000;
+.productImage img {
+  max-width: 200px;
+  margin:1rem;
+  border-radius: 1rem;
 }
 
-.product-details {
-  max-width: 400px;
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+  color: white;
 }
 
-.product-name {
-  font-size: 2em;
+.ownerDetails{
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+}
+
+.productName {
+  font-size: medium;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5rem;
 }
 
-.product-description {
-  font-size: 1em;
-  color: #333;
+.productDescription {
+  font-size: small;
+  margin-bottom: 1rem;
 }
 
-.owner-details {
+.ownerDetails {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 1em;
+  align-items: flex-start;
 }
 
-.owner-name {
-  font-size: 1.2em;
+.ownerName {
+  font-size: medium;
+
   font-weight: bold;
 }
 
-.other-products {
-  margin: 2em 0;
+.otherProducts {
+  margin-top: 2rem;
+  color:white;
+  
 }
 
-.other-products-images {
+.otherProducts .otherProductsH3 {
+  margin: 1rem;
+}
+
+@media (max-width: 400px){
+.productSection{
   display: flex;
-  overflow-x: scroll;
-  gap: 20px; /* Adds space between items */
+  flex-direction: column;
+}
 }
 
-.other-products-images img {
-  max-width: 200px;
-  border: 2px solid #000;
-}
 
-.scrollable {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px; /* Adds space between items */
-}
 
-.product-card {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 250px; /* adjust as necessary */
-  margin-right: 10px;
-}
+
+
+
+
+
+
+

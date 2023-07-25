@@ -27,8 +27,8 @@
 }
 
 
-.form h1 {
-  font-size: 2rem;
+.aRegister .registerH1 {
+  color: black;
   padding-bottom: 0.5rem;
 }
 
