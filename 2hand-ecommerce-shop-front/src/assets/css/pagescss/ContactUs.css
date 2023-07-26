@@ -1,0 +1,24 @@
+.sectionContactUs {
+    color: rgb(174, 167, 167);
+    font-size: medium;
+    margin:2rem;
+}
+
+.pContactUs{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    word-spacing: 4px;
+    line-height: 1.5rem;
+}
+
+.spanInfoTroco {
+    font-weight: bold;
+    color: white;
+}
+
+.map {
+    border:1px solid orange;
+    height:250px;
+    width:100%;
+    border-radius: 1rem;
+}

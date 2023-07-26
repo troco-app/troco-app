@@ -13,6 +13,7 @@ import { ValidationCode } from "../pages/ValidationCode.jsx";
 import { ItemPage } from "../pages/ItemPage.jsx";
 import { SellerPage } from "../pages/SellerPage.jsx";
 import { AllProductsPage } from "../pages/AllProductsPage.jsx";
+import { ContactUs } from "../pages/ContactUs.jsx";
 
 export function MainContent() {
   return (
@@ -32,6 +33,7 @@ export function MainContent() {
         <Route path="/ValidationCode" element={<ValidationCode />} />
         <Route path="/ItemPage/:itemId" element={<ItemPage />} />
         <Route path="/SellerPage/:sellerId" element={<SellerPage />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </main>
   );
