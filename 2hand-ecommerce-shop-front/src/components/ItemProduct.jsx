@@ -39,7 +39,7 @@ export function ItemProduct() {
                                 >
                                     <button
                                         className="userButtonWrapper"
-                                        onClick=""
+                                        
                                     >
                                         EXCHANGE
                                     </button>
@@ -79,7 +79,7 @@ export function ItemProduct() {
                                 >
                                     <button
                                         className="userButtonWrapper"
-                                        onClick=""
+                                        
                                     >
                                         EXCHANGE
                                     </button>
@@ -117,7 +117,7 @@ export function ItemProduct() {
                                 >
                                     <button
                                         className="userButtonWrapper"
-                                        onClick=""
+                                        
                                     >
                                         EXCHANGE
                                     </button>
