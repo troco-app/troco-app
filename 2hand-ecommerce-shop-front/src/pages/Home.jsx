@@ -10,39 +10,48 @@ import { ItemsPocket } from "../components/ItemsPocket";
 import "../assets/css/Home.css";
 import { ItemProduct } from "../components/ItemProduct";
 
-
 export function Home() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [atari, nintendo, psp];
+    const [currentImage, setCurrentImage] = useState(0);
+    const images = [atari, nintendo, psp];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+        }, 5000);
 
-    return () => clearInterval(interval);
-  }, [images.length]);
-  return (
-    <>
-      <Categories />
-      <section className="pageSectionNav">
-        <div className="leftContainer">
-          <h1>Trade your treasure and</h1>
-          <h2>Game on!</h2>
-          <nav className="sectionLinks">
-            <button className="buttonPageSection">
-              <a href="/AllProductsPage">EXPLORE ALL PRODUCTS</a>
-            </button>
-          </nav>
-        </div>
-        <img src={images[currentImage]} alt="Imagen" className="sectionImage" />
-      </section>
-      <ItemsPocket />
-      <ItemProduct/> 
-      <Box />
-      <Footer />
-    </>
-  );
+        return () => clearInterval(interval);
+    }, [images.length]);
+    return (
+        <>
+            <header>
+                <Categories />
+            </header>
+            <main>
+                <section className="pageSectionNav">
+                    <div className="leftContainer">
+                        <h1>Trade your treasure and</h1>
+                        <h2>Game on!</h2>
+                        <nav className="sectionLinks">
+                            <a href="/AllProductsPage">
+                                <button className="buttonPageSection">
+                                    EXPLORE ALL PRODUCTS
+                                </button>
+                            </a>
+                        </nav>
+                    </div>
+                    <img
+                        src={images[currentImage]}
+                        alt="Trade Your Treasure"
+                        className="sectionImage"
+                    />
+                </section>
+                <ItemsPocket />
+                <ItemProduct />
+                <Box />
+            </main>
+            <Footer />
+        </>
+    );
 }
 
 export default Home;
