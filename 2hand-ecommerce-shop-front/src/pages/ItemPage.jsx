@@ -37,33 +37,39 @@ export function ItemPage() {
 
     return (
         <>
-            <Categories />
-            <div className="mainContainer">
-                <section className="productSection">
-                    <div className="productImage">
-                        <img
-                            src={`${BASE_URL}${item.imageURL}`}
-                            alt="imagenItem"
-                        />
-                    </div>
-                    <div className="productDetails">
-                        <h2 className="productName">{item.name}</h2>
-                        <p className="productDescription">{item.description}</p>
-                        <div className="ownerDetails">
-                            <h3 className="ownerName">{item.username}</h3>
-                            <StarRating className="rating" rating={4} />
+            <header>
+                <Categories />
+            </header>
+            <main>
+                <article className="mainContainer">
+                    <section className="productSection">
+                        <div className="productImage">
+                            <img
+                                src={`${BASE_URL}${item.imageURL}`}
+                                alt={item.name}
+                            />
                         </div>
-                    </div>
-                </section>
-                <section className="otherProducts">
-                    <h3 className="otherProductsH3">
-                        Other Products from: {item.username}
-                    </h3>
-                    <div className="productList">
-                        <ProductList products={userItems} />
-                    </div>
-                </section>
-            </div>
+                        <div className="productDetails">
+                            <h1 className="productName">{item.name}</h1>
+                            <p className="productDescription">
+                                {item.description}
+                            </p>
+                            <div className="ownerDetails">
+                                <h2 className="ownerName">{item.username}</h2>
+                                <StarRating className="rating" rating={4} />
+                            </div>
+                        </div>
+                    </section>
+                    <section className="otherProducts">
+                        <h3 className="otherProductsH3">
+                            Other Products from: {item.username}
+                        </h3>
+                        <div className="productList">
+                            <ProductList products={userItems} />
+                        </div>
+                    </section>
+                </article>
+            </main>
             <Footer />
         </>
     );

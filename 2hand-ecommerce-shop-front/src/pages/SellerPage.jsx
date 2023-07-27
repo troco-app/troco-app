@@ -1,14 +1,14 @@
 import { Categories } from "../components/Categories";
-import { useEffect, useState } from "react";
-import StarRating from "../components/StarRating";
-import MapView from "../components/MapView";
-import { useParams } from "react-router-dom";
-import "leaflet/dist/leaflet.css";
-import "../assets/css/pagescss/SellerPage.css";
-import { getUserInfo } from "../api/get-user-info";
-import { fetchUserItems } from "../api/fetch-user-items";
 import { ProductList } from "../components/ProducList";
 import { Footer } from "../components/Footer";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getUserInfo } from "../api/get-user-info";
+import { fetchUserItems } from "../api/fetch-user-items";
+import StarRating from "../components/StarRating";
+import MapView from "../components/MapView";
+import "leaflet/dist/leaflet.css";
+import "../assets/css/pagescss/SellerPage.css";
 
 export function SellerPage() {
     const { sellerId } = useParams();
@@ -45,14 +45,14 @@ export function SellerPage() {
                         <div className="sellerImgUser">
                             <img
                                 src={sellerInfo.profile_img}
-                                alt="image"
+                                alt={`${sellerInfo.username}'s profile`}
                                 className="sellerImage"
                             />
                         </div>
                         <div className="infoUser">
-                            <h2 className="sellerName">
+                            <h1 className="sellerName">
                                 {sellerInfo.username}
-                            </h2>
+                            </h1>
                             <StarRating className="ratingSeller" rating={4} />
                         </div>
                     </div>
@@ -71,10 +71,7 @@ export function SellerPage() {
             </div>
             <a className="aSellerButtonBack" href="/">
                 <div className="buttonContainer">
-                    <button className="sellerButtonBack ">
-                        {" "}
-                        Back to troco
-                    </button>
+                    <button className="sellerButtonBack ">Back to Troco</button>
                 </div>
             </a>
             <Footer />

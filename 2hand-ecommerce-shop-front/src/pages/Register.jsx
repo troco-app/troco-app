@@ -30,7 +30,7 @@ export function Register() {
 
     return (
         <>
-            <div className="formRegister">
+            <main className="formRegister">
                 <form onSubmit={onSubmit} className="form">
                     <a className="aRegister " href="/">
                         <h1 className="registerH1 material-symbols-rounded">
@@ -177,7 +177,7 @@ export function Register() {
                         </Link>
                     </p>
                 </form>
-            </div>
+            </main>
         </>
     );
 }

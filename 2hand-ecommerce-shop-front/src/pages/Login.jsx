@@ -4,7 +4,6 @@ import { sendLogin } from "../api/send-login";
 import { AuthContext, LoginContext } from "../contexts/auth-context.jsx";
 import "../assets/css/pagescss/Login.css";
 
-
 //State to set the payload fo the form
 export function Login() {
     const [payload, setPayload] = useState({
@@ -37,14 +36,15 @@ export function Login() {
     }, [currentUser, navigate]);
 
     return (
-        <div className="loginPage">
+        <main className="loginPage">
             <form onSubmit={onSubmit} className="loginForm">
-                <a className="aLogin " href="/">
-                    <h1 className="loginH1 material-symbols-rounded">arrow_back_ios Troco</h1>
+                <a className="aLogin" href="/">
+                    <h1 className="loginH1 material-symbols-rounded">
+                        arrow_back_ios Troco
+                    </h1>
                 </a>
                 <h2>Log into your account</h2>
                 <div className="inputLogin">
-                    <label htmlFor="username"></label>
                     <input
                         className="inputLogin2"
                         type="text"
@@ -61,7 +61,6 @@ export function Login() {
                     />
                 </div>
                 <div className="inputLogin">
-                    <label htmlFor="email"></label>
                     <input
                         className="inputLogin2"
                         type="email"
@@ -75,7 +74,6 @@ export function Login() {
                     />
                 </div>
                 <div className="inputLogin">
-                    <label htmlFor="password"></label>
                     <input
                         className="inputLogin2"
                         type="password"
@@ -99,6 +97,6 @@ export function Login() {
                     </Link>
                 </p>
             </form>
-        </div>
+        </main>
     );
 }

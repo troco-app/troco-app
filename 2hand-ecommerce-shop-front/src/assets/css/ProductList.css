@@ -25,10 +25,20 @@
     margin-bottom: 0.5rem;
 }
 
+.aTitleProduct {
+    text-decoration: none;
+    color: inherit;
+}
+
 .textProductList .paragraphProductList {
     margin-bottom: 1rem;
     color: grey;
     font-style: italic;
+}
+
+.textProductList .paragraphProductList a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .titleProduct,
