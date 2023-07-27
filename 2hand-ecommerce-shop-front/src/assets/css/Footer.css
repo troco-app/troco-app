@@ -5,6 +5,9 @@
     background-color: #222;
     padding: 2rem;
 }
+.section1 {
+    margin-bottom: 1.5rem;
+}
 
 .ulFooter li {
     list-style: none;
@@ -19,15 +22,34 @@
 }
 
 .ulFooter li a {
-    font-size: large;
+    font-size: small;
     text-decoration: none;
-    color: white;
+    color: grey;
 }
 
 .ulFooter2 li a {
-    font-size: large;
+    font-size: small;
     text-decoration: none;
+    color: grey;
+}
+
+.footerContact {
+    color: grey;
+    font-size: small;
+    word-spacing: 4px;
+    line-height: 1.5rem;
+}
+
+.footerContact {
+    font-weight: bold;
     color: white;
+}
+
+.section3H3,
+.section2H3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
 }
 
 .logoFooter {
@@ -42,7 +64,7 @@
     margin-right: 50px;
 }
 
-.section1 .aFooter1{
+.section1 .aFooter1 {
     text-decoration: none;
 }
 
@@ -57,11 +79,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4.0rem;
+    height: 4rem;
     margin-bottom: 0.5rem;
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
 }
 
 .copyrightFooter {
@@ -72,26 +94,21 @@
 }
 
 @media (min-width: 768px) {
-
     .footer {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-        
-      }
-      
-      .section1,
-      .section2,
-      .section3,
-      .section4 {
+    }
+
+    .section1,
+    .section2,
+    .section3,
+    .section4 {
         padding: 1rem;
-      }
-      
-      .logoFooter {
+    }
+
+    .logoFooter {
         width: 100px;
         height: 100px;
-      }
-    
-     
-      
+    }
 }

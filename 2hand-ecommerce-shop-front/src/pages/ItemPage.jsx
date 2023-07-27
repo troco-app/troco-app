@@ -50,19 +50,7 @@ export function ItemPage() {
       <div className="mainContainer">
         <section className="productSection">
           <div className="productImage">
-            <img
-              src={`${BASE_URL}${item.imageURL}`}
-              alt={`Main image of ${item.name}`}
-            />
-          </div>
-          <div className="productImages">
-            {itemImages.slice(1).map((img, index) => (
-              <img
-                key={img.id}
-                src={`${BASE_URL}${img.imageURL}`}
-                alt={`Additional image ${index + 1} of ${item.name}`}
-              />
-            ))}
+            <img src={`${BASE_URL}${item.imageURL}`} alt="imagenItem" />
           </div>
           <div className="productDetails">
             <h2 className="productName">{item.name}</h2>

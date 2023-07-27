@@ -1,88 +1,102 @@
 .loginPage {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8), black);
-  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8));
-  background-position: 0 0;
-  background-size: 100% 200%;
-  transition: background-position 0.5s ease-in-out;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        black,
+        rgba(226, 130, 16, 0.8),
+        black
+    );
+    background-image: linear-gradient(
+        to bottom,
+        black,
+        rgba(226, 130, 16, 0.8)
+    );
+    background-position: 0 0;
+    background-size: 100% 200%;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .loginPage:hover {
-  background-position: 0 100%;
+    background-position: 0 100%;
 }
 
 .loginForm {
-  background-color: white;
-  max-width: 500px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem; 
+    background-color: white;
+    max-width: 500px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
 }
 
 .aLogin {
-  text-decoration: none;
+    text-decoration: none;
 }
-.aLogin .material-symbols-rounded{
-  text-decoration: none;
-  color:black;
+.aLogin .material-symbols-rounded {
+    text-decoration: none;
+    color: black;
+}
+
+.loginForm h1 {
+    margin-top: 16px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .loginForm h2 {
-  margin-top: 16px;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+    margin-top: 16px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .inputLogin .inputLogin2 {
-  border: none;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
-  width: 100%;
-  padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 10px;
 }
 
 .loginForm label {
-  display: block;
-  margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .loginPage > .loginForm > .loginButton {
-  width: 100%;
-  padding: 10px;
-  background-color: #e28210;
-  border: none;
-  border-radius: 2rem;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 1rem;
+    width: 100%;
+    padding: 10px;
+    background-color: #e28210;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .loginPage .loginForm .loginButton:hover {
-  background-color: grey;
+    background-color: grey;
 }
 
 .loginForm p {
-  text-align: center;
+    text-align: center;
 }
 
 .loginForm a {
-  color: black;
+    color: black;
 }
 
 .pLogin {
-  color: grey;
-  font-size: small;
+    color: grey;
+    font-size: small;
 }
 
 .pLogin .registerLogin {
-  font-weight: bold;
-  text-decoration: none;
+    font-weight: bold;
+    text-decoration: none;
 }
-

@@ -29,8 +29,10 @@
 .paragraph {
     font-style: italic;
     overflow: hidden;
-    height: 100px;
     overflow-y: auto;
+    height: 100px;
+    word-spacing: 4px;
+    line-height: 1.5rem;
 }
 
 .contenedorUser {
