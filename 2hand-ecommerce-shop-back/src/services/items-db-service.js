@@ -42,11 +42,16 @@ module.exports = {
 
   async getItemsByUserId(user_id) {
     const statement = `
-      SELECT i.*, c.category_name, ii.imageURL, u.username
+      SELECT i.*, c.category_name, ii.imageURL, u.username, u2.user_average_rating
       FROM items as i
       LEFT JOIN category as c ON i.category_id = c.id
       LEFT JOIN item_images as ii ON i.id = ii.item_id
       LEFT JOIN users as u ON i.user_id = u.id
+      LEFT JOIN (
+        SELECT userid, AVG(rating) AS user_average_rating
+        FROM deals_ratings
+        GROUP BY userid
+      ) AS u2 ON i.user_id = u2.userid
       WHERE i.user_id = ? 
     `;
     const [rows] = await db.execute(statement, [user_id]);
@@ -76,15 +81,30 @@ module.exports = {
 
   async getItemById(item_id) {
     const statement = `
-      SELECT i.*, c.category_name, ii.imageURL, u.username
+      SELECT i.*, c.category_name, ii.imageURL, u.username, u2.user_average_rating
       FROM items as i
       LEFT JOIN category as c ON i.category_id = c.id
       LEFT JOIN item_images as ii ON i.id = ii.item_id
       LEFT JOIN users as u ON i.user_id = u.id
+      LEFT JOIN (
+        SELECT userid, AVG(rating) AS user_average_rating
+        FROM deals_ratings
+        GROUP BY userid
+      ) AS u2 ON i.user_id = u2.userid
       WHERE i.id = ? 
     `;
     const [rows] = await db.execute(statement, [item_id]);
     return rows[0];
+  },
+
+  async getItemImageById(item_id) {
+    const statement = `
+    SELECT id, imageURL
+    FROM item_images
+    WHERE item_id = ?;
+  `;
+    const [rows] = await db.execute(statement, [item_id]);
+    return rows;
   },
 
   async modifyItem(item_id, modifiedItem) {

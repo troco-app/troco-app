@@ -9,6 +9,7 @@ const {
   getAllItems,
   getItemById,
   getItemsByUserId,
+  getItemImageById,
 } = require("../services/items-db-service");
 
 //Use Cases
@@ -113,6 +114,15 @@ router.delete(
       succes: true,
       data: "TROCO item deleted",
     });
+  })
+);
+
+//View Item images by ID
+router.get(
+  "/items/:id/images",
+  asyncErrors(async (req, res) => {
+    const result = await getItemImageById(req.params.id);
+    res.status(200).json(result);
   })
 );
 
