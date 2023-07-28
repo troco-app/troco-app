@@ -1,5 +1,5 @@
 import { Categories } from "../components/Categories";
-import { PocketCardList } from "../components/PokectCardList";
+import { PocketCardList } from "../components/PocketCardList";
 import { Footer } from "../components/Footer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -61,7 +61,8 @@ export function StoreDetail() {
             <MapView city={sellerInfo.city} className="mapView" />
           </div>
         </article>
-        <article className="sellerProduct">
+        <article className="storeDetailPocket">
+        <h3 className="titleProductsH3">Things offer to exchange:</h3>
           <PocketCardList products={userItems} />
         </article>
       </div>
