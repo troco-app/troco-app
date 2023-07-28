@@ -3,47 +3,46 @@
     font-size: medium;
     margin: 2rem;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos internos se apilen verticalmente */
-  }
-  
-  .pageHeading {
-    color:white;
-  }
+    flex-direction: column;
+}
 
-  .pContactUs {
+.pageHeading {
+    color: white;
+}
+
+.pContactUs {
     margin-bottom: 2rem;
     margin-top: 1rem;
     word-spacing: 4px;
     line-height: 1.5rem;
-  }
-  
-  .spanInfoTroco {
+}
+
+.spanInfoTroco {
     font-weight: bold;
     color: white;
-  }
-  
-  .containerMap {
+}
+
+.containerMap {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos internos se apilen verticalmente */
-  }
-  
-  .map {
+    flex-direction: column;
+}
+
+.map {
     border: 1px solid orange;
     height: 250px;
     width: 100%;
     border-radius: 1rem;
-  }
-  
-  /* Estilos para pantallas de 768px o más */
-  @media (min-width: 768px) {
+}
+
+/* Estilos para pantallas de 768px o más */
+@media (min-width: 768px) {
     .sectionContactUs {
-      flex-direction: row; /* Cambia la dirección del flex para colocar el contenido a la izquierda y el mapa a la derecha */
-      justify-content: space-between; /* Alinea los elementos al comienzo y final del contenedor */
+        flex-direction: row;
+        justify-content: space-between;
     }
-  
+
     .containerMap {
-      width: 50%; /* Ajusta el ancho del contenedor del mapa según tus necesidades */
-      margin-left: 1rem; /* Añade margen a la izquierda para separar del contenido */
+        width: 50%;
+        margin-left: 1rem;
     }
-  }
-  
+}
