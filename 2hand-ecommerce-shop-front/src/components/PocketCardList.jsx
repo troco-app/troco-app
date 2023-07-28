@@ -1,4 +1,4 @@
-import "../assets/css/PokectCardList.css";
+import "../assets/css/PocketCardList.css";
 import { ItemCardPocket } from "./ItemCardPocket"; // Import your ItemCardBig component
 
 /* eslint-disable react/prop-types */

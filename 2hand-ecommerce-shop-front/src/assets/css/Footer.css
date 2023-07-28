@@ -33,17 +33,6 @@
     color: grey;
 }
 
-.footerContact {
-    color: grey;
-    font-size: small;
-    word-spacing: 4px;
-    line-height: 1.5rem;
-}
-
-.footerContact {
-    font-weight: bold;
-    color: white;
-}
 
 .section3H3,
 .section2H3 {
@@ -100,15 +89,20 @@
         gap: 1rem;
     }
 
-    .section1,
-    .section2,
-    .section3,
-    .section4 {
-        padding: 1rem;
-    }
-
     .logoFooter {
         width: 100px;
         height: 100px;
+    }
+
+    .section2 {
+        margin-top: 0.5rem;
+    }
+
+    .section3 {
+        margin-top: 0.5rem;
+    }
+
+    .section4 {
+        margin-top: -1.75rem;
     }
 }
