@@ -1,4 +1,4 @@
-import "../assets/css/pagescss/ItemPage.css";
+import "../assets/css/pagescss/ProductPage.css";
 import StarRating from "../components/StarRating";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -7,9 +7,9 @@ import { fetchItemImages } from "../api/fetch-item-images";
 import { fetchUserItems } from "../api/fetch-user-items";
 import { Categories } from "../components/Categories";
 import { Footer } from "../components/Footer";
-import { ProductList } from "../components/ProducList";
+import { BigCardList } from "../components/BigCardList";
 
-export function ItemPage() {
+export function ProductPage() {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [userItems, setUserItems] = useState([]);
@@ -78,7 +78,7 @@ export function ItemPage() {
             Other Products from: {item.username}
           </h3>
           <div className="productList">
-            <ProductList products={userItems} />
+            <BigCardList products={userItems} />
           </div>
         </section>
       </div>
