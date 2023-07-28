@@ -1,5 +1,5 @@
 import { Categories } from "../components/Categories";
-import { BigCardList } from "../components/BigCardList";
+import { PocketCardList } from "../components/PokectCardList";
 import { Footer } from "../components/Footer";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -62,7 +62,7 @@ export function StoreDetail() {
           </div>
         </article>
         <article className="sellerProduct">
-          <BigCardList products={userItems} />
+          <PocketCardList products={userItems} />
         </article>
       </div>
       <a className="aSellerButtonBack" href="/">
