@@ -10,8 +10,7 @@
   border-radius: 1rem;
 }
 
-.sellerArticle,
-.sellerProduct {
+.storeDetailPocket {
   margin:0.5rem;
   flex: 1 0 100%;
 }
@@ -66,13 +65,18 @@
   height: 100px;
 }
 
+.titleProductsH3 {
+  margin: 2rem 1rem 2rem;
+  font-weight: 300;
+}
+
 .aSellerButtonBack{
   text-decoration: none;
 }
 
 @media (min-width: 768px) {
-  .sellerArticle,
-  .sellerProduct {
+  
+  .storeDetailPocket {
     flex: 1; 
   }
 

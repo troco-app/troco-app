@@ -5,11 +5,9 @@ import { Box } from "../components/Box";
 import atari from "../assets/img/Atari-2600.jpg";
 import nintendo from "../assets/img/nintendo.jpg";
 import psp from "../assets/img/psp.jpg";
-import { ItemsPocket } from "../components/ItemsPocket";
 import "../assets/css/Home.css";
-import { ItemProduct } from "../components/ItemProduct";
 import { fetchLatestProduct } from "../api/fetch-latest-products";
-import { PocketCardList } from "../components/PokectCardList";
+import { PocketCardList } from "../components/PocketCardList";
 import { BigCardList } from "../components/BigCardList";
 
 export function Home() {
@@ -58,10 +56,10 @@ export function Home() {
             className="sectionImage"
           />
         </section>
+        <h2 className="h2CardList">Fresh from the oven</h2>
         <PocketCardList products={latestProducts} />
+        <h2 className="h2BigCardList">Most exchanged goodies</h2>
         <BigCardList products={latestProducts} />
-        <ItemsPocket />
-        <ItemProduct />
         <Box />
       </main>
       <Footer />

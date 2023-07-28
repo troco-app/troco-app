@@ -9,7 +9,6 @@ export function Footer() {
       <h2 className="footerH2">T</h2>
     </a>
     
-    <p className="footerContact">Contact: <span className="footerContact">info@troco.pro</span></p>
   </nav>
   <nav className="section2">
     <h3 className="section2H3">Explore</h3>

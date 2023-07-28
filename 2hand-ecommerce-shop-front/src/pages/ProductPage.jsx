@@ -75,27 +75,24 @@ export function ProductPage() {
                             <h3 className="ownerName">{item.username}</h3>
                             <StarRating className="rating" rating={4} />
                         </div>
-                        <div className="contenedorUserButtonWrapper">
-                                <a
-                                    className="buttonExchangeProduct"
-                                    href="/ExchangeProduct"
-                                >
-                                    <button
-                                        className="userButtonWrapper"
-                                        
-                                    >
-                                        EXCHANGE
-                                    </button>
-                                </a>
-                            </div>
+                        <div className="contenedorButtonProductPage">
+                            <a
+                                className="buttonExchangeProduct"
+                                href="/ExchangeProduct"
+                            >
+                                <button className="userButtonWrapper">
+                                    EXCHANGE
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </section>
-                <section className="otherProducts">
                     <h3 className="otherProductsH3">
                         Other Products from: {item.username}
                     </h3>
+                <section className="otherProducts">
                     <div className="productList">
-                        <BigCardList products={userItems} />
+                        <BigCardList products={userItems} className="bigCardList"/>
                     </div>
                 </section>
             </div>
