@@ -4,12 +4,7 @@ import { ItemCardBig } from "./ItemCardBig"; // Import your ItemCardBig componen
 /* eslint-disable react/prop-types */
 export function BigCardList({ products }) {
   return (
-<<<<<<< HEAD
-    <div className="sellerProducItems">
-=======
     <div className="sellerProductItems">
-      
->>>>>>> cbd4acfc477b28aeaa643939f467f950fe86511d
       {products
         .filter((product) => product.status === "available")
         .map((product) => (
