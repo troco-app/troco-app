@@ -15,7 +15,6 @@ import { BigCardList } from "../components/BigCardList";
 export function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [atari, nintendo, psp];
-  const [allProducts, setAllProducts] = useState([]);
   const [latestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export function Home() {
   useEffect(() => {
     fetchLatestProduct()
       .then((data) => {
-        setAllProducts(data);
         const firstThreeProducts = data.slice(0, 3);
         setLatestProducts(firstThreeProducts);
       })

@@ -5,7 +5,6 @@ import { ItemCardBig } from "./ItemCardBig"; // Import your ItemCardBig componen
 export function BigCardList({ products }) {
   return (
     <div className="sellerProducItems">
-      <h1 className="productListH1">Things offer to exchange:</h1>
       {products
         .filter((product) => product.status === "available")
         .map((product) => (
