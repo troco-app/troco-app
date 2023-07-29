@@ -1,0 +1,102 @@
+/* AddProduct.css */
+
+.AddProduct-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 100vh;
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.product-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-left,
+.form-right {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  padding: 10px;
+  background-color: #444;
+  border: none;
+  color: white;
+}
+
+.drag-drop {
+  height: 200px;
+  border: 2px dashed white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.submit-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background-color: #444;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #666;
+}
+.image-preview {
+  position: relative;
+  display: inline-block;
+}
+
+.image-preview button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}

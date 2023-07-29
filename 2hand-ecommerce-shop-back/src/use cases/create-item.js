@@ -16,5 +16,6 @@ module.exports = async (currentUserId, payload) => {
   };
 
   //Save Object in the DDBB
-  await saveItem(newItem);
+  const newItemId = await saveItem(newItem);
+  return newItemId; // Return the ID of the new item
 };

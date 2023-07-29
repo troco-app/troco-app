@@ -7,19 +7,26 @@ module.exports = {
 
   async saveItem(item) {
     const statement = `
-        INSERT INTO items(id,name,description,estimated_price,item_condition,status,category_id,user_id)
-        VALUES(?,?,?,?,?,?,?,?)
-        `;
-    await db.execute(statement, [
-      item.id,
-      item.name,
-      item.description,
-      item.estimated_price,
-      item.item_condition,
-      item.status,
-      item.category_id,
-      item.user_id,
-    ]);
+      INSERT INTO items(id, name, description, estimated_price, item_condition, status, category_id, user_id)
+      VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    try {
+      await db.execute(statement, [
+        item.id,
+        item.name,
+        item.description,
+        item.estimated_price,
+        item.item_condition,
+        item.status,
+        item.category_id,
+        item.user_id,
+      ]);
+
+      return item.id; // Return the ID of the newly inserted item
+    } catch (error) {
+      throw new Error("Failed to save the item.");
+    }
   },
 
   async saveImage(image) {
