@@ -7,6 +7,8 @@ import { AuthContext } from "../contexts/auth-context.jsx";
 import { uploadImage } from "../api/upload-image";
 import { DragAndDropUpload } from "../components/DragAndDropUpload";
 import "../assets/css/pagescss/AddProduct.css";
+import { Footer } from "../components/Footer";
+import { Categories } from "../components/Categories";
 
 export function AddProduct() {
   const [payload, setPayload] = useState({
@@ -49,139 +51,149 @@ export function AddProduct() {
     }
   };
   return (
-    <div className="AddProduct-page">
-      <div className="form-container">
-        <h1 className="title">
-          Fill in the info for a new Product {currentUser.username}
-        </h1>
-        <form onSubmit={onSubmit} className="product-form">
-          <div className="form-left">
-            <div className="form-group">
-              <label htmlFor="name"></label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Product Name"
-                className="form-input"
-                onChange={(evt) =>
-                  setPayload({
-                    ...payload,
-                    name: evt.target.value,
-                  })
-                }
+    <>
+      <Categories />
+      <div className="AddProduct-page">
+        <div className="form-container">
+          <h1 className="title">Fill in the info for a new Product</h1>
+
+          <form onSubmit={onSubmit} className="product-form">
+            <div className="form-right">
+              <DragAndDropUpload
+                handleFiles={handleFiles}
+                className="drag-drop"
               />
+              <div className="preview">
+                {selectedFiles.length > 0 &&
+                  Array.from(selectedFiles).map((file, index) => (
+                    <div key={index} className="image-preview">
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={`uploaded-${index}`}
+                        className="preview-img"
+                      />
+                      <button
+                        onClick={() => removeFile(index)}
+                        className="remove-btn"
+                      >
+                        X
+                      </button>
+                    </div>
+                  ))}
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="description"></label>
-              <input
-                type="text"
-                name="description"
-                id="description"
-                placeholder="Product Description"
-                className="form-input"
-                onChange={(evt) =>
-                  setPayload({
-                    ...payload,
-                    description: evt.target.value,
-                  })
-                }
-              />
+            <div className="form-left">
+              <div className="form-group">
+                <label htmlFor="name"></label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Product Name"
+                  className="form-input"
+                  onChange={(evt) =>
+                    setPayload({
+                      ...payload,
+                      name: evt.target.value,
+                    })
+                  }
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="estimated_price"></label>
+                <input
+                  type="number"
+                  name="estimated_price"
+                  id="estimated_price"
+                  placeholder="Estimated Price"
+                  min="0"
+                  step="0.01"
+                  className="form-input"
+                  onChange={(evt) => {
+                    let val = evt.target.value;
+                    if (val < 0) val = 0;
+                    setPayload({
+                      ...payload,
+                      estimated_price: val,
+                    });
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description"></label>
+                <textarea
+                  type="text"
+                  name="description"
+                  id="description"
+                  placeholder="Product Description"
+                  className="form-input-description"
+                  cols="40"
+                  rows="6"
+                  onChange={(evt) =>
+                    setPayload({
+                      ...payload,
+                      description: evt.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="form-group">
+                <label className="labelItem" htmlFor="item_condition">
+                  Condition
+                </label>
+                <select
+                  id="item_condition"
+                  value={payload.item_condition}
+                  className="form-input"
+                  onChange={(evt) =>
+                    setPayload({
+                      ...payload,
+                      item_condition: evt.target.value,
+                    })
+                  }
+                >
+                  <option value="">--Please choose an option--</option>
+                  {conditionOptions.map((condition, index) => (
+                    <option key={index} value={condition}>
+                      {condition}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="labelCategory" htmlFor="category_id">
+                  Category
+                </label>
+                <select
+                  id="category_id"
+                  value={payload.category_id}
+                  className="form-input"
+                  onChange={(evt) =>
+                    setPayload({
+                      ...payload,
+                      category_id: evt.target.value,
+                    })
+                  }
+                >
+                  <option value="">--Please choose an option--</option>
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="estimated_price"></label>
-              <input
-                type="number"
-                name="estimated_price"
-                id="estimated_price"
-                placeholder="Estimated Price"
-                min="0"
-                step="0.01"
-                className="form-input"
-                onChange={(evt) => {
-                  let val = evt.target.value;
-                  if (val < 0) val = 0;
-                  setPayload({
-                    ...payload,
-                    estimated_price: val,
-                  });
-                }}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="item_condition">Condition</label>
-              <select
-                id="item_condition"
-                value={payload.item_condition}
-                className="form-input"
-                onChange={(evt) =>
-                  setPayload({
-                    ...payload,
-                    item_condition: evt.target.value,
-                  })
-                }
-              >
-                <option value="">--Please choose an option--</option>
-                {conditionOptions.map((condition, index) => (
-                  <option key={index} value={condition}>
-                    {condition}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="category_id">Category</label>
-              <select
-                id="category_id"
-                value={payload.category_id}
-                className="form-input"
-                onChange={(evt) =>
-                  setPayload({
-                    ...payload,
-                    category_id: evt.target.value,
-                  })
-                }
-              >
-                <option value="">--Please choose an option--</option>
-                {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="form-right">
-            <DragAndDropUpload
-              handleFiles={handleFiles}
-              className="drag-drop"
-            />
-            <div className="preview">
-              {selectedFiles.length > 0 &&
-                Array.from(selectedFiles).map((file, index) => (
-                  <div key={index} className="image-preview">
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt={`uploaded-${index}`}
-                      className="preview-img"
-                    />
-                    <button
-                      onClick={() => removeFile(index)}
-                      className="remove-btn"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div className="submit-btn-container">
+          <button type="submit" className="submit-btn">
+            Upload
+          </button>
+        </div>
       </div>
-      <div className="submit-btn-container">
-        <button type="submit" className="submit-btn">
-          Submit
-        </button>
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }

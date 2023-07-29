@@ -1,9 +1,25 @@
 .dropzone {
   width: 100%;
-  height: 200px;
-  border: 2px dashed #cccccc;
-  border-radius: 5px;
+  height: 250px;
+  border: 4px dashed white;
+  border-radius: 1rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.upload {
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .dropzone {
+    height: 350px;
+  }
 }
