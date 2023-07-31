@@ -1,5 +1,3 @@
-/* AddProduct.css */
-
 .AddProduct-page {
   display: flex;
   flex-direction: column;
@@ -117,7 +115,8 @@
   }
   .form-right {
     flex: 1 1 50%;
-    padding: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 0rem;
   }
 
   .form-left {

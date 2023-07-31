@@ -1,7 +1,3 @@
 export function UserDeals() {
-  return (
-    <h1 style={{ color: "white" }}>
-      Esta es la página donde se muestran todos los deals un usuario
-    </h1>
-  );
+  return <h1 style={{ color: "white" }}>El deal esta creado !!!</h1>;
 }

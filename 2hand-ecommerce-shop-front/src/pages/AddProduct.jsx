@@ -6,7 +6,6 @@ import { sendProduct } from "../api/send-product";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { uploadImage } from "../api/upload-image";
 import { DragAndDropUpload } from "../components/DragAndDropUpload";
-import "../assets/css/pagescss/AddProduct.css";
 import { Footer } from "../components/Footer";
 import { Categories } from "../components/Categories";
 
@@ -81,7 +80,13 @@ export function AddProduct() {
                     </div>
                   ))}
               </div>
+              <div className="submit-btn-container">
+                <button type="submit" className="submit-btn">
+                  Upload
+                </button>
+              </div>
             </div>
+
             <div className="form-left">
               <div className="form-group">
                 <label htmlFor="name"></label>
@@ -186,11 +191,6 @@ export function AddProduct() {
               </div>
             </div>
           </form>
-        </div>
-        <div className="submit-btn-container">
-          <button type="submit" className="submit-btn">
-            Upload
-          </button>
         </div>
       </div>
       <Footer />

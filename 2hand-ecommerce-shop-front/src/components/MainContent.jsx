@@ -14,6 +14,7 @@ import { AllProductsPage } from "../pages/AllProductsPage.jsx";
 import { ContactUs } from "../pages/ContactUs.jsx";
 import { SearchPage } from "../pages/SearchPage.jsx";
 import { Careers } from "../pages/Careers.jsx";
+import { ExchangeGuide } from "../pages/ExchangeGuide.jsx";
 
 export function MainContent() {
   return (
@@ -34,6 +35,7 @@ export function MainContent() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Careers" element={<Careers />} />
         <Route path="/SearchPage" element={<SearchPage />} />
+        <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
       </Routes>
     </main>
   );
