@@ -4,6 +4,9 @@ import { AuthContext } from "../contexts/auth-context.jsx";
 import { ExProductList } from "../components/ExProductrList.jsx";
 import { createExchangeDeal } from "../api/create-exchange-deal.js";
 import { PocketCardList } from "../components/PocketCardList.jsx";
+import { ProgressBar } from "../components/ProgressBar.jsx";
+import "../assets/css/pagescss/ExchangeProduct.css";
+import Exchangicone from "../assets/img/Exchangeicon.svg";
 
 export function ExchangeProduct() {
   const location = useLocation();
@@ -48,16 +51,20 @@ export function ExchangeProduct() {
   };
 
   return (
-    <div style={{ color: "white" }}>
+    <div className="exchange-product-container">
+      <ProgressBar currentStep={step} />
+      <h1 className="exchange-product-title">Exchanging Process</h1>
       {step === 1 && (
         <>
-          <h1>Select the products you want from {ownerName} </h1>
+          <h1>Products from {ownerName} </h1>
           <ExProductList
             userId={sellerId}
             onSelect={setSellerSelectedProducts}
             selectedProducts={sellerSelectedProducts}
           />
-          <button onClick={handleNext}>Next</button>
+          <button className="exchange-product-button" onClick={handleNext}>
+            Next
+          </button>
         </>
       )}
       {step === 2 && (
@@ -68,8 +75,12 @@ export function ExchangeProduct() {
             onSelect={setBuyerSelectedProducts}
             selectedProducts={buyerSelectedProducts}
           />
-          <button onClick={handleBack}>Back</button>
-          <button onClick={handleNext}>Next</button>
+          <button className="exchange-product-button" onClick={handleBack}>
+            Back
+          </button>
+          <button className="exchange-product-button" onClick={handleNext}>
+            Next
+          </button>
         </>
       )}
       {step === 3 && (
@@ -79,12 +90,22 @@ export function ExchangeProduct() {
             <h2>Products from seller:</h2>
             <PocketCardList products={sellerSelectedProducts} />
           </div>
+          <div className="exchange-icon">
+            <img src={Exchangicone} alt="Exhange Icon" />
+          </div>
           <div>
             <h2>Products you offered:</h2>
             <PocketCardList products={buyerSelectedProducts} />
           </div>
-          <button onClick={handleBack}>Back</button>
-          <button onClick={handleCreateDeal}>Create Deal</button>
+          <button className="exchange-product-button" onClick={handleBack}>
+            Back
+          </button>
+          <button
+            className="exchange-product-button"
+            onClick={handleCreateDeal}
+          >
+            Create Deal
+          </button>
         </>
       )}
     </div>
