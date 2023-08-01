@@ -1,0 +1,49 @@
+.section-faq {
+    padding: 2rem;
+    color: white;
+    background-color: #222;
+    margin: 2rem;
+    border-radius: 1rem;
+}
+
+.header-faq {
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap; 
+}
+
+.head-faq {
+    margin-bottom: 30px;
+}
+
+.h1-faq {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.h2-faq {
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.li-faq > h2 {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.li-faq {
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.p-faq {
+    font-size: 16px;
+    line-height: 1.5;
+    word-spacing: 4px;
+    line-height: 1.5rem;
+}
+
+.span-faq{
+    font-weight: bold;
+    color: red;
+}

@@ -1,0 +1,44 @@
+.sectionExchangeGuide {
+    padding: 2rem;
+    color: white;
+    background-color: #222;
+    margin: 2rem;
+    border-radius: 1rem;
+}
+
+.headerExchangeGuide {
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap; 
+}
+
+.headTextExchangeGuide {
+    margin-bottom: 30px;
+}
+
+.h1ExchangeGuide {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.h2ExchangeGuide {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.liExchangeGuide {
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.liExchangeGuide > h3 {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.pExchangeGuide {
+    font-size: 16px;
+    line-height: 1.5;
+    word-spacing: 4px;
+    line-height: 1.5rem;
+}
