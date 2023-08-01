@@ -1,4 +1,8 @@
 .sectionExchangeGuide {
+<<<<<<< HEAD
+=======
+    text-align: left;
+>>>>>>> c93d4baa6281ce5d71ab77e05061c38440d5e2d6
     padding: 2rem;
     color: white;
     background-color: #222;
@@ -17,12 +21,20 @@
 }
 
 .h1ExchangeGuide {
+<<<<<<< HEAD
     font-weight: 600;
+=======
+    font-weight: 400;
+>>>>>>> c93d4baa6281ce5d71ab77e05061c38440d5e2d6
     margin-bottom: 2rem;
 }
 
 .h2ExchangeGuide {
+<<<<<<< HEAD
     font-weight: 600;
+=======
+    font-weight: 300;
+>>>>>>> c93d4baa6281ce5d71ab77e05061c38440d5e2d6
     margin-bottom: 2rem;
 }
 

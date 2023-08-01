@@ -12,7 +12,6 @@ import { ProductPage } from "../pages/ProductPage.jsx";
 import { StoreDetail } from "../pages/StoreDetail.jsx";
 import { AllProductsPage } from "../pages/AllProductsPage.jsx";
 import { ContactUs } from "../pages/ContactUs.jsx";
-import { ExchangeGuide } from "../pages/ExchangeGuide.jsx";
 import { Faq } from "../pages/Faq.jsx";
 
 export function MainContent() {
@@ -32,9 +31,7 @@ export function MainContent() {
         <Route path="/ProductPage/:itemId" element={<ProductPage />} />
         <Route path="/StoreDetail/:sellerId" element={<StoreDetail />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
         <Route path="/Faq" element={<Faq />} />
-        
       </Routes>
     </main>
   );

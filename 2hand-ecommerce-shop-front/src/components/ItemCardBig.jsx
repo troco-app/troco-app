@@ -2,11 +2,17 @@
 import "../assets/css/ItemCardBig.css";
 import StarRating from "./StarRating";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export function ItemCardBig({ product }) {
   // Parse the average rating to a number
   const averageRating = parseFloat(product.user_average_rating);
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+  const navigate = useNavigate();
+
+  const handleExchangeClick = () => {
+    navigate(`/ProductPage/${product.id}`);
+  };
 
   return (
     <>
@@ -32,9 +38,12 @@ export function ItemCardBig({ product }) {
               <StarRating rating={averageRating} />
             </div>
             <div className="contenedorUserButtonWrapper">
-              <a className="buttonExchangeProduct" href="/ExchangeProduct">
-                <button className="userButtonWrapper">EXCHANGE</button>
-              </a>
+              <button
+                className="userButtonWrapper"
+                onClick={handleExchangeClick}
+              >
+                EXCHANGE
+              </button>
             </div>
           </div>
         </div>

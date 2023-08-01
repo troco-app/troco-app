@@ -80,10 +80,13 @@ router.post(
   express.json(),
   bodyValidation(createItemSchema),
   asyncErrors(async (req, res) => {
-    await createItem(req.currentUser.id, req.body);
+    const newItemId = await createItem(req.currentUser.id, req.body);
     res.status(200).json({
-      succes: true,
-      data: "TROCO item created",
+      success: true,
+      data: {
+        message: "TROCO item created",
+        itemId: newItemId, // Include the ID of the new item in the response
+      },
     });
   })
 );
@@ -97,7 +100,7 @@ router.patch(
   asyncErrors(async (req, res) => {
     await modifyItem(req.params.id, req.currentUser.id, req.body);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "TROCO item modified",
     });
   })
@@ -111,7 +114,7 @@ router.delete(
   asyncErrors(async (req, res) => {
     await removeItem(req.currentUser.id, req.params.id);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "TROCO item deleted",
     });
   })
@@ -134,7 +137,7 @@ router.post(
   asyncErrors(async (req, res) => {
     await addItemImage(req.params.id, req.currentUser.id, req.files.image);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "Added an image for your TROCO item",
     });
   })
@@ -152,7 +155,7 @@ router.delete(
       req.currentUser.id
     );
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "TROCO item image deleted",
     });
   })

@@ -46,7 +46,7 @@ router.post(
   asyncErrors(async (req, res) => {
     await registerUser(req.body);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "New TROCOLO created",
     });
   })
@@ -62,7 +62,7 @@ router.post(
   asyncErrors(async (req, res) => {
     await registrationCodeValidation(req.body.email, req.body.code);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "TROCO email validated",
     });
   })
@@ -88,7 +88,7 @@ router.patch(
   asyncErrors(async (req, res) => {
     await modifyUserInfo(req.currentUser.id, req.body);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "TROCOLO data modified",
     });
   })
@@ -132,7 +132,7 @@ router.post(
   asyncErrors(async (req, res) => {
     await addToWishList(req.currentUser.id, req.params.itemId);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "Item added to your TROCOLIST",
     });
   })
@@ -146,7 +146,7 @@ router.delete(
   asyncErrors(async (req, res) => {
     await removeWishList(req.currentUser.id, req.params.itemId);
     res.status(200).json({
-      succes: true,
+      success: true,
       data: "Item removed from your TROCOLIST",
     });
   })
