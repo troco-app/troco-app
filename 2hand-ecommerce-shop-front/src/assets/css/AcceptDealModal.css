@@ -1,0 +1,71 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal appears above other content */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; /* Adjust to your preferred width */
+  max-width: 600px; /* Max width */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between inputs */
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.modal-content textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.modal-content button {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+.modal-content button:first-child {
+  background-color: #ccc;
+  color: black;
+}
+
+.modal-content button:first-child:hover {
+  background-color: #aaa;
+}
+
+/* Horizontally align the inputs and buttons */
+.modal-content > input,
+.modal-content > textarea,
+.modal-content > button {
+  flex: 1 1 auto; /* Equally distribute space */
+}
+
+/* Button container */
+.modal-content > div {
+  display: flex;
+  justify-content: space-between; /* Space between close and accept buttons */
+}

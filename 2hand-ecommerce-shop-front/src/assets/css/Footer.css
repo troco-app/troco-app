@@ -1,108 +1,111 @@
 /* Footer*/
 .footer {
-    display: flex;
-    flex-direction: column;
-    background-color: #222;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  padding: 2rem;
 }
 .section1 {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .ulFooter li {
-    list-style: none;
-    margin-bottom: 0.5rem;
-    margin-bottom: 20px;
+  list-style: none;
+  margin-bottom: 0.5rem;
+  margin-bottom: 20px;
 }
 
 .ulFooter2 li {
-    list-style: none;
-    margin-bottom: 0.5rem;
-    margin-bottom: 20px;
+  list-style: none;
+  margin-bottom: 0.5rem;
+  margin-bottom: 20px;
 }
 
 .ulFooter li a {
-    font-size: small;
-    text-decoration: none;
-    color: grey;
+  font-size: small;
+  text-decoration: none;
+  color: grey;
 }
 
 .ulFooter2 li a {
-    font-size: small;
-    text-decoration: none;
-    color: grey;
+  font-size: small;
+  text-decoration: none;
+  color: grey;
 }
-
 
 .section3H3,
 .section2H3 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 .logoFooter {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .section1 .aFooter1 {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .footer .footerH2 {
-    font-size: 2rem;
-    color: white;
-    text-align: left;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  color: white;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 .logoFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  margin-bottom: 0.5rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .copyrightFooter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
 }
 
 @media (min-width: 768px) {
-    .footer {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
 
-    .logoFooter {
-        width: 100px;
-        height: 100px;
-    }
+  .logoFooter {
+    width: 100px;
+    height: 100px;
+  }
 
-    .section2 {
-        margin-top: 0.5rem;
-    }
+  .section2 {
+    margin-top: 0.5rem;
+  }
 
-    .section3 {
-        margin-top: 0.5rem;
-    }
+  .section3 {
+    margin-top: 0.5rem;
+  }
 
-    .section4 {
-        margin-top: -1.75rem;
-    }
+  .section4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: -1.75rem;
+  }
 }

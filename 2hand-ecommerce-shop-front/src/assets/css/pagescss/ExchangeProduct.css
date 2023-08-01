@@ -1,0 +1,54 @@
+.exchange-product-container {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.exchange-product-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.exchange-product-subtitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.exchange-product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.exchange-product-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.exchange-product-button:hover {
+  background-color: #ff7300; /* Orange color */
+}
+
+.exchange-product-review {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.exchange-product-review h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.exchange-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add additional classes to style individual components as needed */

@@ -1,0 +1,27 @@
+.location-select {
+  position: relative;
+}
+
+.location-select input {
+  /* Style the input field as needed */
+}
+
+.location-select ul {
+  position: absolute;
+  background-color: #333; /* Color of the dropdown */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.location-select li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: white; /* Text color */
+}
+
+.location-select li:hover {
+  background-color: #555; /* Background color for hovered item */
+}
