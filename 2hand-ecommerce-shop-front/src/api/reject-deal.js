@@ -1,8 +1,8 @@
 const apiHost = import.meta.env.VITE_API_HOST;
 const LOGIN_PATH = apiHost + "/deals";
 
-export async function RejetDeal(payload, token, dealId) {
-  const response = await fetch(LOGIN_PATH + { dealId } + "/reject", {
+export async function RejectDeal(payload, token, dealId) {
+  const response = await fetch(`${LOGIN_PATH}/${dealId}/reject`, {
     method: "POST",
     headers: {
       "content-type": "application/json",

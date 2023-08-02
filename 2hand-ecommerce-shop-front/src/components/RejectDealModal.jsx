@@ -17,7 +17,6 @@ export function RejectDealModal({ onClose, onReject }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <button onClick={onClose}>Close</button>
         <textarea
           name="rejection_comment"
           value={rejectionComment}
@@ -25,6 +24,7 @@ export function RejectDealModal({ onClose, onReject }) {
           placeholder="Please enter your rejection comment here"
         />
         <button onClick={handleSubmit}>Reject</button>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
