@@ -56,6 +56,7 @@ export function Home() {
             className="sectionImage"
           />
         </section>
+        
         <h2 className="h2CardList">Fresh from the oven</h2>
         <PocketCardList products={latestProducts} />
         <h2 className="h2BigCardList">Most exchanged goodies</h2>

@@ -3,111 +3,156 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { ExProductList } from "../components/ExProductrList.jsx";
 import { createExchangeDeal } from "../api/create-exchange-deal.js";
-import { PocketCardList } from "../components/PocketCardList.jsx";
+import { ReviewPocketCardList } from "../components/ReviewPocketCardList.jsx";
 import { ProgressBar } from "../components/ProgressBar.jsx";
-import "../assets/css/pagescss/ExchangeProduct.css";
+import { Footer } from "../components/Footer.jsx";
 import Exchangicone from "../assets/img/Exchangeicon.svg";
 
+import "../assets/css/pagescss/ExchangeProduct.css";
+
 export function ExchangeProduct() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const sellerId = location.state.sellerId;
-  const ownerName = location.state.ownerName;
-  const { currentUser, token } = useContext(AuthContext);
-  const buyerId = currentUser?.id;
-  const [step, setStep] = useState(1);
-  const [sellerSelectedProducts, setSellerSelectedProducts] = useState([]);
-  const [buyerSelectedProducts, setBuyerSelectedProducts] = useState([]);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const sellerId = location.state.sellerId;
+    const ownerName = location.state.ownerName;
+    const { currentUser, token } = useContext(AuthContext);
+    const buyerId = currentUser?.id;
+    const [step, setStep] = useState(1);
+    const [sellerSelectedProducts, setSellerSelectedProducts] = useState([]);
+    const [buyerSelectedProducts, setBuyerSelectedProducts] = useState([]);
 
-  const createDealPayload = () => {
-    return {
-      buyer_id: buyerId,
-      seller_id: sellerId,
-      offered_items: buyerSelectedProducts.map((product) => product.id),
-      requested_items: sellerSelectedProducts.map((product) => product.id),
+    const createDealPayload = () => {
+        return {
+            buyer_id: buyerId,
+            seller_id: sellerId,
+            offered_items: buyerSelectedProducts.map((product) => product.id),
+            requested_items: sellerSelectedProducts.map(
+                (product) => product.id
+            ),
+        };
     };
-  };
 
-  const handleCreateDeal = () => {
-    const payload = createDealPayload();
-    createExchangeDeal(payload, token)
-      .then((response) => {
-        // Handle success
-        console.log("Deal created successfully", response);
-        navigate("/UserDeals"); // Move it here
-      })
-      .catch((error) => {
-        // Handle error
-        console.error("Failed to create deal", error);
-      });
-  };
+    const handleCreateDeal = () => {
+        const payload = createDealPayload();
+        createExchangeDeal(payload, token)
+            .then((response) => {
+                // Handle success
+                console.log("Deal created successfully", response);
+                navigate("/UserDeals"); // Move it here
+            })
+            .catch((error) => {
+                // Handle error
+                console.error("Failed to create deal", error);
+            });
+    };
 
-  const handleNext = () => {
-    if (step < 3) setStep(step + 1);
-  };
+    const handleNext = () => {
+        if (step < 3) setStep(step + 1);
+    };
 
-  const handleBack = () => {
-    if (step > 1) setStep(step - 1);
-  };
+    const handleBack = () => {
+        if (step > 1) setStep(step - 1);
+    };
 
-  return (
-    <div className="exchange-product-container">
-      <ProgressBar currentStep={step} />
-      <h1 className="exchange-product-title">Exchanging Process</h1>
-      {step === 1 && (
+    return (
         <>
-          <h1>Products from {ownerName} </h1>
-          <ExProductList
-            userId={sellerId}
-            onSelect={setSellerSelectedProducts}
-            selectedProducts={sellerSelectedProducts}
-          />
-          <button className="exchange-product-button" onClick={handleNext}>
-            Next
-          </button>
+            <div className="exchange-product-container">
+                <h1 className="exchange-product-title">Exchanging Process</h1>
+                <ProgressBar currentStep={step} />
+                {step === 1 && (
+                    <>
+                        <h2 className="Step-H2 blink">
+                            Select Item from: {ownerName}{" "}
+                        </h2>
+                        <ExProductList
+                            userId={sellerId}
+                            onSelect={setSellerSelectedProducts}
+                            selectedProducts={sellerSelectedProducts}
+                        />
+                        <div className="Step-Buttons-Exchange-3">
+                            <button
+                                className="exchange-product-button"
+                                onClick={handleNext}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    </>
+                )}
+                {step === 2 && (
+                    <>
+                        <h2 className="Step-H2-user">
+                            Propose Something to Exchange:
+                        </h2>
+                        <ExProductList
+                            userId={buyerId}
+                            onSelect={setBuyerSelectedProducts}
+                            selectedProducts={buyerSelectedProducts}
+                        />
+                        <div className="Step-Buttons-Exchange-3">
+                            <button
+                                className="exchange-product-button"
+                                onClick={handleNext}
+                            >
+                                Next
+                            </button>
+                            <button
+                                className="exchange-product-button-back"
+                                onClick={handleBack}
+                            >
+                                Back
+                            </button>
+                        </div>
+                    </>
+                )}
+                {step === 3 && (
+                    <>
+                        <section className="Section-Step-3">
+                            <h2 className="Step-H2-normal blink">
+                                Review the Selected Products
+                            </h2>
+                            <div>
+                                <h3 className="Step-H2">
+                                    Products from Seller:
+                                </h3>
+                                <ReviewPocketCardList
+                                    products={sellerSelectedProducts}
+                                />
+                            </div>
+                            <div className="exchange-icon">
+                                <img
+                                    className="exchange-icon-img"
+                                    src={Exchangicone}
+                                    alt="Exhange Icon"
+                                />
+                            </div>
+                            <div>
+                                <h3 className="Step-H3">
+                                    Products you Offered:
+                                </h3>
+                                <ReviewPocketCardList
+                                    products={buyerSelectedProducts}
+                                />
+                            </div>
+                            <div className="Step-Buttons-Exchange-3">
+                                <button
+                                    className="exchange-product-button-3"
+                                    onClick={handleCreateDeal}
+                                >
+                                    Create Deal
+                                </button>
+                                <button
+                                    className="exchange-product-button-back"
+                                    onClick={handleBack}
+                                >
+                                    Back
+                                </button>
+                            </div>
+                        </section>
+                    </>
+                )}
+            </div>
+            <Footer />
         </>
-      )}
-      {step === 2 && (
-        <>
-          <h1>Select the products you want to exchange</h1>
-          <ExProductList
-            userId={buyerId}
-            onSelect={setBuyerSelectedProducts}
-            selectedProducts={buyerSelectedProducts}
-          />
-          <button className="exchange-product-button" onClick={handleBack}>
-            Back
-          </button>
-          <button className="exchange-product-button" onClick={handleNext}>
-            Next
-          </button>
-        </>
-      )}
-      {step === 3 && (
-        <>
-          <h1>Review the selected products</h1>
-          <div>
-            <h2>Products from seller:</h2>
-            <PocketCardList products={sellerSelectedProducts} />
-          </div>
-          <div className="exchange-icon">
-            <img src={Exchangicone} alt="Exhange Icon" />
-          </div>
-          <div>
-            <h2>Products you offered:</h2>
-            <PocketCardList products={buyerSelectedProducts} />
-          </div>
-          <button className="exchange-product-button" onClick={handleBack}>
-            Back
-          </button>
-          <button
-            className="exchange-product-button"
-            onClick={handleCreateDeal}
-          >
-            Create Deal
-          </button>
-        </>
-      )}
-    </div>
-  );
+    );
 }
