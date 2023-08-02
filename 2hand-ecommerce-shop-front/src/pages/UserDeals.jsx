@@ -6,6 +6,7 @@ import { AcceptDealModal } from "../components/AcceptDealModal.jsx";
 import { RejectDealModal } from "../components/RejectDealModal.jsx";
 import { AcceptDeal } from "../api/accept-deal";
 import { RejectDeal } from "../api/reject-deal";
+import "../assets/css/pagescss/UserDeals.css";
 
 export function UserDeals() {
   const { currentUser, token } = useContext(AuthContext);
@@ -65,8 +66,8 @@ export function UserDeals() {
   const handleCloseRejectModal = () => setShowRejectModal(false);
 
   return (
-    <div style={{ color: "white" }}>
-      <h1>Deals</h1>
+    <div className="container-userdeals">
+      <h1 className="userdeals-h1">Your Deals</h1>
       <DealList
         deals={userDeals}
         onAccept={handleOpenAcceptModal}

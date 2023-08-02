@@ -1,19 +1,20 @@
 .imagesContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
 }
 
 .productSection {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin: 1rem;
-    padding: 2.5rem;
+    padding: 2.0rem;
     border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #222;
 }
 
 .productImage img {
-    width: 100%;
+    width: 50%;
     height: auto;
     margin-bottom: 1rem;
     border-radius: 1rem;
@@ -32,8 +33,8 @@
 .productDetails {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     color: white;
+    padding: 1rem;
 }
 
 .ownerDetails {
@@ -50,7 +51,7 @@
 
 .productDescription {
     font-size: small;
-    
+
     line-height: 1.4rem;
     margin-bottom: 1rem;
 }
@@ -67,7 +68,7 @@
 }
 
 .otherProductsH3 {
-    color:white;
+    color: white;
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
@@ -78,25 +79,23 @@
     margin-top: 1.5rem;
 }
 
- .userButtonWrapper {
+.userButtonWrapper {
     background-color: green;
     color: white;
     border: none;
     border-radius: 2rem;
-    padding: 0.5rem 1.2rem ;
-    align-items:flex-end
-  }
-  .productList {
+    padding: 0.5rem 1.2rem;
+    align-items: flex-end;
+}
+.productList {
     flex-wrap: wrap;
     gap: 1rem;
-  }
-  
-  .productList .BigCardList {
+}
+
+.productList .BigCardList {
     flex: 1 0 300px; /* O el ancho deseado para cada elemento */
     max-width: 300px; /* O el ancho deseado para cada elemento */
-  }
-
-
+}
 
 .otherProducts .otherProductsH3 {
     margin: 1rem;
@@ -112,14 +111,18 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: left;
     }
 
+    .productImage img {
+        width: 100%;
+    }
+    
     .productImages img {
         display: none;
     }
 
     .productDetails {
-      padding:0;
+        padding: 0;
     }
 }
