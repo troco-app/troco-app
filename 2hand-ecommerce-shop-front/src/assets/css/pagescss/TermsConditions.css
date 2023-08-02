@@ -1,0 +1,38 @@
+
+  
+  .main-container {
+    color:white;
+   
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .intro {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  
+  .section-content {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-link {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+  

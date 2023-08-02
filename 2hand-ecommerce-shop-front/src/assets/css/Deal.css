@@ -1,0 +1,75 @@
+.deal-for-page {
+    padding: 2rem;
+    border: 1px solid orange;
+    border-radius: 1rem;
+    background-color: #222;
+    margin: 1.5rem;
+}
+
+.button-deal-container{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.button-deal-accept {
+    background-color: #e28210;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button-deal-accept:hover {
+    background-color: green;
+    color: white;
+}
+
+.button-deal-reject {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 1rem;
+    transition: background-color 0.3s;
+}
+
+.button-deal-reject:hover {
+    background-color: #e28210;
+    color: white;
+}
+
+.deal-status-page {
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+
+.deal-date-page {
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.deal-item-page {
+    margin-top: 10px;
+}
+
+.item-owner-page {
+    font-weight: bold;
+    color: #e28210;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.item-name-page {
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+}

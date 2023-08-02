@@ -1,4 +1,4 @@
-import imagen from "../assets/img/imagen.svg";
+import Troco from "../assets/img/Troco.svg";
 import "../assets/css/Footer.css";
 
 export function Footer() {
@@ -45,7 +45,7 @@ export function Footer() {
     <a href="/">
       <div
         className="logoFooter"
-        style={{ backgroundImage: `url(${imagen})` }}
+        style={{ backgroundImage: `url(${Troco})` }}
         alt="Troco Logo"
       ></div>
     </a>
