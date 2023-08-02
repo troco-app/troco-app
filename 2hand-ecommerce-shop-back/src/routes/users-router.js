@@ -94,16 +94,6 @@ router.patch(
   })
 );
 
-//View Wishlist
-router.get(
-  "/users/wishlist",
-  auth,
-  asyncErrors(async (req, res) => {
-    const result = await viewItemsWishlist(req.currentUser.id);
-    res.status(200).json(result);
-  })
-);
-
 //View Items
 router.get(
   "/users/items",
@@ -120,6 +110,16 @@ router.get(
   auth,
   asyncErrors(async (req, res) => {
     const result = await viewUserDeals(req.currentUser.id);
+    res.status(200).json(result);
+  })
+);
+
+//View Wishlist
+router.get(
+  "/users/wishlist",
+  auth,
+  asyncErrors(async (req, res) => {
+    const result = await viewItemsWishlist(req.currentUser.id);
     res.status(200).json(result);
   })
 );
