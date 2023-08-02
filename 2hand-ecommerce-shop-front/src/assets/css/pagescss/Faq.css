@@ -1,4 +1,4 @@
-.sectionExchangeGuide {
+.section-faq {
     padding: 2rem;
     color: white;
     background-color: #222;
@@ -6,39 +6,44 @@
     border-radius: 1rem;
 }
 
-.headerExchangeGuide {
+.header-faq {
     display: flex;
     align-items: left;
     flex-wrap: wrap; 
 }
 
-.headTextExchangeGuide {
+.head-faq {
     margin-bottom: 30px;
 }
 
-.h1ExchangeGuide {
+.h1-faq {
     font-weight: 600;
     margin-bottom: 2rem;
 }
 
-.h2ExchangeGuide {
-    font-weight: 600;
+.h2-faq {
+    font-weight: 300;
     margin-bottom: 2rem;
 }
 
-.liExchangeGuide {
-    margin-bottom: 30px;
-    list-style: none;
-}
-
-.liExchangeGuide > h3 {
+.li-faq > h2 {
     font-size: 18px;
     margin-bottom: 0.5rem;
 }
 
-.pExchangeGuide {
+.li-faq {
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.p-faq {
     font-size: 16px;
     line-height: 1.5;
     word-spacing: 4px;
     line-height: 1.5rem;
+}
+
+.span-faq{
+    font-weight: bold;
+    color: red;
 }

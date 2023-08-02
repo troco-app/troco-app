@@ -1,0 +1,39 @@
+.Review-Item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: left;
+    padding: 1rem;
+}
+
+.Title-Item {
+    color: white;
+    font-size: medium;
+    margin-bottom: 0.5rem;
+}
+
+.Review-Text-Item .Review-Paragraph-Item {
+    color: grey;
+    font-style: italic;
+    font-size: small;
+}
+
+.Review-Image-Item {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.Review-Image-Item img {
+    border-radius: 1rem;
+    width: 100px;
+    height: 100px;
+}
+
+@media (min-width: 768px) {
+    .Review-Item {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+}
