@@ -1,5 +1,8 @@
 .wishlist-page {
-  background-color: black;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+}
+
+.wishlist-h1{
+  text-align: center;
+  font-size: 300;
 }

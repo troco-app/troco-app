@@ -1,71 +1,52 @@
-.item {
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: transparent;
+.Ex-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
 }
 
-.selection {
-  padding: 10px;
+.Ex-selection {
+    padding: 10px;
 }
 
-.selection input[type="checkbox"] {
-  appearance: none;
-  background-color: transparent;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 2px solid white;
+.Ex-selection input[type="checkbox"] {
+    appearance: none;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 2px solid #e28210;
 }
 
-.selection input[type="checkbox"]:checked {
-  background-color: white;
+.Ex-selection input[type="checkbox"]:checked {
+    background-color: orange;
+    border: 1px solid white;
 }
 
-.imageItem {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-right: 20px;
+.Ex-image-item {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.imageItem img {
-  max-width: 100%;
-  height: auto;
+.Ex-image-item img {
+    width: 100px;
+    height: 100px;
 }
 
-.textItem {
-  flex-grow: 1;
+.Ex-title-item {
+    color: white;
+    font-size: medium;
+    margin-bottom: 0.5rem;
 }
 
-.titleItem {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  padding: 5px 0;
-  color: white;
-}
-
-.paragraphItem {
-  font-size: 14px;
-  color: white;
-  margin: 5px 0;
-}
-
-.nameUser {
-  font-size: 12px;
-  color: white;
-  margin: 5px 0;
+.Ex-paragraph-item {
+    color: grey;
+    font-style: italic;
+    font-size: small;
 }
