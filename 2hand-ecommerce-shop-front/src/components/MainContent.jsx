@@ -13,8 +13,10 @@ import { StoreDetail } from "../pages/StoreDetail.jsx";
 import { AllProductsPage } from "../pages/AllProductsPage.jsx";
 import { ContactUs } from "../pages/ContactUs.jsx";
 import { Faq } from "../pages/Faq.jsx";
+import { Careers } from "../pages/Careers.jsx";
 import { SearchPage } from "../pages/SearchPage.jsx";
 import { ExchangeGuide } from "../pages/ExchangeGuide.jsx";
+import { TermsConditions } from "../pages/TermsConditions.jsx"
 
 
 export function MainContent() {
@@ -35,7 +37,9 @@ export function MainContent() {
         <Route path="/StoreDetail/:sellerId" element={<StoreDetail />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Faq" element={<Faq />} />
+        <Route path="/Careers" element={<Careers />} />
         <Route path="/SearchPage" element={<SearchPage />} />
+        <Route path="/TermsConditions" element={<TermsConditions />} />
         <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
 
       </Routes>
