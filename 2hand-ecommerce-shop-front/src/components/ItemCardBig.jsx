@@ -11,7 +11,7 @@ export function ItemCardBig({ product }) {
   const averageRating = parseFloat(product.user_average_rating);
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
-  const { currentUser, token } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const [inWishlist, setInWishlist] = useState(false);
 
   useEffect(() => {

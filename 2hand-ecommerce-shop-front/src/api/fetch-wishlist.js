@@ -9,6 +9,5 @@ export async function fetchWhishList(token) {
     },
   });
   const result = await response.json();
-  console.log(result);
   return result;
 }
