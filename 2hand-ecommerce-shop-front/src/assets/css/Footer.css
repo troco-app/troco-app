@@ -63,7 +63,7 @@
   margin-bottom: 20px;
 }
 
-.logoFooter {
+.logo-Footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,9 +88,10 @@
     gap: 1rem;
   }
 
-  .logoFooter {
-    width: 100px;
+  .logo-Footer {
+    width: 150px;
     height: 100px;
+    margin-bottom: 0rem;
   }
 
   .section2 {
