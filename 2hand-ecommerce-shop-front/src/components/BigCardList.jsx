@@ -1,14 +1,21 @@
 import "../assets/css/BigCardList.css";
-import { ItemCardBig } from "./ItemCardBig"; // Import your ItemCardBig component
+import { ItemCardBig } from "./ItemCardBig";
 
 /* eslint-disable react/prop-types */
 export function BigCardList({ products }) {
+  const uniqueProducts = products.reduce((acc, product) => {
+    if (!acc.some((item) => item.id === product.id)) {
+      acc.push(product);
+    }
+    return acc;
+  }, []);
+
   return (
     <div className="sellerProductItems">
-      {products
+      {uniqueProducts
         .filter((product) => product.status === "available")
         .map((product) => (
-          <ItemCardBig product={product} key={product.id} /> // Use your ItemCardBig component here
+          <ItemCardBig product={product} key={product.id} />
         ))}
     </div>
   );

@@ -20,13 +20,13 @@ export function WishList() {
 
   return (
     <>
-    <div className="wishlist-page">
-      <h1 className="wishlist-h1">Your Wish List Treasures: </h1>
-      <div className="card-list-desktop">
-        <BigCardList products={itemsWished} />
+      <div className="wishlist-page">
+        <h1 className="wishlist-h1">Your Wish List Treasures: </h1>
+        <div className="card-list-desktop">
+          <BigCardList products={itemsWished} />
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 }

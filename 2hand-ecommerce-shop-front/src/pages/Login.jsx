@@ -6,97 +6,97 @@ import "../assets/css/pagescss/Login.css";
 
 //State to set the payload fo the form
 export function Login() {
-    const [payload, setPayload] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
+  const [payload, setPayload] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-    //Use Context to take the current user and the login. Navigate to send user to other page afetr Login.
-    const { currentUser } = useContext(AuthContext);
-    const login = useContext(LoginContext);
-    const navigate = useNavigate();
+  //Use Context to take the current user and the login. Navigate to send user to other page afetr Login.
+  const { currentUser } = useContext(AuthContext);
+  const login = useContext(LoginContext);
+  const navigate = useNavigate();
 
-    //Function to
-    async function onSubmit(evt) {
-        evt.preventDefault();
-        try {
-            const { token } = await sendLogin(payload);
-            login(token);
-            navigate("/");
-        } catch (error) {
-            console.error(error);
-        }
+  //Function to
+  async function onSubmit(evt) {
+    evt.preventDefault();
+    try {
+      const { token } = await sendLogin(payload);
+      login(token);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
     }
+  }
 
-    useEffect(() => {
-        if (currentUser) {
-            navigate("/");
-        }
-    }, [currentUser, navigate]);
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
 
-    return (
-        <main className="loginPage">
-            <form onSubmit={onSubmit} className="loginForm">
-                <a className="aLogin" href="/">
-                    <h1 className="loginH1 material-symbols-rounded">
-                        arrow_back_ios Troco
-                    </h1>
-                </a>
-                <h2>Log into your account</h2>
-                <div className="inputLogin">
-                    <input
-                        className="inputLogin2"
-                        type="text"
-                        id="username"
-                        name="username"
-                        placeholder="User Name"
-                        required
-                        onChange={(evt) =>
-                            setPayload({
-                                ...payload,
-                                username: evt.target.value,
-                            })
-                        }
-                    />
-                </div>
-                <div className="inputLogin">
-                    <input
-                        className="inputLogin2"
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email Address"
-                        required
-                        onChange={(evt) =>
-                            setPayload({ ...payload, email: evt.target.value })
-                        }
-                    />
-                </div>
-                <div className="inputLogin">
-                    <input
-                        className="inputLogin2"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        required
-                        onChange={(evt) =>
-                            setPayload({
-                                ...payload,
-                                password: evt.target.value,
-                            })
-                        }
-                    />
-                </div>
-                <button className="loginButton">Login</button>
-                <p className="pLogin">
-                    Don&apos;t have an account?{" "}
-                    <Link to="/Register" className="registerLogin">
-                        Register
-                    </Link>
-                </p>
-            </form>
-        </main>
-    );
+  return (
+    <main className="loginPage">
+      <form onSubmit={onSubmit} className="loginForm">
+        <a className="aLogin" href="/">
+          <h1 className="loginH1 material-symbols-rounded">
+            arrow_back_ios Troco
+          </h1>
+        </a>
+        <h2>Log into your account</h2>
+        <div className="inputLogin">
+          <input
+            className="inputLogin2"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="User Name"
+            required
+            onChange={(evt) =>
+              setPayload({
+                ...payload,
+                username: evt.target.value,
+              })
+            }
+          />
+        </div>
+        <div className="inputLogin">
+          <input
+            className="inputLogin2"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            onChange={(evt) =>
+              setPayload({ ...payload, email: evt.target.value })
+            }
+          />
+        </div>
+        <div className="inputLogin">
+          <input
+            className="inputLogin2"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+            onChange={(evt) =>
+              setPayload({
+                ...payload,
+                password: evt.target.value,
+              })
+            }
+          />
+        </div>
+        <button className="loginButton">Login</button>
+        <p className="pLogin">
+          Don&apos;t have an account?{" "}
+          <Link to="/Register" className="registerLogin">
+            Register
+          </Link>
+        </p>
+      </form>
+    </main>
+  );
 }
