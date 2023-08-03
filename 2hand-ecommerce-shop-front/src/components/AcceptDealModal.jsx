@@ -36,6 +36,7 @@ export function AcceptDealModal({ onClose, onAccept }) {
                     value={formData.street}
                     onChange={handleChange}
                     placeholder="Street"
+                    className="input-accept-modal"
                 />
                 <input
                     type="text"
@@ -43,6 +44,7 @@ export function AcceptDealModal({ onClose, onAccept }) {
                     value={formData.city}
                     onChange={handleChange}
                     placeholder="City"
+                    className="input-accept-modal"
                 />
                 <input
                     type="text"
@@ -50,6 +52,7 @@ export function AcceptDealModal({ onClose, onAccept }) {
                     value={formData.state}
                     onChange={handleChange}
                     placeholder="State"
+                    className="input-accept-modal"
                 />
                 <input
                     type="text"
@@ -57,6 +60,7 @@ export function AcceptDealModal({ onClose, onAccept }) {
                     value={formData.country}
                     onChange={handleChange}
                     placeholder="Country"
+                    className="input-accept-modal"
                 />
                 <input
                     type="text"
@@ -64,18 +68,21 @@ export function AcceptDealModal({ onClose, onAccept }) {
                     value={formData.postal_code}
                     onChange={handleChange}
                     placeholder="Postal Code"
+                    className="input-accept-modal"
                 />
                 <input
                     type="datetime-local"
                     name="exchange_date_time"
                     value={formData.exchange_date_time}
                     onChange={handleChange}
+                    className="input-accept-modal"
                 />
                 <textarea
                     name="exchange_comment"
                     value={formData.exchange_comment}
                     onChange={handleChange}
                     placeholder="Exchange Comment"
+                    className="input-accept-modal"
                 />
                 <div className="buttons-deal-modal">
                     <button onClick={onClose}>Close</button>

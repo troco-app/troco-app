@@ -52,6 +52,9 @@ export function StoreDetail() {
             <div className="infoUser">
               <h1 className="sellerName">{sellerInfo.username}</h1>
               <StarRating className="ratingSeller" rating={4} />
+              <a href="/AddProduct">
+              <button className="seller-upload-product">Upload Product</button>
+              </a>
             </div>
           </div>
           <div className="sellerDescription">
