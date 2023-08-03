@@ -1,56 +1,99 @@
 .validationCode {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8), black);
-  background-image: linear-gradient(to bottom, black, rgba(226, 130, 16, 0.8));
-  background-position: 0 0;
-  background-size: 100% 200%;
-  transition: background-position 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-image: linear-gradient(
+        to bottom,
+        black,
+        rgba(226, 130, 16, 0.8),
+        black
+    );
+    background-image: linear-gradient(
+        to bottom,
+        black,
+        rgba(226, 130, 16, 0.8)
+    );
+    background-position: 0 0;
+    background-size: 100% 200%;
+    transition: background-position 0.5s ease-in-out;
 }
 
 .validationCode:hover {
-  background-position: 0 100%;
+    background-position: 0 100%;
 }
 
 .validationCode .formValidationCode {
-  margin:2rem;
-  background-color: white;
-  max-width: 500px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 2.5rem 1.5rem 2.5rem;  
+    margin: 2rem;
+    background-color: white;
+    max-width: 400px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
 }
 
-.formValidationCode .h1ValidationCode {
-  font-size: 2rem;
-  padding-bottom: 0.5rem;
+.validationCode .h1ValidationCode {
+    font-size: medium;
+    padding-bottom: 1rem;
+    align-items: center;
+    margin: 1rem;
 }
 
-.inputField .inputField2 {
-  border: none;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
-  width: 100%;
-  padding: 10px;
+.input-Field .input-Field2 {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+.input-Field .input-Field2:focus {
+    border-bottom-color: orange;
+    box-shadow: 0 0 5px orange;
+    outline: none;
+    border-radius: 1rem;
 }
 
 .validationCode > .formValidationCode > .validationCodeButton {
-  width: 100%;
-  padding: 10px;
-  background-color: #e28210;
-  border: none;
-  border-radius: 2rem;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 1rem;
+    width: 100%;
+    padding: 10px;
+    background-color: #e28210;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .validationCode .formValidationCode .validationCodeButton:hover {
-  background-color: grey;
+    background-color: green;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.span-validation {
+    font-weight: 300;
+    color: green;
+}
+
+.blink {
+    animation: blink 1s infinite;
 }

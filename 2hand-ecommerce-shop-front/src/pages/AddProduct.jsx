@@ -158,7 +158,7 @@ export function AddProduct() {
                     })
                   }
                 >
-                  <option value="">--Please choose an option--</option>
+                  <option value="">Please Choose an Option</option>
                   {conditionOptions.map((condition, index) => (
                     <option key={index} value={condition}>
                       {condition}
@@ -181,7 +181,7 @@ export function AddProduct() {
                     })
                   }
                 >
-                  <option value="">--Please choose an option--</option>
+                  <option value="">Please Choose an Option</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.name}

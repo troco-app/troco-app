@@ -60,6 +60,15 @@
     margin-bottom: 1rem;
     width: 100%;
     padding: 10px;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+.inputLogin .inputLogin2:focus {
+    border-bottom-color: orange;
+    box-shadow: 0 0 5px orange;
+    outline: none;
+    border-radius: 1rem;
 }
 
 .loginForm label {
