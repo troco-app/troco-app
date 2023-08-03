@@ -32,16 +32,9 @@
     margin: 2rem;
 }
 
-.aRegister .registerH1 {
-    color: black;
-    margin-top: 8px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.form h2 {
+.registerH1 {
     margin-top: 16px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
