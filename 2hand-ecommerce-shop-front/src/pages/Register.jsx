@@ -2,6 +2,7 @@ import "../assets/css/pagescss/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { sendRegister } from "../api/send-register";
+import logoblackregister from "../assets/img/trocoBlack.svg";
 
 export function Register() {
     const [payload, setPayload] = useState({
@@ -32,12 +33,15 @@ export function Register() {
         <>
             <main className="formRegister">
                 <form onSubmit={onSubmit} className="form">
-                    <a className="aRegister " href="/">
-                        <h1 className="registerH1 material-symbols-rounded">
-                            arrow_back_ios Troco
-                        </h1>
-                    </a>
-                    <h2>Create your account</h2>
+                    <Link className="aLogin" to="/">
+                        <button
+                            className="loginButton1"
+                            style={{
+                                backgroundImage: `url(${logoblackregister})`,
+                            }}
+                        ></button>
+                    </Link>
+                    <h1 className="registerH1">Create your account</h1>
                     <div className="inputRegister">
                         <label htmlFor="username"></label>
                         <input
