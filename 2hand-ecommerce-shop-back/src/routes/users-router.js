@@ -130,10 +130,16 @@ router.post(
   auth,
   express.json(),
   asyncErrors(async (req, res) => {
-    await addToWishList(req.currentUser.id, req.params.itemId);
+    const itemDetails = await addToWishList(
+      req.currentUser.id,
+      req.params.itemId
+    );
     res.status(200).json({
       success: true,
-      data: "Item added to your TROCOLIST",
+      data: {
+        message: "Item added to your TROCOLIST",
+        item: itemDetails,
+      },
     });
   })
 );

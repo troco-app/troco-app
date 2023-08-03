@@ -6,16 +6,16 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { WishlistContext } from "../contexts/WishListContext";
 
-export function ItemCardBig({ product }) {
+export function ItemCardBigWish({ product }) {
   const averageRating = parseFloat(product.user_average_rating);
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const { isItemInWishlist, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
-  const inWishlist = isItemInWishlist(product.id);
+  const inWishlist = isItemInWishlist(product.item_id);
 
   const handleExchangeClick = () => {
-    navigate(`/ProductPage/${product.id}`);
+    navigate(`/ProductPage/${product.item_id}`);
   };
 
   const handleStoreDetailClick = (userId) => {
@@ -24,9 +24,9 @@ export function ItemCardBig({ product }) {
 
   const handleWishlistClick = () => {
     if (inWishlist) {
-      removeFromWishlist(product.id);
+      removeFromWishlist(product.item_id);
     } else {
-      addToWishlist(product.id);
+      addToWishlist(product.item_id);
     }
   };
 

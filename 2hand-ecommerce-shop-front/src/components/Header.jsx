@@ -51,12 +51,16 @@ export function Header() {
                   <div onClick={() => handleMenuClick("/UserInfo")}>
                     Profile
                   </div>
-                  <div onClick={() => handleMenuClick("/storeDetail/ec59090e-c881-4c47-ac64-1bca2e448050")}>
+                  <div
+                    onClick={() =>
+                      handleMenuClick(
+                        "/storeDetail/ec59090e-c881-4c47-ac64-1bca2e448050"
+                      )
+                    }
+                  >
                     Ads
                   </div>
-                  <div onClick={() => handleMenuClick("/UserDeals")}>
-                    Deals
-                  </div>
+                  <div onClick={() => handleMenuClick("/UserDeals")}>Deals</div>
                   <div onClick={() => handleMenuClick("/WishList")}>
                     Wishlist
                   </div>

@@ -86,24 +86,25 @@ module.exports = {
 
   async itemsInWishList(user_id) {
     const statement = `
-    SELECT wishlist.*, items.name, items.description, items.estimated_price, items.item_condition, items.status, items.category_id, 
-           items.is_deleted, items.user_id, items.createdAt, items.modified_at, c.category_name, ii.imageURL, u.username, u2.user_average_rating
-    FROM wishlist
-    INNER JOIN items ON wishlist.item_id = items.id
-    LEFT JOIN category as c ON items.category_id = c.id
-    LEFT JOIN item_images as ii ON items.id = ii.item_id
-    LEFT JOIN users as u ON items.user_id = u.id
-    LEFT JOIN (
-      SELECT userid, AVG(rating) AS user_average_rating
-      FROM deals_ratings
-      GROUP BY userid
-    ) AS u2 ON items.user_id = u2.userid
-    WHERE wishlist.userid = ? 
-  `;
+      SELECT wishlist.*, items.name, items.description, items.estimated_price, items.item_condition, items.status, items.category_id, 
+             items.is_deleted, items.user_id, items.createdAt, items.modified_at, c.category_name, MAX(ii.imageURL) as imageURL, u.username, u2.user_average_rating
+      FROM wishlist
+      INNER JOIN items ON wishlist.item_id = items.id
+      LEFT JOIN category as c ON items.category_id = c.id
+      LEFT JOIN item_images as ii ON items.id = ii.item_id
+      LEFT JOIN users as u ON items.user_id = u.id
+      LEFT JOIN (
+        SELECT userid, AVG(rating) AS user_average_rating
+        FROM deals_ratings
+        GROUP BY userid
+      ) AS u2 ON items.user_id = u2.userid
+      WHERE wishlist.userid = ? 
+      GROUP BY wishlist.id, items.id, items.name, items.description, items.estimated_price, items.item_condition, items.status, items.category_id, 
+               items.is_deleted, items.user_id, items.createdAt, items.modified_at, c.category_name, u.username, u2.user_average_rating
+    `;
     const [rows] = await db.execute(statement, [user_id]);
     return rows;
   },
-
   async getItemById(item_id) {
     const statement = `
       SELECT i.*, c.category_name, ii.imageURL, u.username, u2.user_average_rating
