@@ -6,152 +6,146 @@ export function TermsConditions() {
     return (
         <>
             <Categories />
-            <section className="section-faq">
-                <header className="header-faq">
-                    <h1 className="h1-faq">FAQ </h1>
+            <section className="section-term-condition">
+                <header className="header-term-condition">
+                    <h1 className="h1-term-condition">Terms & Conditions </h1>
+                    <h2 className="h2-term-condition">
+                        Welcome to Troco! These Terms and Conditions govern your
+                        use of our website and services. By using Troco, you
+                        agree to these terms. Please read them carefully.
+                    </h2>
                 </header>
-                <main className="main-ul-faq">
-                    <ul className="ul-faq">
-                        <li className="li-faq">
-                            <h2 className="h2-faq">What is TROCO Exchange?</h2>
-                            <p className="p-faq">
-                                TROCO Exchange is an online platform dedicated
-                                to the exchange of retro treasures, including
-                                consoles, video games, radios, and more. It
-                                provides a vibrant community for enthusiasts to
-                                connect, trade, and relive the nostalgia of
-                                classic items.
-                            </p>
-                        </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                How do I list a product for exchange?
+                <main className="main-ul-term-condition">
+                    <ul className="ul-term-condition">
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                1. Acceptance of Terms
                             </h2>
-                            <p className="p-faq">
-                                To list your cherished retro item, click on the
-                                List Product button and provide a detailed
-                                description, clear photos, current location, and
-                                the item&apos;s condition. Once submitted, your
-                                product will be visible to other users for
-                                potential exchanges.
+                            <p className="p-term-condition">
+                                By accessing or using Troco, you agree to be
+                                bound by these Terms and Conditions. If you do
+                                not agree with any part of these terms, you may
+                                not use our services.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                Can I propose an exchange with any user&apos;s
-                                product?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                2. Description of Service
                             </h2>
-                            <p className="p-faq">
-                                Absolutely! Feel free to browse through other
-                                users&apos; offerings and propose an exchange for the
-                                item you desire. Just click on the Propose
-                                Exchange button and wait for their response.
+                            <p className="p-term-condition">
+                                Troco is an online platform that facilitates
+                                item exchange between users. Users can post
+                                items they wish to exchange and communicate with
+                                other users to arrange trades.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                How will I know if my exchange proposal is
-                                accepted or rejected?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                3. User Conduct
                             </h2>
-                            <p className="p-faq">
-                                Once you propose an exchange, you&apos;ll receive a
-                                prompt email confirmation. The user whose
-                                product you&apos;ve selected will respond via email,
-                                either accepting or declining your proposal.
+                            <p className="p-term-condition">
+                                You are responsible for the content you post on
+                                Troco. Content must not violate any laws or
+                                infringe on the rights of others. You may not
+                                engage in any fraudulent or deceptive activities
+                                on Troco. You may not use Troco to promote or
+                                sell illegal or prohibited items.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                Is my information secure during the exchange
-                                process?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                4. Intellectual Property
                             </h2>
-                            <p className="p-faq">
-                                We take your privacy seriously. All
-                                communications and personal information are
-                                encrypted and secured. Rest assured that your
-                                details will remain confidential throughout the
-                                exchange.
+                            <p className="p-term-condition">
+                                The content on Troco, including logos,
+                                trademarks, and other intellectual property, is
+                                owned by Troco and protected by applicable laws.
+                                You may not use or reproduce our content without
+                                our permission.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                How do I contact the user for exchange
-                                arrangements?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                5. Privacy Policy
                             </h2>
-                            <p className="p-faq">
-                                Once both parties agree on the exchange, you can
-                                communicate through our secure messaging system.
-                                Coordinate a convenient meeting point to
-                                complete the trade and share the joy of vintage
-                                treasures!
+                            <p className="p-term-condition">
+                                Our Privacy Policy governs the collection and
+                                use of your personal information. Please review
+                                our Privacy Policy for more details.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                Can I rate and review my exchange experience?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                6. Disclaimer of Warranty
                             </h2>
-                            <p className="p-faq">
-                                Absolutely! After completing the exchange,
-                                you&apos;ll have the opportunity to leave a rating
-                                and review for the user. Your feedback helps
-                                build trust within our community and enhances
-                                future exchange experiences.
+                            <p className="p-term-condition">
+                                Troco is provided as is without warranties of
+                                any kind. We do not guarantee the accuracy,
+                                completeness, or reliability of any content on
+                                our platform.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                Are there any fees for listing products or
-                                making exchanges?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                7. Limitation of Liability
                             </h2>
-                            <p className="p-faq">
-                                Listing your products and making exchanges are
-                                completely free! Our goal is to foster a
-                                thriving community of retro enthusiasts,
-                                promoting the joy of vintage exchanges without
-                                any additional charges.
+                            <p className="p-term-condition">
+                                Troco shall not be liable for any damages,
+                                direct or indirect, arising from your use of our
+                                services or inability to access our platform.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">
-                                How do I build a career with TROCO Exchange?
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">8. Indemnity</h2>
+                            <p className="p-term-condition">
+                                You agree to indemnify and hold Troco harmless
+                                from any claims, damages, or losses resulting
+                                from your use of our services.
+                            </p>
+                        </li>
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                9. Modification of Terms
                             </h2>
-                            <p className="p-faq">
-                                We welcome individuals from all backgrounds and
-                                profiles to join our team. Explore the Careers
-                                section on our website to find open positions
-                                that align with your skills and interests.
-                                Submit your resume and show us your passion for
-                                vintage articles!
+                            <p className="p-term-condition">
+                                Troco reserves the right to modify these Terms
+                                and Conditions at any time. Changes will be
+                                effective upon posting on our website.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">Still have questions?</h2>
-                            <p className="p-faq">
-                                If you have any further inquiries or need
-                                assistance, don&apos;t hesitate to reach out to our
-                                friendly support team at <span className="span-faq">info@troco.pro.</span> We&apos;re
-                                here to make your retro journey a delightful
-                                experience!
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                10. Termination
+                            </h2>
+                            <p className="p-term-condition">
+                                Troco may terminate your access to our services
+                                at any time, with or without cause.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">Still have questions?</h2>
-                            <p className="p-faq">
-                                If you have any further inquiries or need
-                                assistance, don&apos;t hesitate to reach out to our
-                                friendly support team at <span className="span-faq">info@troco.pro.</span> We&apos;re
-                                here to make your retro journey a delightful
-                                experience!
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                11. Governing Law
+                            </h2>
+                            <p className="p-term-condition">
+                                These Terms and Conditions shall be governed by
+                                and construed in accordance with the laws of
+                                [Your Country/State], without regard to its
+                                conflict of law principles.
                             </p>
                         </li>
-                        <li className="li-faq">
-                            <h2 className="h2-faq">Still have questions?</h2>
-                            <p className="p-faq">
-                                If you have any further inquiries or need
-                                assistance, don&apos;t hesitate to reach out to our
-                                friendly support team at <span className="span-faq">info@troco.pro.</span> We&apos;re
-                                here to make your retro journey a delightful
-                                experience!
+                        <li className="li-term-condition">
+                            <h2 className="h2-term-condition">
+                                12. Contact Us
+                            </h2>
+                            <p className="p-term-condition">
+                                If you have any questions or concerns regarding
+                                these Terms and Conditions, please contact us at{" "}
+                                <span className="span-term-condition">
+                                    info@troco.pro.
+                                </span>{" "}
+                                By using Troco, you acknowledge that you have
+                                read and agree to these Terms and Conditions.
+                                Thank you for using our platform!
                             </p>
                         </li>
                     </ul>

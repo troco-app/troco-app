@@ -44,7 +44,7 @@ export function Footer() {
   <div className="section4">
     <a href="/">
       <div
-        className="logoFooter"
+        className="logo-Footer"
         style={{ backgroundImage: `url(${Troco})` }}
         alt="Troco Logo"
       ></div>

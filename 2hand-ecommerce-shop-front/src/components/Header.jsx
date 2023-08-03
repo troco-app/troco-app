@@ -1,11 +1,12 @@
 import { Navbar } from "../components/Navbar";
 import userhome from "../assets/img/user_white.svg";
-import logo from "../assets/img/logo.svg";
+import logo from "../assets/img/troco.svg";
 import "../assets/css/Popup.css";
 import "../assets/css/Navbar.css";
 import "../assets/css/Header.css";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { useContext, useState } from "react";
+
 
 export function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -24,7 +25,7 @@ export function Header() {
       <nav className="navPrincipal">
         <a href="/">
           <div
-            className="logo"
+            className="logo-header"
             style={{ backgroundImage: `url(${logo})` }}
           ></div>
         </a>
@@ -39,10 +40,10 @@ export function Header() {
               {currentUser ? (
                 <>
                   <div onClick={() => handleMenuClick("/UserInfo")}>
-                    User Info
+                    Profile
                   </div>
                   <div onClick={() => handleMenuClick("/UserDeals")}>
-                    User Deals
+                    Deals
                   </div>
                   <div onClick={() => handleMenuClick("/WishList")}>
                     Wishlist
