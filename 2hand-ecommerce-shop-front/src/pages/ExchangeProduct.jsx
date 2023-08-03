@@ -61,7 +61,7 @@ export function ExchangeProduct() {
                 <ProgressBar currentStep={step} />
                 {step === 1 && (
                     <>
-                        <h2 className="Step-H2 blink">
+                        <h2 className="Step-H2 ">
                             Select Item from: {ownerName}{" "}
                         </h2>
                         <ExProductList
@@ -108,7 +108,7 @@ export function ExchangeProduct() {
                 {step === 3 && (
                     <>
                         <section className="Section-Step-3">
-                            <h2 className="Step-H2-normal blink">
+                            <h2 className="Step-H2-normal ">
                                 Review the Selected Products
                             </h2>
                             <div>

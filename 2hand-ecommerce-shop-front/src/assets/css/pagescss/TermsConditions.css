@@ -1,38 +1,50 @@
+.section-term-condition {
+    padding: 2rem;
+    color: white;
+    background-color: #222;
+    margin: 2rem;
+    border-radius: 1rem;
+}
 
-  
-  .main-container {
-    color:white;
-   
-    padding: 20px;
-  }
-  
-  .title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .intro {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .section-title {
+.header-term-condition {
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap; 
+}
+
+.h1-term-condition {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.header-term-condition .h2-term-condition {
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.h2-term-condition {
     font-size: 20px;
-    margin-top: 30px;
-  }
-  
-  .section-content {
+    margin-bottom: 2rem;
+}
+
+.li-term-condition > .h2-term-condition {
+    
+    margin-bottom: 0.5rem;
+}
+
+.li-term-condition {
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.p-term-condition {
     font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .contact-link {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  .contact-link:hover {
-    text-decoration: underline;
-  }
-  
+    line-height: 1.5;
+    word-spacing: 4px;
+    line-height: 1.5rem;
+}
+
+.span-term-condition{
+    font-weight: bold;
+    color: blue;
+}

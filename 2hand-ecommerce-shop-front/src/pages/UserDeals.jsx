@@ -6,6 +6,7 @@ import { AcceptDealModal } from "../components/AcceptDealModal.jsx";
 import { RejectDealModal } from "../components/RejectDealModal.jsx";
 import { AcceptDeal } from "../api/accept-deal";
 import { RejectDeal } from "../api/reject-deal";
+import { Footer } from "../components/Footer.jsx";
 import "../assets/css/pagescss/UserDeals.css";
 
 export function UserDeals() {
@@ -66,6 +67,7 @@ export function UserDeals() {
   const handleCloseRejectModal = () => setShowRejectModal(false);
 
   return (
+    <>
     <div className="container-userdeals">
       <h1 className="userdeals-h1">Your Deals</h1>
       <DealList
@@ -86,5 +88,7 @@ export function UserDeals() {
         />
       )}
     </div>
+    <Footer />
+    </>
   );
 }
