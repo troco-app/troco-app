@@ -118,6 +118,7 @@
   padding: 0.5rem 1.5rem;
   margin: 1.5rem;
   font-weight: bold;
+  cursor:pointer;
 }
 
 /* Estilos para pantallas mayores a 768px */

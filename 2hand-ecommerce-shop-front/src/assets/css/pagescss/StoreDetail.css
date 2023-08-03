@@ -1,83 +1,98 @@
 .sellerSection {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start; 
-  color: #fff;
-  flex-wrap: wrap; 
-  background: rgba(255, 255, 255, 0.10);
-  padding: 1rem;
-  margin:1.5rem;
-  border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: #fff;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin: 1.5rem;
+    border-radius: 1rem;
 }
 
 .storeDetailPocket {
-  margin:0.5rem;
-  flex: 1 0 100%;
+    margin: 0.5rem;
+    flex: 1 0 100%;
 }
 
 .sellerInfoUser {
-  display: flex;
-  align-items: center;
-  margin: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin: 1.5rem;
 }
 
 .infoUser {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sellerImgUser .sellerImage {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 1.0rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
 }
 
 .sellerName {
-  font-size: 1.5em;
-  font-weight: bold;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.seller-upload-product {
+    background-color: #e28210;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.seller-upload-product:hover {
+    background-color: green;
+    color: white;
 }
 
 .sellerDescription {
-  margin:1rem;
+    margin: 1rem;
 }
 
-.sellerDescriptionH1{
-  font-size: medium;
-  margin-bottom: 1rem;
+.sellerDescriptionH1 {
+    font-size: medium;
+    margin-bottom: 1rem;
 }
 
 .sellerDescriptionH3 {
-  font-size: small;
-  margin-bottom: 1rem;
-  color: rgb(166, 164, 164);
+    font-size: small;
+    margin-bottom: 1rem;
+    color: rgb(166, 164, 164);
 }
 
 .sellerBio {
-  font-size: small;
-  margin-bottom: 2rem;
+    font-size: small;
+    margin-bottom: 2rem;
 }
 
 .mapView {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .titleProductsH3 {
-  margin: 2rem 1rem 2rem;
-  font-weight: 300;
+    margin: 2rem 1rem 2rem;
+    font-weight: 300;
 }
 
-.aSellerButtonBack{
-  text-decoration: none;
+.aSellerButtonBack {
+    text-decoration: none;
 }
 
 @media (min-width: 768px) {
-  
-  .storeDetailPocket {
-    flex: 1; 
-  }
-
+    .storeDetailPocket {
+        flex: 1;
+    }
 }

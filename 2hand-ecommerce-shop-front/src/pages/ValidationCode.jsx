@@ -4,49 +4,55 @@ import { useState } from "react";
 import { sendValidation } from "../api/send-validation-code";
 
 export function ValidationCode() {
-  let location = useLocation();
-  let email = location.state.email;
-  const [payload, setPayload] = useState({
-    email: email,
-    code: "",
-  });
+    let location = useLocation();
+    let email = location.state.email;
+    const [payload, setPayload] = useState({
+        email: email,
+        code: "",
+    });
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  async function onSubmit(evt) {
-    evt.preventDefault();
-    try {
-      console.log("1");
-      await sendValidation(payload);
-      navigate("/Login");
-    } catch (error) {
-      console.error(error);
+    async function onSubmit(evt) {
+        evt.preventDefault();
+        try {
+            console.log("1");
+            await sendValidation(payload);
+            navigate("/Login");
+        } catch (error) {
+            console.error(error);
+        }
     }
-  }
 
-  return (
-    <>
-      <h1 className="title">
-        We have sent you an email with the code to {payload.email}
-      </h1>
-      <form onSubmit={onSubmit} className="form">
-        <div className="input-field">
-          <label htmlFor="code"></label>
-          <input
-            type="text"
-            id="code"
-            name="code"
-            placeholder="Code"
-            className="input"
-            onChange={(evt) =>
-              setPayload({ ...payload, code: evt.target.value })
-            }
-          />
-        </div>
-        <button type="submit" className="btn">
-          Send Validation Code
-        </button>
-      </form>
-    </>
-  );
+    return (
+        <>
+            <main className="validationCode">
+                <h1 className="h1ValidationCode ">
+                    We have sent you an Email with the code to:{" "}
+                    <span className="span-validation blink">{payload.email}</span>
+                </h1>
+                <form onSubmit={onSubmit} className="formValidationCode">
+                    <div className="input-Field">
+                        <label htmlFor="code"></label>
+                        <input
+                            type="text"
+                            id="code"
+                            name="code"
+                            placeholder="Code"
+                            className="input-Field2"
+                            onChange={(evt) =>
+                                setPayload({
+                                    ...payload,
+                                    code: evt.target.value,
+                                })
+                            }
+                        />
+                    </div>
+                    <button type="submit" className="validationCodeButton">
+                        Send Validation Code
+                    </button>
+                </form>
+            </main>
+        </>
+    );
 }

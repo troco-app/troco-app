@@ -3,33 +3,25 @@
     align-items: flex-start;
     justify-content: left;
     margin: 1rem;
-    gap: 1rem;
+    gap:0.5rem;
     border-radius: 1rem;
     background-color: #222;
-    /* border-style:dashed;
-    border-color: #e28210; */
-}
-
-.itemH1 {
-    color: white;
-    font-size: medium;
-    margin: 1rem;
-}
-
-.titleItem {
-    margin-bottom: 0.5rem;
+    border: 1px dashed #e28210;
 }
 
 .textItem {
-    padding: 0.5rem;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin: 0.5rem;
+    gap:0.5rem;
 }
 
 .textItem .paragraphItem {
-    margin-bottom: 1rem;
+    
     color: grey;
-    font-style: italic;   
+    font-style: italic;
 }
-
 
 .titleItem,
 .nameUser {
@@ -51,7 +43,7 @@
 }
 
 .imageItem img {
-    border-radius: 1rem;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
 }

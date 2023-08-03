@@ -41,7 +41,7 @@
 }
 
 .pageSectionNav .sectionLinks .buttonPageSection {
-    display: inline-block;
+    cursor: pointer;
     background-color: black;
     color: white;
     border: none;
@@ -49,7 +49,12 @@
     height: 3rem;
     width: 12rem;
     margin-top: 2rem;
+    transition: background-color 0.3s;
 }
+
+.pageSectionNav .sectionLinks .buttonPageSection:hover {
+    background-color: green;
+  }
 
 .pageSectionNav .sectionLinks .buttonPageSection a {
     color: white;
@@ -100,7 +105,7 @@
 
     .pageSectionNav .sectionLinks .buttonPageSection {
         background-color: #e28210;
-        border-radius: 2.5rem;
+        border-radius: 1.5rem;
     }
     
     /* Footer*/

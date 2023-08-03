@@ -41,6 +41,7 @@ export function MainContent() {
         <Route path="/SearchPage" element={<SearchPage />} />
         <Route path="/TermsConditions" element={<TermsConditions />} />
         <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
+        
 
       </Routes>
     </main>
