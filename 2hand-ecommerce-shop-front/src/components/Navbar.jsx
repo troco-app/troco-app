@@ -16,8 +16,9 @@ export function Navbar() {
   return (
     <nav className="navbar">
       <input
+        className="input-navbar"
         type="text"
-        placeholder="FIND SOMETHING"
+        placeholder="Find Something"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyPress={handleSearch}
