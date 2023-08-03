@@ -1,11 +1,11 @@
-import { BigCardList } from "../components/BigCardList";
+import { BigCardWishlist } from "../components/BigCardWishlist";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { fetchWhishList } from "../api/fetch-wishlist";
 import "../assets/css/pagescss/WishList.css";
 import { Footer } from "../components/Footer";
 
-export function WishList() {
+export function WishListPage() {
   const [itemsWished, setItemsWished] = useState([]);
   const { token } = useContext(AuthContext);
 
@@ -23,7 +23,7 @@ export function WishList() {
       <div className="wishlist-page">
         <h1 className="wishlist-h1">Your Wish List Treasures: </h1>
         <div className="card-list-desktop">
-          <BigCardList products={itemsWished} />
+          <BigCardWishlist products={itemsWished} />
         </div>
       </div>
       <Footer />

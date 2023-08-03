@@ -5,7 +5,7 @@ import { Register } from "../pages/Register.jsx";
 import { AddProduct } from "../pages/AddProduct.jsx";
 import { ExchangeProduct } from "../pages/ExchangeProduct.jsx";
 import { UserDeals } from "../pages/UserDeals.jsx";
-import { WishList } from "../pages/WishList.jsx";
+import { WishListPage } from "../pages/WishListPage.jsx";
 import { Login } from "../pages/Login.jsx";
 import { ValidationCode } from "../pages/ValidationCode.jsx";
 import { ProductPage } from "../pages/ProductPage.jsx";
@@ -16,8 +16,7 @@ import { Faq } from "../pages/Faq.jsx";
 import { Careers } from "../pages/Careers.jsx";
 import { SearchPage } from "../pages/SearchPage.jsx";
 import { ExchangeGuide } from "../pages/ExchangeGuide.jsx";
-import { TermsConditions } from "../pages/TermsConditions.jsx"
-
+import { TermsConditions } from "../pages/TermsConditions.jsx";
 
 export function MainContent() {
   return (
@@ -31,7 +30,7 @@ export function MainContent() {
         <Route path="/AllProductsPage" element={<AllProductsPage />} />
         <Route path="/ExchangeProduct" element={<ExchangeProduct />} />
         <Route path="/UserDeals" element={<UserDeals />} />
-        <Route path="/WishList" element={<WishList />} />
+        <Route path="/WishListPage" element={<WishListPage />} />
         <Route path="/ValidationCode" element={<ValidationCode />} />
         <Route path="/ProductPage/:itemId" element={<ProductPage />} />
         <Route path="/StoreDetail/:sellerId" element={<StoreDetail />} />
@@ -41,7 +40,6 @@ export function MainContent() {
         <Route path="/SearchPage" element={<SearchPage />} />
         <Route path="/TermsConditions" element={<TermsConditions />} />
         <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
-
       </Routes>
     </main>
   );

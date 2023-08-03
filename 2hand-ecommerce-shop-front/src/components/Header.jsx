@@ -7,7 +7,6 @@ import "../assets/css/Header.css";
 import { AuthContext } from "../contexts/auth-context.jsx";
 import { useContext, useState } from "react";
 
-
 export function Header() {
   const { currentUser } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,10 +41,8 @@ export function Header() {
                   <div onClick={() => handleMenuClick("/UserInfo")}>
                     Profile
                   </div>
-                  <div onClick={() => handleMenuClick("/UserDeals")}>
-                    Deals
-                  </div>
-                  <div onClick={() => handleMenuClick("/WishList")}>
+                  <div onClick={() => handleMenuClick("/UserDeals")}>Deals</div>
+                  <div onClick={() => handleMenuClick("/WishListPage")}>
                     Wishlist
                   </div>
                 </>
