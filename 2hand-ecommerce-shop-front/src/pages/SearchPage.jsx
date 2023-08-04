@@ -7,7 +7,8 @@ import { searchItems } from "../api/search-items";
 import categories from "../utils/category-list";
 import conditionOptions from "../utils/conditions-options";
 import locations from "../utils/locations-list";
-import { LocationSelect } from "../components/LocationSelect";
+import { CustomSelect } from "../components/CustomSelect";
+import "../assets/css/pagescss/SearchPage.css";
 
 export function SearchPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,72 +24,96 @@ export function SearchPage() {
   const searchQuery = searchParams.get("search");
 
   useEffect(() => {
-    if (searchQuery) {
-      setSearchTerm(searchQuery);
-    }
+    const categoryQuery = searchParams.get("category_name");
+    setCategoryName(categoryQuery || "");
+    setSearchTerm(searchQuery || "");
   }, [searchQuery]);
 
   const handleSearch = async () => {
     const items = await searchItems({
-      search: searchTerm,
-      category_name: categoryName,
-      item_condition: itemCondition,
-      location: location,
-      min_price: minPrice,
-      max_price: maxPrice,
+      search: searchTerm || undefined,
+      category_name: categoryName || undefined,
+      item_condition: itemCondition || undefined,
+      location: location || undefined,
+      min_price: minPrice || undefined,
+      max_price: maxPrice || undefined,
     });
     console.log(items);
     setResults(items);
   };
 
   useEffect(() => {
-    if (searchTerm) {
-      handleSearch();
-    }
-  }, [searchTerm]);
+    handleSearch();
+  }, [searchTerm, categoryName, itemCondition, location, minPrice, maxPrice]);
 
   return (
     <>
-      <Categories />
-      {/* Removed the input for search term here */}
-      <select
-        value={categoryName}
-        onChange={(e) => setCategoryName(e.target.value)}
-      >
-        <option value="">--Please choose a category--</option>
-        {categories.map((category) => (
-          <option key={category.id} value={category.name}>
-            {category.name}
-          </option>
-        ))}
-      </select>
-      <select
-        value={itemCondition}
-        onChange={(e) => setItemCondition(e.target.value)}
-      >
-        <option value="">--Please choose an item condition--</option>
-        {conditionOptions.map((condition) => (
-          <option key={condition} value={condition}>
-            {condition}
-          </option>
-        ))}
-      </select>
-      <LocationSelect locations={locations} onLocationSelected={setLocation} />
-      <input
-        type="number"
-        value={minPrice}
-        onChange={(e) => setMinPrice(e.target.value)}
-        placeholder="Min Price"
-      />
-      <input
-        type="number"
-        value={maxPrice}
-        onChange={(e) => setMaxPrice(e.target.value)}
-        placeholder="Max Price"
-      />
-      <button onClick={handleSearch}>Filter</button>
-      <BigCardList products={results} />
-      <Footer />
+      <header>
+        <nav>
+          <Categories />
+        </nav>
+      </header>
+
+      <div className="mainSearchPage">
+        <form className="search-form">
+          <CustomSelect
+            options={categories}
+            onOptionSelected={setCategoryName}
+            id="category-select"
+            name="category-select"
+            placeholder="Todas las categorías"
+          />
+
+          <CustomSelect
+            options={conditionOptions}
+            onOptionSelected={setItemCondition}
+            name="condition-select"
+            id="condition-select"
+            placeholder="Cualquier estado"
+          />
+
+          <CustomSelect
+            options={locations}
+            onOptionSelected={setLocation}
+            id="location-select"
+            name="location-select"
+            placeholder="Todas las provincias"
+          />
+
+          <input
+            className="inputPrice"
+            type="number"
+            name="minPrice"
+            id="minPrice"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            placeholder="Min Price"
+          />
+
+          <input
+            className="inputPrice"
+            type="number"
+            name="maxPrice"
+            id="maxPrice"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            placeholder="Max Price"
+          />
+
+          <button
+            className="Button-Search-Page"
+            type="button"
+            onClick={handleSearch}
+          >
+            Filter
+          </button>
+        </form>
+        <BigCardList products={results} />
+      </div>
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

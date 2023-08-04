@@ -43,7 +43,7 @@ export function Home() {
             <h1>Trade your treasure and</h1>
             <h2>Game on!</h2>
             <nav className="sectionLinks">
-              <a href="/AllProductsPage">
+              <a href="/SearchPage">
                 <button className="buttonPageSection">
                   EXPLORE ALL PRODUCTS
                 </button>
@@ -56,7 +56,7 @@ export function Home() {
             className="sectionImage"
           />
         </section>
-        
+
         <h2 className="h2CardList">Fresh from the oven</h2>
         <PocketCardList products={latestProducts} />
         <h2 className="h2BigCardList">Most exchanged goodies</h2>

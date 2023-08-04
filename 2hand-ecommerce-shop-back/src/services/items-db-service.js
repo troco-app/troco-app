@@ -191,7 +191,7 @@ module.exports = {
     maxPrice
   ) {
     let sql = `
-      SELECT items.*, category.category_name, users.city 
+      SELECT items.*, category.category_name, users.city, users.username 
       FROM items 
       JOIN category ON items.category_id = category.id 
       JOIN users ON items.user_id = users.id 

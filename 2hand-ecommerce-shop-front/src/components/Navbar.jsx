@@ -8,8 +8,12 @@ export function Navbar() {
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      // To trigger the search on pressing Enter
-      navigate(`/SearchPage?search=${searchTerm}`); // Redirecting to the search page with the search term
+      // Redirecting to the search page with or without the search term
+      if (searchTerm.trim()) {
+        navigate(`/SearchPage?search=${searchTerm}`);
+      } else {
+        navigate("/SearchPage");
+      }
     }
   };
 

@@ -1,0 +1,42 @@
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* Establece una posición relativa */
+}
+
+.inputCustomSelect {
+  background-color: #e28210;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 5px;
+  
+}
+
+.inputCustomSelect::placeholder {
+  color: white;
+}
+
+.ulCustomSelect {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #555;
+  color: white;
+  border-radius: 5px;
+  position: absolute; /* Establece una posición absoluta */
+  top: 100%; /* Coloca el desplegable debajo del input */
+  left: 0; /* Alinea el desplegable a la izquierda */
+  z-index: 1; /* Asegura que el desplegable esté por encima del contenido */
+}
+
+.custom-select .liCustomSelect {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.custom-select .liCustomSelect:hover {
+  background-color: #555;
+}
+
