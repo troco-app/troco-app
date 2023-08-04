@@ -1,0 +1,39 @@
+.mainSearchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+/* Espacio entre los elementos */
+.search-form > * {
+    margin: 5px; /* Ajusta el valor según la separación que desees */
+}
+
+.inputPrice {
+    background-color: #e28210;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.inputPrice::placeholder {
+    color: white;
+}
+
+.Button-Search-Page {
+    background-color: #e28210;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 5px;
+}

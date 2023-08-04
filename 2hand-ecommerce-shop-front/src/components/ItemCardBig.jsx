@@ -1,18 +1,23 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
+import { AuthContext } from "../contexts/auth-context.jsx";
 import "../assets/css/ItemCardBig.css";
 import StarRating from "./StarRating";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { WishlistContext } from "../contexts/WishListContext";
+import { useState } from "react";
 
 export function ItemCardBig({ product }) {
+  const { currentUser } = useContext(AuthContext);
   const averageRating = parseFloat(product.user_average_rating);
   const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
   const navigate = useNavigate();
   const { isItemInWishlist, addToWishlist, removeFromWishlist } =
     useContext(WishlistContext);
   const inWishlist = isItemInWishlist(product.id);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const handleExchangeClick = () => {
     navigate(`/ProductPage/${product.id}`);
@@ -23,6 +28,18 @@ export function ItemCardBig({ product }) {
   };
 
   const handleWishlistClick = () => {
+    if (!currentUser) {
+      setShowPopup(true);
+      setPopupMessage("You need to be logged in to wishlist a product.");
+      return;
+    }
+
+    if (currentUser.id === product.user_id) {
+      setShowPopup(true);
+      setPopupMessage("You cannot wishlist your own product.");
+      return;
+    }
+
     if (inWishlist) {
       removeFromWishlist(product.id);
     } else {
@@ -32,6 +49,16 @@ export function ItemCardBig({ product }) {
 
   return (
     <>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="popup-close" onClick={() => setShowPopup(false)}>
+              &times;
+            </span>
+            {popupMessage}
+          </div>
+        </div>
+      )}
       <article className="product">
         <div className="textProduct">
           <div

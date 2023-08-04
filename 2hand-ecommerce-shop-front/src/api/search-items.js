@@ -18,8 +18,7 @@ export async function searchItems({
     max_price: max_price || undefined,
   };
   Object.keys(params).forEach(
-    (key) =>
-      params[key] !== undefined && url.searchParams.append(key, params[key])
+    (key) => params[key] && url.searchParams.append(key, params[key])
   );
 
   try {

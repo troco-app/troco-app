@@ -1,15 +1,26 @@
 import "../assets/css/PocketCardList.css";
-import { ItemCardPocket } from "./ItemCardPocket"; // Import your ItemCardBig component
+import { ItemCardPocket } from "./ItemCardPocket";
 
 /* eslint-disable react/prop-types */
-export function PocketCardList({ products }) {
+export function PocketCardList({ products, onDeleteItem }) {
+  const uniqueProducts = products
+    .filter(
+      (product) => product.status === "available" && product.is_deleted === 0
+    )
+    .filter(
+      (product, index, self) =>
+        index === self.findIndex((p) => p.id === product.id)
+    );
+
   return (
     <>
-      {products
-        .filter((product) => product.status === "available")
-        .map((product) => (
-          <ItemCardPocket product={product} key={product.id} /> // Use your ItemCardBig component here
-        ))}
+      {uniqueProducts.map((product) => (
+        <ItemCardPocket
+          product={product}
+          key={product.id}
+          onDeleteItem={onDeleteItem}
+        />
+      ))}
     </>
   );
 }
