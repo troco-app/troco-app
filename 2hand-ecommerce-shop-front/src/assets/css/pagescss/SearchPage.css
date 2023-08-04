@@ -1,21 +1,13 @@
-.mainSearchPage {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: flex-start;
-    padding: 10px;
-}
-
 .search-form {
+    margin: 0.5rem 1rem 0.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: start;
 }
 
-/* Espacio entre los elementos */
 .search-form > * {
-    margin: 5px; /* Ajusta el valor según la separación que desees */
+    margin: 5px;
 }
 
 .inputPrice {
@@ -24,6 +16,7 @@
     color: white;
     border-radius: 6px;
     padding: 5px;
+    outline: none;
 }
 
 .inputPrice::placeholder {
@@ -34,6 +27,6 @@
     background-color: #e28210;
     border: none;
     color: white;
-    border-radius: 6px;
-    padding: 5px;
+    border-radius: 8px;
+    padding: 5px 12px;
 }

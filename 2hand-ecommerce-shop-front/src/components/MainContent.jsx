@@ -17,6 +17,7 @@ import { Careers } from "../pages/Careers.jsx";
 import { SearchPage } from "../pages/SearchPage.jsx";
 import { ExchangeGuide } from "../pages/ExchangeGuide.jsx";
 import { TermsConditions } from "../pages/TermsConditions.jsx";
+import { OurStory } from "../pages/OurStory.jsx";
 
 export function MainContent() {
   return (
@@ -40,6 +41,7 @@ export function MainContent() {
         <Route path="/SearchPage" element={<SearchPage />} />
         <Route path="/TermsConditions" element={<TermsConditions />} />
         <Route path="/ExchangeGuide" element={<ExchangeGuide />} />
+        <Route path="/OurStory" element={<OurStory />} />
       </Routes>
     </main>
   );

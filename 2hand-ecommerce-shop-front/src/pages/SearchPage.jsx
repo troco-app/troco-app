@@ -61,7 +61,7 @@ export function SearchPage() {
             onOptionSelected={setCategoryName}
             id="category-select"
             name="category-select"
-            placeholder="Todas las categorías"
+            placeholder="All Categories"
           />
 
           <CustomSelect
@@ -69,7 +69,7 @@ export function SearchPage() {
             onOptionSelected={setItemCondition}
             name="condition-select"
             id="condition-select"
-            placeholder="Cualquier estado"
+            placeholder="Any State"
           />
 
           <CustomSelect
@@ -77,11 +77,11 @@ export function SearchPage() {
             onOptionSelected={setLocation}
             id="location-select"
             name="location-select"
-            placeholder="Todas las provincias"
+            placeholder="All Provinces"
           />
 
           <input
-            className="inputPrice"
+            className="inputPrice "
             type="number"
             name="minPrice"
             id="minPrice"
