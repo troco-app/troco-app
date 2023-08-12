@@ -56,7 +56,7 @@ export function Header() {
                     Store
                   </div>
                   <div onClick={() => handleMenuClick("/UserDeals")}>Deals</div>
-                  <div onClick={() => handleMenuClick("/WishList")}>
+                  <div onClick={() => handleMenuClick("/WishListPage")}>
                     Wishlist
                   </div>
                   <div onClick={handleLogout}>Logout</div>

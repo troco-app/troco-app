@@ -68,27 +68,27 @@ export function UserDeals() {
 
   return (
     <>
-    <div className="container-userdeals">
-      <h1 className="userdeals-h1">Your Deals</h1>
-      <DealList
-        deals={userDeals}
-        onAccept={handleOpenAcceptModal}
-        onReject={handleReject}
-      />
-      {showAcceptModal && (
-        <AcceptDealModal
-          onClose={handleCloseAcceptModal}
-          onAccept={handleAcceptDeal}
+      <div className="container-userdeals">
+        <h1 className="userdeals-h1">Your Deals</h1>
+        <DealList
+          deals={userDeals}
+          onAccept={handleOpenAcceptModal}
+          onReject={handleReject}
         />
-      )}
-      {showRejectModal && (
-        <RejectDealModal
-          onClose={handleCloseRejectModal}
-          onReject={handleRejectDeal}
-        />
-      )}
-    </div>
-    <Footer />
+        {showAcceptModal && (
+          <AcceptDealModal
+            onClose={handleCloseAcceptModal}
+            onAccept={handleAcceptDeal}
+          />
+        )}
+        {showRejectModal && (
+          <RejectDealModal
+            onClose={handleCloseRejectModal}
+            onReject={handleRejectDeal}
+          />
+        )}
+      </div>
+      <Footer />
     </>
   );
 }

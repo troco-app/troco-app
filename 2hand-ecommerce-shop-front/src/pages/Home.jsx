@@ -14,6 +14,7 @@ export function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = [atari, nintendo, psp];
   const [latestProducts, setLatestProducts] = useState([]);
+  const [randomProducts, setRandomProducts] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,11 +24,38 @@ export function Home() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  function getRandomItems(arr, count) {
+    // Copy original array to avoid modifying it
+    const tempArr = [...arr];
+
+    // Select random items
+
+    const result = [];
+    for (let i = 0; i < count && tempArr.length > 0; i++) {
+      const randomIndex = Math.floor(Math.random() * tempArr.length);
+      result.push(tempArr[randomIndex]);
+      tempArr.splice(randomIndex, 1); // Remove the selected item
+    }
+
+    return result;
+  }
+
+  useEffect(() => {
+    fetchLatestProduct()
+      .then((data) => {
+        const randomThreeProducts = getRandomItems(data, 3);
+        setRandomProducts(randomThreeProducts);
+        console.log(randomThreeProducts);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   useEffect(() => {
     fetchLatestProduct()
       .then((data) => {
         const firstThreeProducts = data.slice(0, 3);
         setLatestProducts(firstThreeProducts);
+        console.log(firstThreeProducts);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -60,7 +88,7 @@ export function Home() {
         <h2 className="h2CardList">Fresh from the oven</h2>
         <PocketCardList products={latestProducts} />
         <h2 className="h2BigCardList">Most exchanged goodies</h2>
-        <BigCardList products={latestProducts} />
+        <BigCardList products={randomProducts} />
         <Box />
       </main>
       <Footer />

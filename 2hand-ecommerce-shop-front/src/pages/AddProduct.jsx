@@ -8,8 +8,10 @@ import { uploadImage } from "../api/upload-image";
 import { DragAndDropUpload } from "../components/DragAndDropUpload";
 import { Footer } from "../components/Footer";
 import { Categories } from "../components/Categories";
+import { useNavigate } from "react-router-dom";
 
 export function AddProduct() {
+  const navigate = useNavigate();
   const [payload, setPayload] = useState({
     name: "",
     description: "",
@@ -44,6 +46,7 @@ export function AddProduct() {
         for (let file of selectedFiles) {
           await uploadImage(itemId, file, token);
         }
+        navigate(`/ProductPage/${itemId}`);
       }
     } catch (error) {
       console.error(error);
@@ -158,10 +161,10 @@ export function AddProduct() {
                     })
                   }
                 >
-                  <option value="">Please Choose an Option</option>
-                  {conditionOptions.map((condition, index) => (
-                    <option key={index} value={condition}>
-                      {condition}
+                  <option value="">--Please choose an option--</option>
+                  {conditionOptions.map((condition) => (
+                    <option key={condition.id} value={condition.name}>
+                      {condition.name}
                     </option>
                   ))}
                 </select>
@@ -181,7 +184,7 @@ export function AddProduct() {
                     })
                   }
                 >
-                  <option value="">Please Choose an Option</option>
+                  <option value="">--Please choose an option--</option>
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.name}
