@@ -1,71 +1,69 @@
 .item-pocket {
-    align-items: flex-start;
-    display: flex;
-    justify-content: left;
-    margin: 1rem;
-    gap: 0.5rem;
-    border-radius: 1rem;
-    background-color: #222;
-    border: 1px dashed #e28210;
+  align-items: flex-start;
+  display: flex;
+  justify-content: left;
+  margin: 1rem;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  background-color: #222;
+  border: 1px dashed #e28210;
 }
 
 .textItem {
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    margin: 0.5rem;
-    gap: 0.5rem;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  margin: 0.5rem;
+  gap: 0.5rem;
 }
 
 .textItem .paragraphItem {
-    color: grey;
-    font-style: italic;
+  color: grey;
+  font-style: italic;
 }
 
 .titleItem,
 .nameUser {
-    font-size: small;
+  font-size: small;
 }
 
 .item-pocket .textItem {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    font-size: small;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
 }
 
 .imageItem {
-    padding: 0.5rem;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  padding: 0.5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .imageItem img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
-/* Estilos para el botón de la papelera */
 .binButton {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-size: 0;
-    width: 20px;
-    height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
 }
 
-/* Estilos para el icono de la papelera */
 .binButton svg {
-    color: white;
-    font-size: 18px;
+  color: white;
+  font-size: 18px;
 }
 
 @media (min-width: 768px) {
-    .item {
-        display: flex;
-    }
+  .item {
+    display: flex;
+  }
 }

@@ -32,7 +32,7 @@ export function Deal({ deal, onAccept, onReject }) {
       getDealExchangeConditions(deal[0].id)
         .then((data) => {
           setExchangeDateTime(data.exchange_date_time);
-          return getDealRates(deal[0].id); // Fetch ratings after fetching exchange conditions
+          return getDealRates(deal[0].id);
         })
         .then((rates) => {
           setRatings(rates);
@@ -42,7 +42,6 @@ export function Deal({ deal, onAccept, onReject }) {
     }
   }, [deal, fetched]);
 
-  // Helper function to check if the current user has already rated the deal
   const userHasRated = () => {
     return ratings.some((rate) => rate.userid === userId);
   };

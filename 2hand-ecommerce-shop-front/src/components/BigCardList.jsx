@@ -13,7 +13,10 @@ export function BigCardList({ products }) {
   return (
     <div className="sellerProductItems">
       {uniqueProducts
-        .filter((product) => product.status === "available")
+        .filter(
+          (product) =>
+            product.status === "available" && product.is_deleted === 0
+        )
         .map((product) => (
           <ItemCardBig product={product} key={product.id} />
         ))}

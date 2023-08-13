@@ -165,43 +165,48 @@
     margin-left: 3rem;
   }
 }
-/* Input Fields */
+
+.info-content-edit label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-top: 1rem;
+}
+
 .edit-input {
   display: block;
-  width: 80%; /* makes sure the input takes the full width of its parent */
+  width: 80%;
   padding: 0.5rem;
-  margin: 0.5rem 0; /* vertical spacing */
-  border: 1px solid #ccc; /* gray border similar to the deals card */
-  border-radius: 5px; /* rounded corners for inputs */
-  font-size: 1rem; /* font size for input content */
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #f9f9f9;
   transition: border-color 0.3s;
 }
 
-.edit-input:focus {
-  border-color: #e28210; /* orange border when input is focused, matches the other orange elements */
-  outline: none; /* removing browser default focus styles */
+.edit-input[type="textarea"] {
+  resize: vertical;
+  height: 100px;
 }
 
 .edit-save-button {
-  margin-top: 1rem; /* spacing from the last input field */
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: #e28210; /* the orange theme color */
+  background-color: #e28210;
   color: white;
   border: none;
-  border-radius: 5px; /* rounded corners */
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .edit-save-button:hover {
-  background-color: #d2710f; /* slightly darker orange for hover effect */
+  background-color: #d2710f;
 }
 
-/* For larger screens (768px and up) */
 @media (min-width: 768px) {
-  /* ...existing styles... */
-
-  /* Added left margin to inputs and save button to match alignment */
+  .info-content-edit label,
   .edit-input,
   .edit-save-button {
     margin-left: 3rem;

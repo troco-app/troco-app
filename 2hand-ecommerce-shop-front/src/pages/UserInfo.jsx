@@ -56,18 +56,13 @@ export function UserInfo() {
     try {
       const response = await modifyUserInfo(updatedInfo, token);
       if (response && response.success) {
-        // Check the response shape and update this condition accordingly
-        // If the API call is successful, update userInfo state with the updated info
         setUserInfo(updatedInfo);
         setIsEditMode(false);
       } else {
-        // Handle any errors, for example:
         console.error("Failed to update user info:", response.message);
-        // You might also want to display this error to the user
       }
     } catch (error) {
       console.error("Error updating user info:", error);
-      // Handle other potential errors, like network errors
     }
   };
 

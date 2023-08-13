@@ -8,6 +8,7 @@ import { AcceptDeal } from "../api/accept-deal";
 import { RejectDeal } from "../api/reject-deal";
 import { Footer } from "../components/Footer.jsx";
 import "../assets/css/pagescss/UserDeals.css";
+import empty_box from "../assets/img/empty_box.png";
 
 export function UserDeals() {
   const { currentUser, token } = useContext(AuthContext);
@@ -75,6 +76,21 @@ export function UserDeals() {
           onAccept={handleOpenAcceptModal}
           onReject={handleReject}
         />
+        {userDeals.length === 0 ? (
+          <div className="no-deals-text">
+            <img src={empty_box} alt="empty Box" />
+            <p className="no-deals-text">
+              You do not have any deals yet. Propose an exchange to another user
+              or add more products to get offers.
+            </p>
+          </div>
+        ) : (
+          <DealList
+            deals={userDeals}
+            onAccept={handleOpenAcceptModal}
+            onReject={handleReject}
+          />
+        )}
         {showAcceptModal && (
           <AcceptDealModal
             onClose={handleCloseAcceptModal}

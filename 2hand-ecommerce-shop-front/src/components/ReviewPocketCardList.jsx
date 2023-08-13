@@ -1,5 +1,5 @@
 import "../assets/css/ReviewPocketCardList.css";
-import { ReviewItemCardPocket } from "./ReviewItemCardPocket"; // Import your ItemCardBig component
+import { ReviewItemCardPocket } from "./ReviewItemCardPocket";
 
 /* eslint-disable react/prop-types */
 export function ReviewPocketCardList({ products }) {
@@ -8,7 +8,7 @@ export function ReviewPocketCardList({ products }) {
       {products
         .filter((product) => product.status === "available")
         .map((product) => (
-          <ReviewItemCardPocket product={product} key={product.id} /> // Use your ItemCardBig component here
+          <ReviewItemCardPocket product={product} key={product.id} />
         ))}
     </>
   );

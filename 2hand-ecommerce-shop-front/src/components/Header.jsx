@@ -5,17 +5,27 @@ import "../assets/css/Popup.css";
 import "../assets/css/Navbar.css";
 import "../assets/css/Header.css";
 import { AuthContext } from "../contexts/auth-context.jsx";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { LogoutContext } from "../contexts/auth-context.jsx";
 import { useNavigate } from "react-router-dom";
+import { getUserInfo } from "../api/get-user-info";
 
 export function Header() {
   const { currentUser } = useContext(AuthContext);
   const id = currentUser?.id;
-  const logout = useContext(LogoutContext); // Importar la función de logout
+  const logout = useContext(LogoutContext);
   const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      getUserInfo(id)
+        .then((data) => setUserInfo(data))
+        .catch((error) => console.error(error));
+    }
+  }, [id]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -27,7 +37,7 @@ export function Header() {
 
   const handleLogout = () => {
     logout();
-    navigate("/Login"); // Redirigir al usuario a la ruta /Login después de cerrar sesión
+    navigate("/Login");
   };
 
   return (
@@ -43,7 +53,11 @@ export function Header() {
         <div className="userMenu">
           <button className="popupHome" onClick={toggleMenu}>
             <i className="material-symbols-rounded">menu</i>
-            <img className="userhome" src={userhome} alt="Icono usuario" />
+            <img
+              className="userhome"
+              src={userInfo?.profile_img || userhome}
+              alt="User Icon"
+            />{" "}
           </button>
           {menuOpen && (
             <div className="menuDropdown">

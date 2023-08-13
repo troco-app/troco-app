@@ -34,7 +34,7 @@ export function AddProduct() {
   const { currentUser, token } = useContext(AuthContext);
 
   if (!currentUser) {
-    return null; // or return a loading spinner
+    return null;
   }
 
   const onSubmit = async (evt) => {

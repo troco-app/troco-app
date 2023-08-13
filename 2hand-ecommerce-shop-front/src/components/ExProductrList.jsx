@@ -14,7 +14,6 @@ export function ExProductList({ userId, onSelect, selectedProducts }) {
     }
   }, [userId]);
 
-  // Here's the new part: we create an array of unique items based on their ID
   const uniqueUserItems = [...new Set(userItems.map((item) => item.id))].map(
     (id) => userItems.find((item) => item.id === id)
   );
@@ -28,14 +27,16 @@ export function ExProductList({ userId, onSelect, selectedProducts }) {
         (selectedProduct) => selectedProduct.id !== product.id
       );
     }
-    // Call the parent handler with the updated products
     onSelect(updatedSelectedProducts);
   };
 
   return (
     <>
       {uniqueUserItems
-        .filter((product) => product.status === "available")
+        .filter(
+          (product) =>
+            product.status === "available" && product.is_deleted === 0
+        )
         .map((product) => (
           <ExProductItem
             product={product}

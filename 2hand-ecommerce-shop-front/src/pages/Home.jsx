@@ -25,16 +25,12 @@ export function Home() {
   }, [images.length]);
 
   function getRandomItems(arr, count) {
-    // Copy original array to avoid modifying it
     const tempArr = [...arr];
-
-    // Select random items
-
     const result = [];
     for (let i = 0; i < count && tempArr.length > 0; i++) {
       const randomIndex = Math.floor(Math.random() * tempArr.length);
       result.push(tempArr[randomIndex]);
-      tempArr.splice(randomIndex, 1); // Remove the selected item
+      tempArr.splice(randomIndex, 1);
     }
 
     return result;

@@ -23,6 +23,31 @@ export function ExchangeProduct() {
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
+  const calculateTotals = () => {
+    const buyerTotal = buyerSelectedProducts.reduce(
+      (sum, product) => sum + Number(product.estimated_price),
+      0
+    );
+    const sellerTotal = sellerSelectedProducts.reduce(
+      (sum, product) => sum + Number(product.estimated_price),
+      0
+    );
+    return { sellerTotal, buyerTotal };
+  };
+
+  const calculateAcceptanceChance = (sellerTotal, buyerTotal) => {
+    let acceptance;
+    const difference = buyerTotal - sellerTotal;
+    if (difference === 0) {
+      acceptance = Math.random() * (80 - 50) + 50; // Random value between 50% and 80%
+    } else if (difference > 0) {
+      acceptance = Math.random() * (95 - 90) + 90; // Random value between 90% and 95%
+    } else {
+      acceptance = Math.random() * (20 - 10) + 10; // Random value between 10% and 20%
+    }
+    return acceptance;
+  };
+
   const createDealPayload = () => {
     return {
       buyer_id: buyerId,
@@ -142,6 +167,27 @@ export function ExchangeProduct() {
               <div>
                 <h3 className="Step-H3">Products you Offered:</h3>
                 <ReviewPocketCardList products={buyerSelectedProducts} />
+              </div>
+              <h2 className="Step-H2-normal ">
+                Acceptance Chance Calculations
+              </h2>
+              <div className="Step-H2">
+                <p>
+                  Total estimated price of seller's products: $
+                  {calculateTotals().sellerTotal}
+                </p>
+                <p>
+                  Total estimated price of your offered products: $
+                  {calculateTotals().buyerTotal}
+                </p>
+                <p>
+                  Acceptance chances:{" "}
+                  {calculateAcceptanceChance(
+                    calculateTotals().sellerTotal,
+                    calculateTotals().buyerTotal
+                  ).toFixed(2)}
+                  %
+                </p>
               </div>
               <div className="Step-Buttons-Exchange-3">
                 <button

@@ -196,10 +196,11 @@ ORDER BY i.createdAt DESC;
     maxPrice
   ) {
     let sql = `
-      SELECT items.*, category.category_name, users.city, users.username 
+      SELECT items.*, category.category_name, users.city, users.username, ii.imageURL 
       FROM items 
       JOIN category ON items.category_id = category.id 
       JOIN users ON items.user_id = users.id 
+      LEFT JOIN item_images as ii ON items.id = ii.item_id
       WHERE items.status = 'available' AND items.is_deleted = false
     `;
 

@@ -16,7 +16,7 @@ export function RatingModal({ dealId, token, onClose }) {
         rating_comment: comment,
       };
       await rateDeal(payload, token, dealId);
-      onClose(true); // Close the modal and signal that the rating was successful
+      onClose(true);
       navigate("/");
     } catch (error) {
       console.error("Failed to submit rating:", error);
