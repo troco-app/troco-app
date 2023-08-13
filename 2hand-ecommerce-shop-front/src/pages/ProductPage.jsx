@@ -127,6 +127,7 @@ export function ProductPage() {
           <div className="productDetails">
             <h2 className="productName">{item.name}</h2>
             <p className="productDescription">{item.description}</p>
+            <p className="productDescription">{item.estimated_price}€</p>
             <div className="ownerDetails">
               <h3 className="ownerName">{item.username}</h3>
               <StarRating className="rating" rating={4} />

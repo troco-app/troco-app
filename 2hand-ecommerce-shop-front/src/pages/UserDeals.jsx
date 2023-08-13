@@ -71,11 +71,6 @@ export function UserDeals() {
     <>
       <div className="container-userdeals">
         <h1 className="userdeals-h1">Your Deals</h1>
-        <DealList
-          deals={userDeals}
-          onAccept={handleOpenAcceptModal}
-          onReject={handleReject}
-        />
         {userDeals.length === 0 ? (
           <div className="no-deals-text">
             <img src={empty_box} alt="empty Box" />
