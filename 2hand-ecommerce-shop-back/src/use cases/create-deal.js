@@ -28,6 +28,7 @@ module.exports = async (currentUserId, payload) => {
   const itemDetails = await Promise.all(
     allItems.map((item_id) => itemDbService.getItemById(item_id))
   );
+  console.log(itemDetails);
   if (
     itemDetails.some((item) => item.status !== "available" || item.is_deleted)
   ) {

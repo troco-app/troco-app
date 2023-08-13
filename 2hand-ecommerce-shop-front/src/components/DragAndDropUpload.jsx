@@ -6,7 +6,6 @@ import upload from "../assets/img/upload.png";
 
 export function DragAndDropUpload(props) {
   const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
     props.handleFiles(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -24,8 +23,6 @@ export function DragAndDropUpload(props) {
       {isDragActive ? (
         <p className="pDrop">Drop the files here ...</p>
       ) : (
-        // eslint-disable-next-line react/no-unescaped-entities
-
         <p className="pUpload">Browse Files to Upload</p>
       )}
     </div>

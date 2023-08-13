@@ -10,7 +10,6 @@ import { Login } from "../pages/Login.jsx";
 import { ValidationCode } from "../pages/ValidationCode.jsx";
 import { ProductPage } from "../pages/ProductPage.jsx";
 import { StoreDetail } from "../pages/StoreDetail.jsx";
-import { AllProductsPage } from "../pages/AllProductsPage.jsx";
 import { ContactUs } from "../pages/ContactUs.jsx";
 import { Faq } from "../pages/Faq.jsx";
 import { Careers } from "../pages/Careers.jsx";
@@ -28,7 +27,6 @@ export function MainContent() {
         <Route path="/UserInfo" element={<UserInfo />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/AddProduct" element={<AddProduct />} />
-        <Route path="/AllProductsPage" element={<AllProductsPage />} />
         <Route path="/ExchangeProduct" element={<ExchangeProduct />} />
         <Route path="/UserDeals" element={<UserDeals />} />
         <Route path="/WishListPage" element={<WishListPage />} />

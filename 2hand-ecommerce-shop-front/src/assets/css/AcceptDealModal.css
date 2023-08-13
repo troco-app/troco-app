@@ -1,85 +1,84 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 2rem;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem;
+  z-index: 1000;
 }
 
 .modal-content {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .deal-modal-h1 {
-    color: white;
-    font-size: 20px;
-    margin-bottom: 1rem;
-    font-style: italic;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  font-style: italic;
 }
 
 .modal-content input,
 .modal-content textarea {
-    padding: 10px;
-    border: 1px solid orange;
-    border-radius: 1rem;
-    width: 100%;
-    outline: none;
-    transition: border-bottom-color 0.3s;
+  padding: 10px;
+  border: 1px solid orange;
+  border-radius: 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-bottom-color 0.3s;
 }
 
 .modal-content input:focus,
 .modal-content textarea:focus {
-    border-bottom-color: orange;
-    box-shadow: 0 0 5px orange;
-    outline: none;
-    border-radius: 1rem;
+  border-bottom-color: orange;
+  box-shadow: 0 0 5px orange;
+  outline: none;
+  border-radius: 1rem;
 }
 
 .modal-content button {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .modal-content button:hover {
-    background-color: green;
+  background-color: green;
 }
 
 .modal-content button:first-child {
-    background-color: #ccc;
-    color: white;
+  background-color: #ccc;
+  color: white;
 }
 
 .modal-content button:first-child:hover {
-    background-color: #aaa;
+  background-color: #aaa;
 }
 
 .modal-content > input,
 .modal-content > textarea,
 .modal-content > button {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
-/* Button container */
 .modal-content > div {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }

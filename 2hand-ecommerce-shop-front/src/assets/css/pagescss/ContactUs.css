@@ -1,48 +1,52 @@
 .sectionContactUs {
-    color: rgb(174, 167, 167);
-    font-size: medium;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
+  color: rgb(174, 167, 167);
+  font-size: medium;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(60vh - 100px);
+  padding: 20px;
+  background-color: #222;
+  margin: 2rem;
+  border-radius: 1rem;
 }
 
 .pageHeading {
-    color: white;
+  color: white;
 }
 
 .pContactUs {
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    word-spacing: 4px;
-    line-height: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  word-spacing: 4px;
+  line-height: 1.5rem;
 }
 
 .spanInfoTroco {
-    font-weight: bold;
-    color: white;
+  font-weight: bold;
+  color: white;
 }
 
 .containerMap {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .map {
-    border: 1px solid orange;
-    height: 250px;
-    width: 100%;
-    border-radius: 1rem;
+  border: 1px solid orange;
+  height: 250px;
+  width: 100%;
+  border-radius: 1rem;
 }
 
-/* Estilos para pantallas de 768px o más */
 @media (min-width: 768px) {
-    .sectionContactUs {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  .sectionContactUs {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    .containerMap {
-        width: 50%;
-        margin-left: 1rem;
-    }
+  .containerMap {
+    width: 50%;
+    margin-left: 1rem;
+  }
 }

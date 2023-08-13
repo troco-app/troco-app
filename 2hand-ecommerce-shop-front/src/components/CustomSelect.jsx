@@ -22,7 +22,7 @@ export function CustomSelect({
   const handleClick = (value) => {
     setInputValue(value);
     setShowSuggestions(false);
-    onOptionSelected(value); // call the callback
+    onOptionSelected(value);
   };
 
   const filteredOptions = options.filter((option) =>
@@ -69,7 +69,7 @@ export function CustomSelect({
           <li
             className="liCustomSelect"
             onClick={() => {
-              handleClick(""); // Clear the selection
+              handleClick("");
             }}
           >
             Clear Selection

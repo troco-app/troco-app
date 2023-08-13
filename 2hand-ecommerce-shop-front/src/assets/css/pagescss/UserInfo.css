@@ -1,160 +1,214 @@
 .profile-box {
-    background-color: white;
+  background-color: white;
 }
 
 .profile-name {
-    color: black;
-    padding: 1rem;
+  color: black;
+  padding: 1rem;
+}
+
+.bold {
+  color: black;
+  font-weight: bold;
 }
 
 .profile-section {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-image {
-    width: 100px;
-    height: auto;
-    border-radius: 50%;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
 }
 
 .rating {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .actions-section {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .actions-section .headline {
-    background-color: #e28210;
-    color: white;
-    font-size: small;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+  background-color: #e28210;
+  color: white;
+  font-size: small;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .upload-button,
+.edit-button,
+.save-button,
 .wishlist-button {
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .upload-button:hover,
 .wishlist-button:hover {
-    color: orange;
+  color: orange;
 }
 
 .info-title {
-    background-color: #e28210;
-    color: white;
-    font-size: medium;
-    padding: 0.5rem;
-    margin-top: 1rem;
+  background-color: #e28210;
+  color: white;
+  font-size: medium;
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
 
 .info-ul {
-    list-style: none;
+  list-style: none;
 }
 
 .info-ul li {
-    font-size: small;
-    margin: 1rem;
+  font-size: small;
+  margin: 1rem;
 }
 
 /*Deals Hystory*/
 
 .history-title {
-    border-radius: 1rem;
-    background-color: #e28210;
-    color: white;
-    font-size: medium;
-    padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #e28210;
+  color: white;
+  font-size: medium;
+  padding: 0.5rem;
 }
 
 .history-section {
-    background-color: #f2f2f2;
-    padding: 20px;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
 
 .history-content {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .deal {
-    border: 1px solid #ccc;
-    border-radius: 1rem;
-    padding: 10px;
-    margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .deal-date {
-    font-size: 14px;
-    margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .deal-status {
-    color: green;
-    font-size: 18px;
-    margin-bottom: 5px;
+  color: green;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .deal-item {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .item-owner {
-    font-weight: bold;
-    color: #e28210;
-    font-size: 16px;
-    margin-bottom: 5px;
+  font-weight: bold;
+  color: #e28210;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .item-name {
-    font-style: italic;
-    font-size: 12px;
-    margin-bottom: 5px;
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
-    .profile-box {
-        margin: 3rem;
-        border-radius: 1rem;
-    }
-    .history-section {
-        border-bottom-right-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-    }
-    .edit-profile-wrapper {
-        display: flex;
-        justify-content: center;
-    }
+  .profile-box {
+    margin: 3rem;
+    border-radius: 1rem;
+  }
+  .history-section {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .edit-profile-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 
-    .actions-buttons {
-        display: flex;
-        margin-left: 3rem;
-    }
+  .actions-buttons {
+    display: flex;
+    margin-left: 3rem;
+  }
 
-    .info-ul li {
-        margin-left: 3rem;
-        padding: 0.5rem;
-    }
+  .info-ul li {
+    margin-left: 3rem;
+    padding: 0.5rem;
+  }
 
-    .deal-date {
-        margin-left: 3rem;
-    }
+  .deal-date {
+    margin-left: 3rem;
+  }
 
-    .deal-status {
-        margin-left: 3rem;
-    }
+  .deal-status {
+    margin-left: 3rem;
+  }
 
-    .deal-item {
-        margin-left: 3rem;
-    }
+  .deal-item {
+    margin-left: 3rem;
+  }
+}
+
+.info-content-edit label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-top: 1rem;
+}
+
+.edit-input {
+  display: block;
+  width: 80%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.edit-input[type="textarea"] {
+  resize: vertical;
+  height: 100px;
+}
+
+.edit-save-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #e28210;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-save-button:hover {
+  background-color: #d2710f;
+}
+
+@media (min-width: 768px) {
+  .info-content-edit label,
+  .edit-input,
+  .edit-save-button {
+    margin-left: 3rem;
+  }
 }

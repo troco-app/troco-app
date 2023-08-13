@@ -69,22 +69,6 @@ export function Register() {
             />
           </div>
           <div className="inputRegister">
-            <label htmlFor="last_name"></label>
-            <input
-              className="inputRegister2"
-              type="text"
-              id="last_name"
-              name="last_name"
-              placeholder="Last Name"
-              onChange={(evt) =>
-                setPayload({
-                  ...payload,
-                  last_name: evt.target.value,
-                })
-              }
-            />
-          </div>
-          <div className="inputRegister">
             <label htmlFor="email"></label>
             <input
               className="inputRegister2"
@@ -135,9 +119,25 @@ export function Register() {
             />
           </div>
           <div className="inputRegister">
+            <label htmlFor="last_name"></label>
+            <input
+              className="inputRegister2"
+              type="text"
+              id="last_name"
+              name="last_name"
+              placeholder="Last Name"
+              onChange={(evt) =>
+                setPayload({
+                  ...payload,
+                  last_name: evt.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="inputRegister">
             <label htmlFor="city"></label>
             <LocationSelect
-              locations={locations}
+              locations={locations.map((loc) => loc.name)}
               onLocationSelected={onLocationSelected}
             />
           </div>

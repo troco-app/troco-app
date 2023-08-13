@@ -30,7 +30,6 @@ export function WishlistProvider({ children }) {
           console.log("Item added to wishlist with ID:", id);
         } else {
           console.error("Failed to add item to wishlist:", response);
-          // Possibly show an error message to the user
         }
       })
       .catch((error) => {
@@ -38,7 +37,6 @@ export function WishlistProvider({ children }) {
           "An error occurred while adding item to wishlist:",
           error
         );
-        // Possibly show an error message to the user
       });
   };
 

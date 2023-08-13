@@ -5,6 +5,9 @@ const router = Router();
 
 //DDBB services
 
+const { getDealExchangeConditions } = require("../services/deals-db-service");
+const { getDealRatesByDealId } = require("../services/deals-db-service");
+
 //Use Cases
 const createDeal = require("../use cases/create-deal");
 const acceptDeal = require("../use cases/accept-deal");
@@ -108,6 +111,23 @@ router.get(
   })
 );
 
-//Modify Deal Status
+//View Deal conditions by Deal ID
+router.get(
+  "/deals/:id/conditions",
+  asyncErrors(async (req, res) => {
+    const result = await getDealExchangeConditions(req.params.id);
+    res.status(200).json(result);
+  })
+);
 
+//View Deal rates by deal ID
+router.get(
+  "/deals/:id/rates",
+  asyncErrors(async (req, res) => {
+    const result = await getDealRatesByDealId(req.params.id);
+    res.status(200).json(result);
+  })
+);
+
+//Modify Deal Status
 //Delete Deal ---> This is not gonna be used, only for testing

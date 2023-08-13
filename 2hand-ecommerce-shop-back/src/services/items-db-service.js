@@ -40,17 +40,22 @@ module.exports = {
   async getAllItems() {
     const statement = `
     SELECT i.*, c.category_name, ii.imageURL, u.username, u2.user_average_rating
-    FROM items as i
-    LEFT JOIN category as c ON i.category_id = c.id
-    LEFT JOIN item_images as ii ON i.id = ii.item_id
-    LEFT JOIN users as u ON i.user_id = u.id
-    LEFT JOIN (
-      SELECT userid, AVG(rating) AS user_average_rating
-      FROM deals_ratings
-      GROUP BY userid
-    ) AS u2 ON i.user_id = u2.userid
-    WHERE i.status = 'available' AND i.is_deleted = false
-    ORDER BY i.createdAt DESC;
+FROM items as i
+LEFT JOIN category as c ON i.category_id = c.id
+LEFT JOIN (
+    SELECT item_id, MIN(imageURL) as imageURL
+    FROM item_images
+    GROUP BY item_id
+) as ii ON i.id = ii.item_id
+LEFT JOIN users as u ON i.user_id = u.id
+LEFT JOIN (
+    SELECT userid, AVG(rating) AS user_average_rating
+    FROM deals_ratings
+    GROUP BY userid
+) AS u2 ON i.user_id = u2.userid
+WHERE i.status = 'available' AND i.is_deleted = false
+ORDER BY i.createdAt DESC;
+
   `;
     const [rows] = await db.execute(statement);
     return rows;
@@ -191,10 +196,11 @@ module.exports = {
     maxPrice
   ) {
     let sql = `
-      SELECT items.*, category.category_name, users.city, users.username 
+      SELECT items.*, category.category_name, users.city, users.username, ii.imageURL 
       FROM items 
       JOIN category ON items.category_id = category.id 
       JOIN users ON items.user_id = users.id 
+      LEFT JOIN item_images as ii ON items.id = ii.item_id
       WHERE items.status = 'available' AND items.is_deleted = false
     `;
 

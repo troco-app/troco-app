@@ -1,89 +1,87 @@
-/* Register.css */
-
 .formRegister {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(
-        to bottom,
-        black,
-        rgba(226, 130, 16, 0.8),
-        black
-    );
-    background-position: 0 0;
-    background-size: 100% 200%;
-    transition: background-position 0.5s ease-in-out;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    black,
+    rgba(226, 130, 16, 0.8),
+    black
+  );
+  background-position: 0 0;
+  background-size: 100% 200%;
+  transition: background-position 0.5s ease-in-out;
 }
 
 .formRegister:hover {
-    background-position: 0 100%;
+  background-position: 0 100%;
 }
 
 .formRegister .form {
-    background-color: white;
-    max-width: 400px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-    margin: 2rem;
+  background-color: white;
+  max-width: 400px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  margin: 2rem;
 }
 
 .registerH1 {
-    margin-top: 16px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+  margin-top: 16px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .inputRegister .inputRegister2 {
-    border: none;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    padding: 8px;
-    outline: none;
-    transition: border-bottom-color 0.3s;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  transition: border-bottom-color 0.3s;
 }
 
 .inputRegister .inputRegister2:focus {
-    border-bottom-color: orange;
-    box-shadow: 0 0 5px orange;
-    border-radius: 1rem;
+  border-bottom-color: orange;
+  box-shadow: 0 0 5px orange;
+  border-radius: 1rem;
 }
 
 .formRegister > .form > .registerButton {
-    width: 100%;
-    padding: 10px;
-    background-color: #e28210;
-    border: none;
-    border-radius: 2rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 1rem;
+  width: 100%;
+  padding: 10px;
+  background-color: #e28210;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .formRegister .form .registerButton:hover {
-    background-color: grey;
+  background-color: grey;
 }
 
 .form p {
-    text-align: center;
+  text-align: center;
 }
 
 .form a {
-    color: black;
+  color: black;
 }
 
 .pRegister {
-    color: grey;
-    font-size: small;
+  color: grey;
+  font-size: small;
 }
 
 .pRegister .registerLink {
-    font-weight: bold;
-    text-decoration: none;
+  font-weight: bold;
+  text-decoration: none;
 }

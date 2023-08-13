@@ -29,9 +29,9 @@ export async function searchItems({
       },
     });
     const result = await response.json();
-    console.log(result); // log the result here
+    console.log(result);
     return result;
   } catch (error) {
-    console.log(error); // log any error that occurs
+    console.log(error);
   }
 }

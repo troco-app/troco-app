@@ -131,6 +131,17 @@ module.exports = {
     return rows;
   },
 
+  async getDealRatesByDealId(dealId) {
+    const statement = `
+          SELECT * 
+          FROM deals_ratings 
+          WHERE deal_id = ? ;
+      `;
+
+    const [rows] = await db.execute(statement, [dealId]);
+    return rows;
+  },
+
   async getDealExchangeConditions(dealId) {
     const statement = `
           SELECT * 
