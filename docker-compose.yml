@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  database:
+    image: mysql:8
+    restart: unless-stopped
+    ports:
+    - "10128:3306"
+    env_file:
+    - ./database/.env
+    networks:
+    - troco
+    volumes:
+    - db_data:/var/lib/mysql
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+    - "8080:8080"
+    networks:
+    - troco
+volumes:
+  db_data:
+networks:
+  troco:
