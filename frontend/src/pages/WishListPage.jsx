@@ -27,9 +27,13 @@ export function WishListPage() {
             <div className="no-items-text">
               <img src={empty_box} alt="empty Box" />
               <p className="no-items-description">
-                You do not have any items in your wishlist yet. Browse products
-                and add the ones you love!
+              Your Wish list is empty
               </p>
+              <a href="/SearchPage">
+                <button className="button-whishlist">
+                  EXPLORE ALL PRODUCTS
+                </button>
+              </a>
             </div>
           ) : (
             <BigCardWishlist products={itemsWished} />

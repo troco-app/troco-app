@@ -3,8 +3,9 @@
 }
 
 .wishlist-h1 {
-  text-align: left;
+  text-align: center;
   font-size: 300;
+  margin: 1.5rem;
 }
 
 .no-items-text {
@@ -20,12 +21,30 @@
 
 .no-items-description {
   color: inherit;
-  font-size: 1.2em;
-  max-width: 80%;
+  font-size: 1.2rem;
   text-align: center;
+  color:#e28210;
 }
 
 .no-items-text img {
-  max-width: 500px;
+  max-width: 200px;
   height: auto;
+  margin: 1.5rem;
+  filter: sepia(60%) contrast(3.0) brightness(1.2);
+}
+
+ .button-whishlist {
+  cursor: pointer;
+  background-color: #e28210;
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  height: 3rem;
+  width: 12rem;
+  margin: 2rem;
+  transition: background-color 0.3s;
+}
+
+ .button-whishlist:hover {
+  background-color: green;
 }
