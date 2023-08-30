@@ -110,6 +110,7 @@ export function Register() {
               id="first_name"
               name="first_name"
               placeholder="Name"
+              required
               onChange={(evt) =>
                 setPayload({
                   ...payload,
@@ -126,6 +127,7 @@ export function Register() {
               id="last_name"
               name="last_name"
               placeholder="Last Name"
+              required
               onChange={(evt) =>
                 setPayload({
                   ...payload,
@@ -149,6 +151,7 @@ export function Register() {
               id="profile_img"
               name="profile_img"
               placeholder="Enter an url of your image"
+              required
               onChange={(evt) =>
                 setPayload({
                   ...payload,
@@ -164,7 +167,8 @@ export function Register() {
               type="text"
               id="bio_summary"
               name="bio_summary"
-              placeholder="Tell us briefly why you here"
+              placeholder="Bio"
+              required
               onChange={(evt) =>
                 setPayload({
                   ...payload,

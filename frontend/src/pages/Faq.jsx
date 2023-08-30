@@ -1,5 +1,6 @@
 import "../assets/css/pagescss/Faq.css";
 import { Categories } from "../components/Categories";
+import { CustomButtonBack } from "../components/CustomButtonBack";
 import { Footer } from "../components/Footer";
 
 export function Faq() {
@@ -43,9 +44,10 @@ export function Faq() {
                             </h2>
                             <p className="p-faq">
                                 Absolutely! Feel free to browse through other
-                                users&apos; offerings and propose an exchange for the
-                                item you desire. Just click on the Propose
-                                Exchange button and wait for their response.
+                                users&apos; offerings and propose an exchange
+                                for the item you desire. Just click on the
+                                Propose Exchange button and wait for their
+                                response.
                             </p>
                         </li>
                         <li className="li-faq">
@@ -54,10 +56,11 @@ export function Faq() {
                                 accepted or rejected?
                             </h2>
                             <p className="p-faq">
-                                Once you propose an exchange, you&apos;ll receive a
-                                prompt email confirmation. The user whose
-                                product you&apos;ve selected will respond via email,
-                                either accepting or declining your proposal.
+                                Once you propose an exchange, you&apos;ll
+                                receive a prompt email confirmation. The user
+                                whose product you&apos;ve selected will respond
+                                via email, either accepting or declining your
+                                proposal.
                             </p>
                         </li>
                         <li className="li-faq">
@@ -92,10 +95,10 @@ export function Faq() {
                             </h2>
                             <p className="p-faq">
                                 Absolutely! After completing the exchange,
-                                you&apos;ll have the opportunity to leave a rating
-                                and review for the user. Your feedback helps
-                                build trust within our community and enhances
-                                future exchange experiences.
+                                you&apos;ll have the opportunity to leave a
+                                rating and review for the user. Your feedback
+                                helps build trust within our community and
+                                enhances future exchange experiences.
                             </p>
                         </li>
                         <li className="li-faq">
@@ -128,20 +131,19 @@ export function Faq() {
                             <h2 className="h2-faq">Still have questions?</h2>
                             <p className="p-faq">
                                 If you have any further inquiries or need
-                                assistance, don&apos;t hesitate to reach out to our
-                                friendly support team at <span className="span-faq">info@troco.pro.</span> We&apos;re
-                                here to make your retro journey a delightful
-                                experience!
+                                assistance, don&apos;t hesitate to reach out to
+                                our friendly support team at{" "}
+                                <span className="span-faq">
+                                    info@troco.pro.
+                                </span>{" "}
+                                We&apos;re here to make your retro journey a
+                                delightful experience!
                             </p>
                         </li>
                     </ul>
                 </main>
             </section>
-            <a className="aSellerButtonBack" href="/">
-                <div className="buttonContainer">
-                    <button className="sellerButtonBack ">Back to Troco</button>
-                </div>
-            </a>
+            <CustomButtonBack />
             <Footer />
         </>
     );
