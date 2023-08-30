@@ -24,6 +24,7 @@ export function LocationSelect({ locations, onLocationSelected }) {
   return (
     <div className="location-select">
       <input
+      className="location-select-2"
         type="text"
         value={inputValue}
         onChange={handleChange}
