@@ -1,3 +1,6 @@
 database/.env
 backend/.env
 frontend/.env
+frontend/.envServer
+frontend/node_modules
+backend/node_modules
