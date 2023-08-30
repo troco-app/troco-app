@@ -2,6 +2,7 @@ import { Categories } from "../components/Categories";
 import { Footer } from "../components/Footer";
 import "../assets/css/pagescss/OurStory.css";
 import Image from "../assets/img/Team-A-2.jpg";
+import { CustomButtonBack } from "../components/CustomButtonBack";
 
 export function OurStory() {
     return (
@@ -48,11 +49,7 @@ export function OurStory() {
                     </p>
                 </main>
             </section>
-            <a className="aSellerButtonBack" href="/">
-                <div className="buttonContainer">
-                    <button className="sellerButtonBack ">Back to Troco</button>
-                </div>
-            </a>
+            <CustomButtonBack/>
 
             <Footer />
         </>

@@ -1,5 +1,6 @@
 import "../assets/css/pagescss/TermsConditions.css";
 import { Categories } from "../components/Categories";
+import { CustomButtonBack } from "../components/CustomButtonBack";
 import { Footer } from "../components/Footer";
 
 export function TermsConditions() {
@@ -151,11 +152,7 @@ export function TermsConditions() {
                     </ul>
                 </main>
             </section>
-            <a className="aSellerButtonBack" href="/">
-                <div className="buttonContainer">
-                    <button className="sellerButtonBack ">Back to Troco</button>
-                </div>
-            </a>
+            <CustomButtonBack />
             <Footer />
         </>
     );
