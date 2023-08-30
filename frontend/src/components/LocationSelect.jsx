@@ -29,6 +29,7 @@ export function LocationSelect({ locations, onLocationSelected }) {
         value={inputValue}
         onChange={handleChange}
         placeholder="Location"
+        required
       />
       {showSuggestions && (
         <ul>
