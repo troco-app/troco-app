@@ -13,13 +13,15 @@ app.listen(PORT, () => {
 });
 
 app.use(
-    cors({
-        origin: [
-            "https://troco.pro",
-            "http://localhost:8080",
-            "http://localhost:5173",
-        ],
-    })
+  cors({
+    origin: [
+      "https://troco.app",
+      "https://front-troco-app.pages.dev",
+      "https://troco.pro",
+      "http://localhost:8080",
+      "http://localhost:5173",
+    ],
+  })
 );
 
 app.use(validateToken);
