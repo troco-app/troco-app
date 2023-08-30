@@ -8,6 +8,7 @@ services:
     env_file:
     - ./database/.env
     volumes:
+    - ./database/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     - db_data:/var/lib/mysql
   backend:
     build:
