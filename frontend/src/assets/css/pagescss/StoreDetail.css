@@ -87,10 +87,6 @@
     font-weight: 300;
 }
 
-.aSellerButtonBack {
-    text-decoration: none;
-}
-
 @media (min-width: 768px) {
     .storeDetailPocket {
         flex: 1;

@@ -1,6 +1,7 @@
 import "../assets/css/pagescss/Careers.css";
 import img from "../assets/img/Careers.png";
 import { Categories } from "../components/Categories";
+import { CustomButtonBack } from "../components/CustomButtonBack";
 import { Footer } from "../components/Footer";
 
 export function Careers() {
@@ -34,9 +35,9 @@ export function Careers() {
                             <p className="pCareers">
                                 At TROCO, we cherish diversity and believe that
                                 every individual brings a unique perspective to
-                                our team. Whether you&apos;re a seasoned professional
-                                or a fresh graduate, your passion for vintage
-                                articles is what matters most to us.
+                                our team. Whether you&apos;re a seasoned
+                                professional or a fresh graduate, your passion
+                                for vintage articles is what matters most to us.
                             </p>
                         </li>
                         <li className="liCareers">
@@ -55,9 +56,9 @@ export function Careers() {
                             <p className="pCareers">
                                 When you join us, you become a part of our
                                 vintage journey - a path that fosters personal
-                                and professional growth. You&apos;ll have the chance
-                                to work with a talented team, learning from each
-                                other and expanding your horizons.
+                                and professional growth. You&apos;ll have the
+                                chance to work with a talented team, learning
+                                from each other and expanding your horizons.
                             </p>
                         </li>
                         <li className="liCareers">
@@ -75,9 +76,9 @@ export function Careers() {
                             <p className="pCareers">
                                 We take pride in creating an impact in the
                                 vintage world. With your talents and passion,
-                                you&apos;ll help us build a platform that brings joy
-                                to retro enthusiasts, preserving the magic of
-                                bygone eras.
+                                you&apos;ll help us build a platform that brings
+                                joy to retro enthusiasts, preserving the magic
+                                of bygone eras.
                             </p>
                         </li>
                         <li className="liCareers">
@@ -98,11 +99,7 @@ export function Careers() {
                     </ul>
                 </main>
             </section>
-            <a className="aSellerButtonBack" href="/">
-                <div className="buttonContainer">
-                    <button className="sellerButtonBack ">Back to Troco</button>
-                </div>
-            </a>
+            <CustomButtonBack />
             <Footer />
         </>
     );
