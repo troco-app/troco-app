@@ -5,17 +5,35 @@
 }
 
 .userdeals-h1 {
-  color: white;
-  margin: 2rem;
+  text-align: center;
+  font-size: 300;
+  margin: 1.5rem;
 }
 .no-deals-text {
-  color: #555;
-  font-size: 1.2em;
-  margin-top: 20px;
+  font-size: 1.2rem;
   text-align: center;
+  color:#e28210;
 }
 
 .no-deals-text img {
-  max-width: 500px;
+  max-width: 200px;
   height: auto;
+  margin: 1.5rem;
+  filter: sepia(60%) contrast(3.0) brightness(1.2);
+}
+
+.button-userdeals {
+  cursor: pointer;
+  background-color: #e28210;
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  height: 3rem;
+  width: 12rem;
+  margin: 2rem;
+  transition: background-color 0.3s;
+}
+
+ .button-userdeals:hover {
+  background-color: green;
 }

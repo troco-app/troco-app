@@ -75,9 +75,13 @@ export function UserDeals() {
           <div className="no-deals-text">
             <img src={empty_box} alt="empty Box" />
             <p className="no-deals-text">
-              You do not have any deals yet. Propose an exchange to another user
-              or add more products to get offers.
+              You do not have any deals yet
             </p>
+            <a href="/SearchPage">
+                <button className="button-userdeals">
+                  EXPLORE ALL PRODUCTS
+                </button>
+              </a>
           </div>
         ) : (
           <DealList
