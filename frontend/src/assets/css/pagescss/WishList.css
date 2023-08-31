@@ -1,11 +1,17 @@
 .wishlist-page {
   color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5rem;
+  border-radius: 1rem;
 }
 
 .wishlist-h1 {
   text-align: center;
   font-size: 300;
-  margin: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .no-items-text {
@@ -46,4 +52,10 @@
 
  .button-whishlist:hover {
   background-color: green;
+}
+
+@media (min-width: 768px) {
+  .wishlist-page{
+    background-color: #222;
+  }
 }
