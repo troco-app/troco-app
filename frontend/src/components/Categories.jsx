@@ -10,12 +10,12 @@ import console from "../assets/img/vintage_consoles_white.svg";
 import mobile from "../assets/img/vintage_mobile_phones_white.svg";
 import radios from "../assets/img/vintage_radios_white.svg";
 import watches from "../assets/img/vintage_watches_and_clocks_white.svg";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 export function Categories() {
   const categoriesRef = useRef(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleScrollLeft = () => {
     categoriesRef.current.scrollBy({
@@ -31,8 +31,12 @@ export function Categories() {
     });
   };
 
+  //const handleCategoryClick = (category) => {
+  //navigate(`/SearchPage?category_name=${category}`);
+  //};
+
   const handleCategoryClick = (category) => {
-    navigate(`/SearchPage?category_name=${category}`);
+    window.location.href = `/SearchPage?category_name=${category}`;
   };
 
   return (
