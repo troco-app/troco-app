@@ -4,6 +4,8 @@ const mailjet = require("node-mailjet").apiConnect(
   process.env.MJ_APIKEY_PRIVATE
 );
 
+const webAddress = process.env.WEB_ADDRESS;
+
 module.exports = {
   async sendEmail(to, toName, subject, message) {
     await mailjet.post("send", { version: "v3.1" }).request({
@@ -36,7 +38,7 @@ module.exports = {
         <span style="color: transparent; visibility: hidden; display: none; opacity: 0; height: 0; width: 0; font-size: 0;"></span>
         <div style="text-align: center;">
           <div style="padding: 10px 40px;">
-            <a href="http://localhost:5173/" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
+            <a href="${process.env.WEB_ADDRESS}" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
               <img class="logo" width="160" src="https://i.postimg.cc/GtVN3yF7/Troco.png" alt="TROCO Logo">
             </a>
           </div>
@@ -128,7 +130,7 @@ module.exports = {
                 <!-- Login button -->
                 <tr>
                   <td style="padding: 50px 0 0px;">
-                    <a href="http://localhost:5173/" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
+                    <a href="${process.env.WEB_ADDRESS}" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
                       Login to TROCO
                     </a>
                   </td>
@@ -142,7 +144,7 @@ module.exports = {
                           <td style="padding: 10px 80px;">
                             <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 15px; line-height: 1.6em; letter-spacing: -0.1px; text-rendering: optimizeLegibility; margin: 0; text-align: center; color: #000;">
                               <strong>Feeling lost about currency exchange? </strong>
-                              <br />Take a look on the <a href="http://localhost:5173/exchange_guide" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;"><strong>"Exchange Guide" </strong></a> and begin to exchange like a pro.
+                              <br />Take a look on the <a href="${process.env.WEB_ADDRESS}/exchange_guide" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;"><strong>"Exchange Guide" </strong></a> and begin to exchange like a pro.
                             </p>
                           </td>
                         </tr>
@@ -187,7 +189,7 @@ module.exports = {
         <span style="color: transparent; visibility: hidden; display: none; opacity: 0; height: 0; width: 0; font-size: 0;"></span>
         <div style="text-align: center;">
           <div style="padding: 10px 40px 20px;">
-            <a href="http://localhost:5173/" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
+            <a href="${process.env.WEB_ADDRESS}" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
               <img class="logo" width="160" src="https://i.postimg.cc/GtVN3yF7/Troco.png" alt="TROCO Logo">
             </a>
           </div>
@@ -210,7 +212,7 @@ module.exports = {
                 <tr>
                   <td style="padding: 10px 40px 30px;">
                     <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; line-height: 1.6em; letter-spacing: -0.1px; margin: 0; text-align: left; color: #000;">
-                        An amazing offer from <strong>${buyerUser.username}</strong> has been made for your TROCO product. Take your time to consider it, and <a href="http://localhost:5173/" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;">we're here</a> to help with any questions:<br>
+                        An amazing offer from <strong>${buyerUser.username}</strong> has been made for your TROCO product. Take your time to consider it, and <a href="${process.env.WEB_ADDRESS}" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;">we're here</a> to help with any questions:<br>
                     </p>
                   </td>
                 </tr>
@@ -224,7 +226,7 @@ module.exports = {
                 <!-- Login button -->
                 <tr>
                   <td style="padding: 20px 0 0px;">
-                    <a href="http://localhost:5173/" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
+                    <a href="${process.env.WEB_ADDRESS}" target="_blank" class="button" style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
                       Review Offer
                     </a>
                   </td>
@@ -238,7 +240,7 @@ module.exports = {
                           <td style="padding: 10px 80px;">
                             <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 15px; line-height: 1.6em; letter-spacing: -0.1px; text-rendering: optimizeLegibility; margin: 0; text-align: center; color: #000;">
                               <strong>Feeling lost about currency exchange? </strong>
-                              <br />Take a look on the <a href="http://localhost:5173/" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;"><strong>"Exchange Guide" </strong></a> and begin to exchange like a pro.
+                              <br />Take a look on the <a href="${process.env.WEB_ADDRESS}" target="_blank" style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e28210; text-decoration: none;"><strong>"Exchange Guide" </strong></a> and begin to exchange like a pro.
                             </p>
                           </td>
                         </tr>
@@ -279,7 +281,7 @@ module.exports = {
               style="color: transparent; visibility: hidden; display: none; opacity: 0; height: 0; width: 0; font-size: 0;"></span>
           <div style="text-align: center;">
               <div style="padding: 10px 40px 20px;">
-                  <a href="http://localhost:5173/" target="_blank"
+                  <a href="${process.env.WEB_ADDRESS}" target="_blank"
                       style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
                       <img class="logo" width="160" src="https://i.postimg.cc/GtVN3yF7/Troco.png" alt="TROCO Logo">
                   </a>
@@ -346,7 +348,7 @@ module.exports = {
                           <!-- Go to TROCO button -->
                           <tr>
                               <td style="padding: 10px 0 20px;">
-                                  <a href="http://localhost:5173/" target="_blank" class="button"
+                                  <a href="${process.env.WEB_ADDRESS}" target="_blank" class="button"
                                       style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
                                       Go to TROCO >
                                   </a>
@@ -390,7 +392,7 @@ module.exports = {
               style="color: transparent; visibility: hidden; display: none; opacity: 0; height: 0; width: 0; font-size: 0;"></span>
           <div style="text-align: center;">
               <div style="padding: 10px 40px 20px;">
-                  <a href="http://localhost:5173/" target="_blank"
+                  <a href="${process.env.WEB_ADDRESS}" target="_blank"
                       style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
                       <img class="logo" width="160" src="https://i.postimg.cc/GtVN3yF7/Troco.png" alt="TROCO Logo">
                   </a>
@@ -456,7 +458,7 @@ module.exports = {
                               <td style="padding: 10px 40px 30px;">
                                   <p
                                       style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; line-height: 1.6em; letter-spacing: -0.1px; margin: 0; text-align: left; color: #000;">
-                                      Remember that if you have any questions <a href="http://localhost:5173/"
+                                      Remember that if you have any questions <a href="${process.env.WEB_ADDRESS}"
                                           target="_blank"
                                           style="font-family:'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;color:#E28210;text-decoration:none">we're
                                           here</a> to help you.<br><br><br>The TROCO Team.<br>
@@ -501,7 +503,7 @@ module.exports = {
               style="color: transparent; visibility: hidden; display: none; opacity: 0; height: 0; width: 0; font-size: 0;"></span>
           <div style="text-align: center;">
               <div style="padding: 10px 40px 20px;">
-                  <a href="http://localhost:5173/" target="_blank"
+                  <a href="${process.env.WEB_ADDRESS}" target="_blank"
                       style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0099ff; text-decoration: none;">
                       <img class="logo" width="160" src="https://i.postimg.cc/GtVN3yF7/Troco.png" alt="TROCO Logo">
                   </a>
@@ -564,7 +566,7 @@ module.exports = {
                           <!-- Go to TROCO button -->
                           <tr>
                               <td style="padding: 10px 0 20px;">
-                                  <a href="http://localhost:5173/" target="_blank" class="button"
+                                  <a href="${process.env.WEB_ADDRESS}" target="_blank" class="button"
                                       style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; border-radius: 40px; display: inline-block; font-size: 18px; font-weight: 600; text-decoration: none; vertical-align: middle; line-height: 50px; text-size-adjust: none; text-align: center; width: 500px; border: 1px solid #e28210; background-color: #e28210; color: white;">
                                       Go to TROCO >
                                   </a>
