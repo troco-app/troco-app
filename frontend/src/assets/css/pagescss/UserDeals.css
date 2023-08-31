@@ -1,14 +1,19 @@
 .container-userdeals {
-  margin: 1rem;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5rem;
   border-radius: 1rem;
-  color: white;
 }
 
 .userdeals-h1 {
   text-align: center;
   font-size: 300;
-  margin: 1.5rem;
+  margin-top: 1.5rem;
 }
+
 .no-deals-text {
   font-size: 1.2rem;
   text-align: center;
@@ -36,4 +41,10 @@
 
  .button-userdeals:hover {
   background-color: green;
+}
+
+@media (min-width: 768px) {
+  .container-userdeals{
+    background-color: #222;
+  }
 }
