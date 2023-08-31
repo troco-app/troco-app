@@ -108,11 +108,11 @@ export function UserInfo() {
               </button>
             )}
           </div>
-        </section>
-        <section className="info-section">
           <div>
             <h2 className="info-title">Profile Info</h2>
           </div>
+        </section>
+        <section className="info-section">
           {isEditMode ? (
             <div className="info-content-edit">
               <label htmlFor="first_name">First Name:</label>
@@ -148,7 +148,7 @@ export function UserInfo() {
                 name="bio_summary"
                 value={updatedInfo.bio_summary}
                 onChange={handleChange}
-                className="edit-input"
+                className="edit-input-area"
               />
 
               <label htmlFor="profile_img">Profile Image URL:</label>
@@ -168,15 +168,15 @@ export function UserInfo() {
             <div className="info-content">
               <ul className="info-ul">
                 <li className="bold">First Name</li>
-                <li>{userInfo.first_name}</li>
+                <li className="bold-back">{userInfo.first_name}</li>
                 <li className="bold">Last Name</li>
-                <li>{userInfo.last_name}</li>
+                <li className="bold-back">{userInfo.last_name}</li>
                 <li className="bold">City</li>
-                <li>{userInfo.city}</li>
+                <li className="bold-back">{userInfo.city}</li>
                 <li className="bold">Email</li>
-                <li>{userInfo.email}</li>
+                <li className="bold-back">{userInfo.email}</li>
                 <li className="bold">Bio Summary</li>
-                <li>{userInfo.bio_summary}</li>
+                <li className="bold-back">{userInfo.bio_summary}</li>
               </ul>
             </div>
           )}
