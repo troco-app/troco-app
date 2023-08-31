@@ -8,8 +8,12 @@
 }
 
 .bold {
-  color: black;
-  font-weight: bold;
+  font-weight:bolder;
+  font-size: 1rem;
+  margin: 1rem;
+  border-bottom: 1px solid #ccc; /* Agregar borde gris en la parte inferior */
+  padding-bottom: 5px; /* Espacio entre el texto y el borde */
+  margin-bottom: 10px; /* Espacio entre los elementos */
 }
 
 .profile-section {
@@ -43,18 +47,21 @@
 .upload-button,
 .edit-button,
 .save-button,
-.wishlist-button {
+.wishlist-button,
+.edit-button {
   padding: 10px;
   background-color: transparent;
   border: none;
   color: black;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 1.5rem;
   transition: background-color 0.3s;
 }
 
 .upload-button:hover,
-.wishlist-button:hover {
+.wishlist-button:hover,
+.edit-button:hover {
   color: orange;
 }
 
@@ -70,7 +77,8 @@
   list-style: none;
 }
 
-.info-ul li {
+.bold-back {
+  font-style: italic;
   font-size: small;
   margin: 1rem;
 }
@@ -129,15 +137,57 @@
   margin-bottom: 5px;
 }
 
+
+.info-section{
+  padding: 0rem 1rem 1.0rem 1rem;
+}
+
+.info-content-edit label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-top: 1.5rem;
+}
+
+.edit-input,
+.edit-input-area {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-style: italic;
+  background: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.edit-input-area {
+  resize: vertical;
+  height: 200px;
+}
+
+.save-button {
+  margin: 1rem 0rem 1.0rem 0rem;
+  padding: 0.5rem 1rem;
+  background-color: #e28210;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: black;
+}
+
 @media (min-width: 768px) {
   .profile-box {
     margin: 3rem;
     border-radius: 1rem;
   }
-  .history-section {
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-  }
+  
   .edit-profile-wrapper {
     display: flex;
     justify-content: center;
@@ -145,12 +195,10 @@
 
   .actions-buttons {
     display: flex;
-    margin-left: 3rem;
   }
 
   .info-ul li {
-    margin-left: 3rem;
-    padding: 0.5rem;
+    margin-left: 1.0rem;
   }
 
   .deal-date {
@@ -166,49 +214,11 @@
   }
 }
 
-.info-content-edit label {
-  display: block;
-  font-weight: bold;
-  color: black;
-  margin-top: 1rem;
-}
 
-.edit-input {
-  display: block;
-  width: 80%;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  background: #f9f9f9;
-  transition: border-color 0.3s;
-}
 
-.edit-input[type="textarea"] {
-  resize: vertical;
-  height: 100px;
-}
 
-.edit-save-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #e28210;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
-.edit-save-button:hover {
-  background-color: #d2710f;
-}
 
-@media (min-width: 768px) {
-  .info-content-edit label,
-  .edit-input,
-  .edit-save-button {
-    margin-left: 3rem;
-  }
-}
+
+
+
