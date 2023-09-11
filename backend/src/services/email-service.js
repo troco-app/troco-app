@@ -158,7 +158,7 @@ module.exports = {
           </div>
         </div>
         <tr>
-            <td style="padding: 10px 40px;">
+            <td style="padding: 10px 40px; text-align: center;">
               <div style="padding: 10px 0 30px; text-align: center;">
                 <p style="font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 20px; letter-spacing: -0.1px; color: #aaaaaa; text-rendering: optimizeLegibility; margin: 0;">
                   Trueque 123 Trocolin Street, 15055 Trocolo, Trocolandia.
@@ -219,7 +219,7 @@ module.exports = {
                 <tr>
                     <td style="padding: 10px 40px 30px;">
                       <p style="font-family: 'Poppins', 'HelveticaNeue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; line-height: 1.6em; letter-spacing: -0.1px; margin: 0; text-align: left; color: #000;">
-                          REQUESTED ITEMS: <br><strong>${buyerUser.username}</strong><br><br>OFFERED ITEMS: <br><strong>${requestedItemsDetails}</strong><br>
+                          REQUESTED ITEMS: <br><strong>${requestedItemsDetails}</strong><br><br>OFFERED ITEMS: <br><strong>${offeredItemsDetails}</strong><br>
                       </p>
                     </td>
                   </tr>
